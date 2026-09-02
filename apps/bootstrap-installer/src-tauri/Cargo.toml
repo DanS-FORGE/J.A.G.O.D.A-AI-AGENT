@@ -7,11 +7,17 @@ edition = "2021"
 rust-version = "1.77"
 
 # Rename the output binary so the distributed artifact is literally
-# `Hermes-Setup.exe` on disk — not `hermes-bootstrap.exe`. Grandma sees
+# `jagoda-setup.exe` on disk — not `hermes-bootstrap.exe`. Grandma sees
 # what we hand her, period. Tauri honors [[bin]] over [package].name
 # for the produced executable name.
+#
+# Cargo bin/crate names must be valid identifiers (no dots), so this can't
+# be the dotted "J.A.G.O.D.A-Setup" product name directly -- that branded,
+# human-facing on-disk filename instead lives in tauri.conf.json's
+# `mainBinaryName`, which Tauri uses to rename the built artifact after
+# compilation.
 [[bin]]
-name = "Hermes-Setup"
+name = "jagoda-setup"
 path = "src/main.rs"
 
 # The library target name MUST match the `withGlobalTauri` binding name that
