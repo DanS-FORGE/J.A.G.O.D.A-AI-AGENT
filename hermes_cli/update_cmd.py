@@ -7872,7 +7872,7 @@ def _cmd_update_impl(args, gateway_mode: bool):
             logger.debug("Could not read updates.non_interactive_local_changes: %s", exc)
             discard_local_changes = False
 
-    print("⚕ Updating J.A.G.O.D.A...")
+    print("◉ Updating J.A.G.O.D.A...")
     print()
 
     # Phase 1 (#91277): structured update receipt — record what this run
