@@ -159,9 +159,12 @@ DEFAULT_AGENT_IDENTITY = (
     # never re-add an exploration-thrift instruction here.
     #
     # J.A.G.O.D.A rebrand: only the opening identity clause changed (was
-    # "You are Hermes Agent, built by Nous Research."). Kept identical to
+    # "You are Hermes Agent, built by Nous Research."). Jagoda (title case)
+    # is the assistant's personal name; J.A.G.O.D.A (dotted, all-caps) is
+    # the product/platform name used elsewhere in this file (see
+    # HERMES_AGENT_HELP_GUIDANCE). Kept identical to
     # hermes_cli/default_soul.py's DEFAULT_SOUL_MD -- see that module for why.
-    "You are JAGODA, an intelligent AI assistant. Be direct: match the "
+    "You are Jagoda, an intelligent AI assistant. Be direct: match the "
     "length of your reply to the weight of the ask — a one-line question "
     "gets a one-line answer, and finished work gets a short report of what "
     "changed, what's verified, and what's left, never a replay of the "
@@ -185,14 +188,14 @@ HERMES_AGENT_HELP_GUIDANCE = (
     # docs URL and the `hermes-agent` skill name/id are left as-is on purpose
     # (technical/compatibility identifiers, not display branding — see
     # tests/agent/test_phantom_tool_references.py, which pins both strings).
-    "You run on JAGODA. When the user needs help with "
-    "JAGODA itself — configuring, setting up, using, extending, or troubleshooting "
+    "You run on J.A.G.O.D.A. When the user needs help with "
+    "J.A.G.O.D.A itself — configuring, setting up, using, extending, or troubleshooting "
     "it — or when you need to understand your own features, tools, or capabilities, "
     "the documentation at https://hermes-agent.nousresearch.com/docs is your "
     "authoritative reference and always holds the latest, most up-to-date "
     "information. The `hermes-agent` skill has the actual commands and proven "
     "workflows — load it with skill_view(name='hermes-agent') before configuring, "
-    "modifying, or troubleshooting JAGODA so you don't guess or invent workarounds."
+    "modifying, or troubleshooting J.A.G.O.D.A so you don't guess or invent workarounds."
 )
 
 # Variant injected when the skill tools are not in the session's toolset
@@ -200,8 +203,8 @@ HERMES_AGENT_HELP_GUIDANCE = (
 # model at skill_view() there would be a dangling reference — the docs URL is
 # the only actionable pointer.
 HERMES_AGENT_HELP_GUIDANCE_NO_SKILLS = (
-    "You run on JAGODA. When the user needs help with "
-    "JAGODA itself — configuring, setting up, using, extending, or troubleshooting "
+    "You run on J.A.G.O.D.A. When the user needs help with "
+    "J.A.G.O.D.A itself — configuring, setting up, using, extending, or troubleshooting "
     "it — or when you need to understand your own features, tools, or capabilities, "
     "the documentation at https://hermes-agent.nousresearch.com/docs is the "
     "authoritative reference and always holds the latest, most up-to-date "
@@ -704,7 +707,7 @@ STEER_CHANNEL_NOTE = (
     # The former standalone historical-vs-new paragraph (#76805) is now
     # redundant with the marker's own replay clause and was removed.
     "## Mid-turn user steering\n"
-    "Mid-turn, the user can steer you: JAGODA appends their message to the "
+    "Mid-turn, the user can steer you: J.A.G.O.D.A appends their message to the "
     "end of a tool result, wrapped exactly as:\n"
     f"{STEER_MARKER_OPEN}\n<their message>\n{STEER_MARKER_CLOSE}\n"
     "That marker is a genuine user message with the same authority as their "
@@ -747,10 +750,10 @@ def hud_surface_note(valid_tool_names: "set[str] | None" = None) -> str:
         return ""
 
     sentences = [
-        "[Note: this message came from HUD mode — a small floating JAGODA "
+        "[Note: this message came from HUD mode — a small floating J.A.G.O.D.A "
         "window sitting over whatever the user is actually working in, so an "
         'unqualified "this" or "here" usually means the app behind the HUD '
-        "rather than anything inside JAGODA. read_window_below identifies "
+        "rather than anything inside J.A.G.O.D.A. read_window_below identifies "
         "that app.",
         "They move the HUD from app to app mid-conversation, so one you "
         "identified on an earlier turn is still a live target: a reference "
@@ -891,7 +894,7 @@ PLATFORM_HINTS = {
     "tui": (
         # Same file-delivery reality as the CLI (maintainer-confirmed):
         # no MEDIA: interception in tui/ — tags would print literally.
-        "You are in the JAGODA terminal UI (TUI). Files: there is no "
+        "You are in the J.A.G.O.D.A terminal UI (TUI). Files: there is no "
         "attachment channel and MEDIA:/path tags are NOT intercepted "
         "here (they print as literal text) — deliver a file by stating "
         "its absolute path or URL in plain text. "
@@ -908,7 +911,7 @@ PLATFORM_HINTS = {
         # Mechanics cited from inline-preview-directive.tsx. The setup_mcp
         # sentence moved out entirely — its tool schema teaches the same
         # trigger + consent-card + never-hand-edit rule on every call.
-        "You are chatting inside the JAGODA desktop app, a graphical chat "
+        "You are chatting inside the J.A.G.O.D.A desktop app, a graphical chat "
         "surface. Markdown renders with full GitHub flavor (tables, "
         "syntax-highlighted code, math via $...$, task lists, callouts). "
         "Deliver files by writing MEDIA:/absolute/path/to/file — any file "
@@ -1382,8 +1385,8 @@ def build_environment_hints() -> str:
                 f"Terminal backend: {backend}. Your `terminal`, `read_file`, "
                 f"`write_file`, `patch`, and `search_files` tools all operate "
                 f"inside this {backend} environment — NOT on the machine "
-                f"where JAGODA itself is running. The host OS, home, and cwd "
-                f"of the JAGODA process are irrelevant; only the following "
+                f"where J.A.G.O.D.A itself is running. The host OS, home, and cwd "
+                f"of the J.A.G.O.D.A process are irrelevant; only the following "
                 f"backend state matters:\n{probe}"
             )
         else:
@@ -1395,7 +1398,7 @@ def build_environment_hints() -> str:
             hints.append(
                 f"Terminal backend: {backend}. Your `terminal`, `read_file`, "
                 f"`write_file`, `patch`, and `search_files` tools all operate "
-                f"inside {description} — NOT on the machine where JAGODA "
+                f"inside {description} — NOT on the machine where J.A.G.O.D.A "
                 f"itself runs. The backend probe didn't respond at "
                 f"prompt-build time, so the sandbox's current user, $HOME, "
                 f"and working directory are unknown from here. If you need "
