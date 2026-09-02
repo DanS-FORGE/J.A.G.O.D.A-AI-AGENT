@@ -1887,7 +1887,7 @@ def _restore_state_db_from_snapshot(state_path: Path, snap_state: Path) -> bool:
 
 
 def _update_via_zip(args, *, had_desktop_app_before_update: bool = False) -> bool:
-    """Update Hermes Agent by downloading a ZIP archive.
+    """Update J.A.G.O.D.A by downloading a ZIP archive.
 
     Used on Windows when git file I/O is broken (antivirus, NTFS filter
     drivers causing 'Invalid argument' errors on file creation).
@@ -1925,7 +1925,7 @@ def _update_via_zip(args, *, had_desktop_app_before_update: bool = False) -> boo
         _m().sys.exit(1)
     _abort_zip_update_if_dirty_tree()
     zip_url = (
-        f"https://github.com/NousResearch/hermes-agent/archive/refs/heads/{branch}.zip"
+        f"https://github.com/DanS-FORGE/JAGODA-AI-AGENT/archive/refs/heads/{branch}.zip"
     )
 
     print("→ Downloading latest version...")
@@ -2082,7 +2082,7 @@ def _update_via_zip(args, *, had_desktop_app_before_update: bool = False) -> boo
         print("  Your existing install was left in place.")
         print(
             "  Re-run `hermes update` to retry; if the agent won't start, "
-            "reinstall from https://hermes-agent.nousresearch.com"
+            "reinstall from https://raw.githubusercontent.com/DanS-FORGE/JAGODA-AI-AGENT/main/scripts/install.sh"
         )
         _m().sys.exit(1)
     finally:
@@ -2840,13 +2840,13 @@ def _discard_stashed_changes(
     return True
 
 OFFICIAL_REPO_URLS = {
-    "https://github.com/NousResearch/hermes-agent.git",
-    "git@github.com:NousResearch/hermes-agent.git",
-    "https://github.com/NousResearch/hermes-agent",
-    "git@github.com:NousResearch/hermes-agent",
+    "https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git",
+    "git@github.com:DanS-FORGE/JAGODA-AI-AGENT.git",
+    "https://github.com/DanS-FORGE/JAGODA-AI-AGENT",
+    "git@github.com:DanS-FORGE/JAGODA-AI-AGENT",
 }
 
-OFFICIAL_REPO_URL = "https://github.com/NousResearch/hermes-agent.git"
+OFFICIAL_REPO_URL = "https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git"
 
 SKIP_UPSTREAM_PROMPT_FILE = ".skip_upstream_prompt"
 
@@ -2982,8 +2982,8 @@ def _sync_with_upstream_if_needed(
             return False
 
         print()
-        print("ℹ Your fork is not tracking the official Hermes repository.")
-        print("  This means you may miss updates from NousResearch/hermes-agent.")
+        print("ℹ Your fork is not tracking the official J.A.G.O.D.A repository.")
+        print("  This means you may miss updates from DanS-FORGE/JAGODA-AI-AGENT.")
         print()
 
         if assume_yes or (
@@ -2993,7 +2993,7 @@ def _sync_with_upstream_if_needed(
             # without persisting the decline so interactive runs still get asked.
             print("  Skipping upstream setup (non-interactive run).")
             print(
-                "  Add it later with: git remote add upstream https://github.com/NousResearch/hermes-agent.git"
+                "  Add it later with: git remote add upstream https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git"
             )
             return False
 
@@ -3019,7 +3019,7 @@ def _sync_with_upstream_if_needed(
             print("→ Adding upstream remote...")
             if _add_upstream_remote(git_cmd, cwd):
                 print(
-                    "  ✓ Added upstream: https://github.com/NousResearch/hermes-agent.git"
+                    "  ✓ Added upstream: https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git"
                 )
                 has_upstream = True
             else:
@@ -3027,7 +3027,7 @@ def _sync_with_upstream_if_needed(
                 return False
         else:
             print(
-                "  Skipped. Run 'git remote add upstream https://github.com/NousResearch/hermes-agent.git' to add later."
+                "  Skipped. Run 'git remote add upstream https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git' to add later."
             )
             _mark_skip_upstream_prompt()
             return False
@@ -4464,7 +4464,7 @@ def _ensure_fhs_path_guard() -> None:
 
     path_line = 'export PATH="/usr/local/bin:$PATH"'
     path_comment = (
-        "# Hermes Agent — ensure /usr/local/bin is on PATH " "(RHEL non-login shells)"
+        "# J.A.G.O.D.A — ensure /usr/local/bin is on PATH " "(RHEL non-login shells)"
     )
     wrote_any = False
     for candidate in (".bashrc", ".bash_profile"):
@@ -4539,7 +4539,7 @@ def _ensure_acp_launcher() -> None:
                 continue
             shim = (
                 "#!/usr/bin/env bash\n"
-                "# Hermes Agent — ACP launcher (written by `hermes update`).\n"
+                "# J.A.G.O.D.A — ACP launcher (written by `hermes update`).\n"
                 "# ACP hosts (Zed, JetBrains, Buzz) resolve the agent by this\n"
                 "# command name on the login-shell PATH.\n"
                 f'exec "{hermes_cmd}" acp "$@"\n'
@@ -7872,7 +7872,7 @@ def _cmd_update_impl(args, gateway_mode: bool):
             logger.debug("Could not read updates.non_interactive_local_changes: %s", exc)
             discard_local_changes = False
 
-    print("⚕ Updating Hermes Agent...")
+    print("⚕ Updating J.A.G.O.D.A...")
     print()
 
     # Phase 1 (#91277): structured update receipt — record what this run
@@ -8160,7 +8160,7 @@ def _cmd_update_impl(args, gateway_mode: bool):
         else:
             print("✗ Not a git repository. Please reinstall:")
             print(
-                "  curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash"
+                "  curl -fsSL https://raw.githubusercontent.com/DanS-FORGE/JAGODA-AI-AGENT/main/scripts/install.sh | bash"
             )
             sys.exit(1)
 
@@ -9093,7 +9093,7 @@ def _cmd_update_impl(args, gateway_mode: bool):
             print(f"  ⚠ {failing_module} still fails to import after updating:")
             print(f"      {import_error}")
             print("    Run `hermes update` again — if it persists, reinstall:")
-            print("    https://hermes-agent.nousresearch.com")
+            print("    https://raw.githubusercontent.com/DanS-FORGE/JAGODA-AI-AGENT/main/scripts/install.sh")
 
         node_failures = _update_node_dependencies()
         _m()._build_web_ui(_m().PROJECT_ROOT / "web")

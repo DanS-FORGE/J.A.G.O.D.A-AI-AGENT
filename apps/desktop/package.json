@@ -1,13 +1,13 @@
 {
   "name": "hermes",
-  "productName": "Hermes",
+  "productName": "J.A.G.O.D.A",
   "private": true,
   "version": "0.17.0",
-  "description": "Native desktop shell for Hermes Agent.",
+  "description": "Native desktop shell for J.A.G.O.D.A.",
   "author": "Nous Research",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NousResearch/hermes-agent.git"
+    "url": "git+https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git"
   },
   "type": "module",
   "main": "dist/electron-main.mjs",
@@ -187,7 +187,7 @@
   "build": {
     "electronVersion": "40.10.2",
     "appId": "com.nousresearch.hermes",
-    "productName": "Hermes",
+    "productName": "J.A.G.O.D.A",
     "executableName": "Hermes",
     "protocols": [
       {
@@ -197,7 +197,7 @@
         ]
       }
     ],
-    "artifactName": "Hermes-${version}-${os}-${arch}.${ext}",
+    "artifactName": "J.A.G.O.D.A-${version}-${os}-${arch}.${ext}",
     "icon": "assets/icon",
     "directories": {
       "output": "release"
@@ -233,19 +233,19 @@
       "entitlements": "electron/entitlements.mac.plist",
       "entitlementsInherit": "electron/entitlements.mac.inherit.plist",
       "extendInfo": {
-        "CFBundleDisplayName": "Hermes",
+        "CFBundleDisplayName": "J.A.G.O.D.A",
         "CFBundleExecutable": "Hermes",
-        "CFBundleName": "Hermes",
-        "NSAudioCaptureUsageDescription": "Hermes uses audio capture for voice conversations.",
-        "NSCameraUsageDescription": "Hermes uses the camera when a plugin or feature you enable requests it.",
-        "NSMicrophoneUsageDescription": "Hermes uses the microphone for voice input and voice conversations.",
-        "NSCalendarsUsageDescription": "Hermes needs access to Calendar to provide requested meeting and scheduling support.",
-        "NSCalendarsFullAccessUsageDescription": "Hermes needs full access to Calendar to read and manage events when explicitly requested.",
-        "NSRemindersUsageDescription": "Hermes needs access to Reminders to provide requested personal-assistant and scheduling support.",
-        "NSRemindersFullAccessUsageDescription": "Hermes needs full access to Reminders to read and manage reminders when explicitly requested.",
-        "NSScreenCaptureUsageDescription": "Hermes captures the screen when you ask the agent to screenshot or record it.",
-        "NSLocalNetworkUsageDescription": "Hermes connects to devices on your local network when a plugin or feature you enable requests it.",
-        "NSAppleMusicUsageDescription": "Hermes accesses your music library when a plugin or feature you enable requests it."
+        "CFBundleName": "J.A.G.O.D.A",
+        "NSAudioCaptureUsageDescription": "J.A.G.O.D.A uses audio capture for voice conversations.",
+        "NSCameraUsageDescription": "J.A.G.O.D.A uses the camera when a plugin or feature you enable requests it.",
+        "NSMicrophoneUsageDescription": "J.A.G.O.D.A uses the microphone for voice input and voice conversations.",
+        "NSCalendarsUsageDescription": "J.A.G.O.D.A needs access to Calendar to provide requested meeting and scheduling support.",
+        "NSCalendarsFullAccessUsageDescription": "J.A.G.O.D.A needs full access to Calendar to read and manage events when explicitly requested.",
+        "NSRemindersUsageDescription": "J.A.G.O.D.A needs access to Reminders to provide requested personal-assistant and scheduling support.",
+        "NSRemindersFullAccessUsageDescription": "J.A.G.O.D.A needs full access to Reminders to read and manage reminders when explicitly requested.",
+        "NSScreenCaptureUsageDescription": "J.A.G.O.D.A captures the screen when you ask the agent to screenshot or record it.",
+        "NSLocalNetworkUsageDescription": "J.A.G.O.D.A connects to devices on your local network when a plugin or feature you enable requests it.",
+        "NSAppleMusicUsageDescription": "J.A.G.O.D.A accesses your music library when a plugin or feature you enable requests it."
       },
       "gatekeeperAssess": false,
       "hardenedRuntime": true,
@@ -255,7 +255,7 @@
       ]
     },
     "dmg": {
-      "title": "Install Hermes",
+      "title": "Install J.A.G.O.D.A",
       "backgroundColor": "#f5f5f7",
       "iconSize": 96,
       "window": {
@@ -277,7 +277,7 @@
       ]
     },
     "win": {
-      "legalTrademarks": "Hermes",
+      "legalTrademarks": "J.A.G.O.D.A",
       "target": [
         "nsis",
         "msi"
@@ -287,7 +287,7 @@
     "linux": {
       "category": "Development",
       "maintainer": "Nous Research <support@nousresearch.com>",
-      "synopsis": "Native desktop shell for Hermes Agent.",
+      "synopsis": "Native desktop shell for J.A.G.O.D.A.",
       "target": [
         "AppImage",
         "deb",
@@ -298,8 +298,8 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "perMachine": false,
-      "shortcutName": "Hermes",
-      "uninstallDisplayName": "Hermes",
+      "shortcutName": "J.A.G.O.D.A",
+      "uninstallDisplayName": "J.A.G.O.D.A",
       "warningsAsErrors": false
     }
   }
