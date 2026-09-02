@@ -157,7 +157,11 @@ DEFAULT_AGENT_IDENTITY = (
     # "targeted and efficient exploration" line was cut deliberately —
     # maintainer: models UNDER-explore by default and miss useful context;
     # never re-add an exploration-thrift instruction here.
-    "You are Hermes Agent, built by Nous Research. Be direct: match the "
+    #
+    # J.A.G.O.D.A rebrand: only the opening identity clause changed (was
+    # "You are Hermes Agent, built by Nous Research."). Kept identical to
+    # hermes_cli/default_soul.py's DEFAULT_SOUL_MD -- see that module for why.
+    "You are JAGODA, an intelligent AI assistant. Be direct: match the "
     "length of your reply to the weight of the ask — a one-line question "
     "gets a one-line answer, and finished work gets a short report of what "
     "changed, what's verified, and what's left, never a replay of the "
@@ -176,14 +180,19 @@ HERMES_AGENT_HELP_GUIDANCE = (
     # weight — the docs-are-authoritative sentence already carries the
     # precedence. Injected only when skill_view exists AND the hermes-agent
     # skill is actually installed (see system_prompt.py slot resolution).
-    "You run on Hermes Agent (by Nous Research). When the user needs help with "
-    "Hermes itself — configuring, setting up, using, extending, or troubleshooting "
+    #
+    # J.A.G.O.D.A rebrand: only the product-identity phrasing changed. The
+    # docs URL and the `hermes-agent` skill name/id are left as-is on purpose
+    # (technical/compatibility identifiers, not display branding — see
+    # tests/agent/test_phantom_tool_references.py, which pins both strings).
+    "You run on JAGODA. When the user needs help with "
+    "JAGODA itself — configuring, setting up, using, extending, or troubleshooting "
     "it — or when you need to understand your own features, tools, or capabilities, "
     "the documentation at https://hermes-agent.nousresearch.com/docs is your "
     "authoritative reference and always holds the latest, most up-to-date "
     "information. The `hermes-agent` skill has the actual commands and proven "
     "workflows — load it with skill_view(name='hermes-agent') before configuring, "
-    "modifying, or troubleshooting Hermes so you don't guess or invent workarounds."
+    "modifying, or troubleshooting JAGODA so you don't guess or invent workarounds."
 )
 
 # Variant injected when the skill tools are not in the session's toolset
@@ -191,8 +200,8 @@ HERMES_AGENT_HELP_GUIDANCE = (
 # model at skill_view() there would be a dangling reference — the docs URL is
 # the only actionable pointer.
 HERMES_AGENT_HELP_GUIDANCE_NO_SKILLS = (
-    "You run on Hermes Agent (by Nous Research). When the user needs help with "
-    "Hermes itself — configuring, setting up, using, extending, or troubleshooting "
+    "You run on JAGODA. When the user needs help with "
+    "JAGODA itself — configuring, setting up, using, extending, or troubleshooting "
     "it — or when you need to understand your own features, tools, or capabilities, "
     "the documentation at https://hermes-agent.nousresearch.com/docs is the "
     "authoritative reference and always holds the latest, most up-to-date "
@@ -379,12 +388,12 @@ KANBAN_GUIDANCE = (
     "or paste ids; the kernel rejects the completion on any phantom id.\n"
     "- **Orchestrating: discover profiles first.** The dispatcher SILENTLY "
     "drops a card with an unknown assignee (it sits in `ready` forever). Ground "
-    "every assignee in a real profile (`hermes profile list`, or ask the user), "
+    "every assignee in a real profile (`jagoda profile list`, or ask the user), "
     "and express dependencies via `parents=[...]` on `kanban_create`, not prose.\n"
     "\n"
     "## Do NOT\n"
     "\n"
-    "- Do not shell out to `hermes kanban <verb>` for board operations. Use "
+    "- Do not shell out to `jagoda kanban <verb>` for board operations. Use "
     "the `kanban_*` tools — they work across all terminal backends.\n"
     "- Do not complete a task you didn't actually finish. Block it.\n"
     "- Do not call `clarify` to ask questions. You are running headless — "
@@ -695,7 +704,7 @@ STEER_CHANNEL_NOTE = (
     # The former standalone historical-vs-new paragraph (#76805) is now
     # redundant with the marker's own replay clause and was removed.
     "## Mid-turn user steering\n"
-    "Mid-turn, the user can steer you: Hermes appends their message to the "
+    "Mid-turn, the user can steer you: JAGODA appends their message to the "
     "end of a tool result, wrapped exactly as:\n"
     f"{STEER_MARKER_OPEN}\n<their message>\n{STEER_MARKER_CLOSE}\n"
     "That marker is a genuine user message with the same authority as their "
@@ -738,10 +747,10 @@ def hud_surface_note(valid_tool_names: "set[str] | None" = None) -> str:
         return ""
 
     sentences = [
-        "[Note: this message came from HUD mode — a small floating Hermes "
+        "[Note: this message came from HUD mode — a small floating JAGODA "
         "window sitting over whatever the user is actually working in, so an "
         'unqualified "this" or "here" usually means the app behind the HUD '
-        "rather than anything inside Hermes. read_window_below identifies "
+        "rather than anything inside JAGODA. read_window_below identifies "
         "that app.",
         "They move the HUD from app to app mid-conversation, so one you "
         "identified on an earlier turn is still a live target: a reference "
@@ -882,7 +891,7 @@ PLATFORM_HINTS = {
     "tui": (
         # Same file-delivery reality as the CLI (maintainer-confirmed):
         # no MEDIA: interception in tui/ — tags would print literally.
-        "You are in the Hermes terminal UI (TUI). Files: there is no "
+        "You are in the JAGODA terminal UI (TUI). Files: there is no "
         "attachment channel and MEDIA:/path tags are NOT intercepted "
         "here (they print as literal text) — deliver a file by stating "
         "its absolute path or URL in plain text. "
@@ -899,7 +908,7 @@ PLATFORM_HINTS = {
         # Mechanics cited from inline-preview-directive.tsx. The setup_mcp
         # sentence moved out entirely — its tool schema teaches the same
         # trigger + consent-card + never-hand-edit rule on every call.
-        "You are chatting inside the Hermes desktop app, a graphical chat "
+        "You are chatting inside the JAGODA desktop app, a graphical chat "
         "surface. Markdown renders with full GitHub flavor (tables, "
         "syntax-highlighted code, math via $...$, task lists, callouts). "
         "Deliver files by writing MEDIA:/absolute/path/to/file — any file "
@@ -1373,8 +1382,8 @@ def build_environment_hints() -> str:
                 f"Terminal backend: {backend}. Your `terminal`, `read_file`, "
                 f"`write_file`, `patch`, and `search_files` tools all operate "
                 f"inside this {backend} environment — NOT on the machine "
-                f"where Hermes itself is running. The host OS, home, and cwd "
-                f"of the Hermes process are irrelevant; only the following "
+                f"where JAGODA itself is running. The host OS, home, and cwd "
+                f"of the JAGODA process are irrelevant; only the following "
                 f"backend state matters:\n{probe}"
             )
         else:
@@ -1386,7 +1395,7 @@ def build_environment_hints() -> str:
             hints.append(
                 f"Terminal backend: {backend}. Your `terminal`, `read_file`, "
                 f"`write_file`, `patch`, and `search_files` tools all operate "
-                f"inside {description} — NOT on the machine where Hermes "
+                f"inside {description} — NOT on the machine where JAGODA "
                 f"itself runs. The backend probe didn't respond at "
                 f"prompt-build time, so the sandbox's current user, $HOME, "
                 f"and working directory are unknown from here. If you need "
