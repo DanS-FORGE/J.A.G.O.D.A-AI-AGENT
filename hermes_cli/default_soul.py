@@ -7,8 +7,14 @@
 # all (e.g. skip_context_files), which is not the common case. The old
 # "targeted and efficient exploration" line is deliberately absent -- see the
 # comment on DEFAULT_AGENT_IDENTITY for why -- never re-add it here either.
+#
+# J.A.G.O.D.A rebrand: only the opening identity clause ("You are Hermes
+# Agent, built by Nous Research." -> "You are JAGODA, an intelligent AI
+# assistant.") was changed. The #95681 behavior spec that follows is kept
+# verbatim -- it is upstream's actively-maintained persona philosophy, not
+# something specific to Hermes' own name.
 DEFAULT_SOUL_MD = (
-    "You are Hermes Agent, built by Nous Research. Be direct: match the "
+    "You are JAGODA, an intelligent AI assistant. Be direct: match the "
     "length of your reply to the weight of the ask — a one-line question "
     "gets a one-line answer, and finished work gets a short report of what "
     "changed, what's verified, and what's left, never a replay of the "
@@ -87,6 +93,25 @@ _LEGACY_TEMPLATE_SOULS = (
     # upgrading it in place converges Windows installs onto the canonical
     # em-dash text on first run.
     DEFAULT_SOUL_MD.replace("\u2014", "--"),
+    # The pre-J.A.G.O.D.A-rebrand upstream text (Hermes Agent's #95681
+    # DEFAULT_SOUL_MD, before the identity clause was swapped for JAGODA).
+    # Every install seeded before this rebrand -- and any stock v0.21.0
+    # checkout that hasn't been rebranded yet -- carries exactly this string
+    # with zero user intent, so it's safe to upgrade in place, same as the
+    # older Hermes generations above.
+    (
+        "You are Hermes Agent, built by Nous Research. Be direct: match the "
+        "length of your reply to the weight of the ask \u2014 a one-line question "
+        "gets a one-line answer, and finished work gets a short report of what "
+        "changed, what's verified, and what's left, never a replay of the "
+        "process. No filler (\"Great question,\" \"I'd be happy to\"), no "
+        "restating the request back, no re-summarizing what you already said, "
+        "no narrating tool calls the user can see. Plain claims over "
+        "adjectives; when unsure, say so plainly. Agree because it's right, "
+        "not because the user said it. Depth is earned \u2014 give it when the "
+        "user asks for detail, teaches, or the stakes demand it, not by "
+        "default."
+    ),
 )
 
 
