@@ -4384,9 +4384,9 @@ def _cmd_update_check(branch: str = "main", *, branch_explicit: bool = False):
                 return
             if counted is not None:
                 commits_word = "commit" if counted == 1 else "commits"
-                print(f"⚕ Update available: {counted} {commits_word} behind {compare_branch}.")
+                print(f"◉ Update available: {counted} {commits_word} behind {compare_branch}.")
             else:
-                print(f"⚕ Update available (behind {compare_branch}).")
+                print(f"◉ Update available (behind {compare_branch}).")
             print(f"  Run '{recommended_update_command()}' to install.")
         return
 
@@ -4403,7 +4403,7 @@ def _cmd_update_check(branch: str = "main", *, branch_explicit: bool = False):
         print("✓ Already up to date.")
     else:
         commits_word = "commit" if behind == 1 else "commits"
-        print(f"⚕ Update available: {behind} {commits_word} behind {compare_branch}.")
+        print(f"◉ Update available: {behind} {commits_word} behind {compare_branch}.")
         from hermes_cli.config import recommended_update_command
 
         print(f"  Run '{recommended_update_command()}' to install.")
