@@ -191,7 +191,7 @@ function MemoryProviderSetupHint({
     >
       <p className={isBlocked ? "text-destructive" : "text-muted-foreground"}>
         {needsDependencySetup
-          ? "Finish these setup steps before Hermes can activate this provider."
+          ? "Finish these setup steps before J.A.G.O.D.A can activate this provider."
           : "Provider dependency setup completed."}
       </p>
 

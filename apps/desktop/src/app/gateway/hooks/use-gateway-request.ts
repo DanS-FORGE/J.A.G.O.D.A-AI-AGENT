@@ -82,7 +82,7 @@ export function useGatewayRequest() {
         const conn = await withTimeout(
           desktop.getConnection($activeGatewayProfile.get()),
           RECONNECT_ATTEMPT_TIMEOUT_MS,
-          'Timed out reconnecting to Hermes backend'
+          'Timed out reconnecting to J.A.G.O.D.A backend'
         )
 
         connectionRef.current = conn
@@ -125,7 +125,7 @@ export function useGatewayRequest() {
       const gateway = gatewayRef.current
 
       if (!gateway) {
-        throw new Error('Hermes gateway unavailable')
+        throw new Error('J.A.G.O.D.A gateway unavailable')
       }
 
       try {

@@ -28,10 +28,10 @@ export const PROMPT_SUBMIT_REQUEST_TIMEOUT_MS = 1_800_000
 export class HermesGateway extends JsonRpcGatewayClient {
   constructor() {
     super({
-      closedErrorMessage: 'Hermes gateway connection closed',
-      connectErrorMessage: 'Could not connect to Hermes gateway',
+      closedErrorMessage: 'J.A.G.O.D.A gateway connection closed',
+      connectErrorMessage: 'Could not connect to J.A.G.O.D.A gateway',
       createRequestId: nextId => nextId,
-      notConnectedErrorMessage: 'Hermes gateway is not connected',
+      notConnectedErrorMessage: 'J.A.G.O.D.A gateway is not connected',
       requestTimeoutMs: DEFAULT_GATEWAY_REQUEST_TIMEOUT_MS
     })
   }
