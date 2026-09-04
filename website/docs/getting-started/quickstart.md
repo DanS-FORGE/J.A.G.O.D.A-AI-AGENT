@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
-title: "Hermes Agent Quickstart"
-description: "Your first conversation with Hermes Agent — from install to chatting in under 5 minutes"
+title: "J.A.G.O.D.A Quickstart"
+description: "Your first conversation with J.A.G.O.D.A — from install to chatting in under 5 minutes"
 ---
 
-# Hermes Agent Quickstart
+# J.A.G.O.D.A Quickstart
 
 This guide gets you from zero to a working Hermes setup that survives real use. Install, choose a provider, verify a working chat, and know exactly what to do when something breaks.
 
@@ -46,7 +46,7 @@ Pick the row that matches your goal:
 
 ---
 
-## 1. Install Hermes Agent
+## 1. Install J.A.G.O.D.A
 ### With the Hermes Desktop installer on macOS or Windows (recommended)
 To easily install the command-line and desktop applications, [download the Hermes Desktop installer](https://hermes-agent.nousresearch.com/) from our website and run it.
 
@@ -153,7 +153,7 @@ Good defaults:
 For most first-time users: choose a provider, accept the defaults unless you know why you're changing them. The full provider catalog with env vars and setup steps lives on the [Providers](../integrations/providers.md) page.
 
 :::caution Minimum context: 64K tokens
-Hermes Agent requires a model with at least **64,000 tokens** of context. Models with smaller windows cannot maintain enough working memory for multi-step tool-calling workflows and will be rejected at startup. Most hosted models (Claude, GPT, Gemini, Qwen, DeepSeek) meet this easily. If you're running a local model, set its context size to at least 64K (e.g. `--ctx-size 65536` for llama.cpp or `-c 65536` for Ollama).
+J.A.G.O.D.A requires a model with at least **64,000 tokens** of context. Models with smaller windows cannot maintain enough working memory for multi-step tool-calling workflows and will be rejected at startup. Most hosted models (Claude, GPT, Gemini, Qwen, DeepSeek) meet this easily. If you're running a local model, set its context size to at least 64K (e.g. `--ctx-size 65536` for llama.cpp or `-c 65536` for Ollama).
 :::
 
 :::tip

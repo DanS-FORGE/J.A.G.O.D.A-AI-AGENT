@@ -4,7 +4,7 @@
   <img src="assets/banner.png" alt="J.A.G.O.D.A" width="100%">
 </p>
 
-# ہرمیس ایجنٹ ◉ (Hermes Agent)
+# J.A.G.O.D.A ◉
 
 <p align="center">
   <a href="https://hermes-agent.nousresearch.com/docs/"><img src="https://img.shields.io/badge/Docs-hermes--agent.nousresearch.com-FFD700?style=for-the-badge" alt="Documentation"></a>
@@ -17,7 +17,7 @@
 
 **[نوس ریسرچ (Nous Research)](https://nousresearch.com) کا تیار کردہ خود کو بہتر بنانے والا اے آئی (AI) ایجنٹ۔** یہ واحد ایجنٹ ہے جس میں سیکھنے کا عمل (learning loop) پہلے سے موجود ہے — یہ اپنے تجربات سے نئی مہارتیں (skills) بناتا ہے، استعمال کے دوران ان کو بہتر کرتا ہے، معلومات کو محفوظ رکھنے کے لیے خود کو یاد دہانی کرواتا ہے، اپنی پرانی بات چیت کو تلاش کر سکتا ہے، اور مختلف سیشنز کے دوران آپ کے بارے میں ایک گہری سمجھ پیدا کرتا ہے۔ اسے $5 والے VPS پر چلائیں، GPU کلسٹر پر، یا سرور لیس (serverless) انفراسٹرکچر پر جس کی قیمت استعمال نہ ہونے پر تقریباً صفر ہے۔ یہ آپ کے لیپ ٹاپ تک محدود نہیں ہے — آپ ٹیلی گرام (Telegram) سے اس کے ساتھ بات چیت کر سکتے ہیں جبکہ یہ کلاؤڈ VM پر کام کر رہا ہو۔
 
-آپ اپنی مرضی کا کوئی بھی ماڈل استعمال کر سکتے ہیں — [Nous Portal](https://portal.nousresearch.com)، [OpenRouter](https://openrouter.ai) (200 سے زائد ماڈلز)، [NovitaAI](https://novita.ai) (ماڈل API، ایجنٹ سینڈ باکس، اور GPU کلاؤڈ کے لیے اے آئی مقامی کلاؤڈ)، [NVIDIA NIM](https://build.nvidia.com) (Nemotron)، [Xiaomi MiMo](https://platform.xiaomimimo.com)، [z.ai/GLM](https://z.ai)، [Kimi/Moonshot](https://platform.moonshot.ai)، [MiniMax](https://www.minimax.io)، [Hugging Face](https://huggingface.co)، OpenAI، یا اپنا حسب ضرورت اینڈ پوائنٹ (endpoint) استعمال کریں۔ ماڈل تبدیل کرنے کے لیے صرف `hermes model` استعمال کریں — کسی کوڈ کو تبدیل کرنے کی ضرورت نہیں، کوئی پابندی نہیں۔
+آپ اپنی مرضی کا کوئی بھی ماڈل استعمال کر سکتے ہیں — [Nous Portal](https://portal.nousresearch.com)، [OpenRouter](https://openrouter.ai) (200 سے زائد ماڈلز)، [NovitaAI](https://novita.ai) (ماڈل API، ایجنٹ سینڈ باکس، اور GPU کلاؤڈ کے لیے اے آئی مقامی کلاؤڈ)، [NVIDIA NIM](https://build.nvidia.com) (Nemotron)، [Xiaomi MiMo](https://platform.xiaomimimo.com)، [z.ai/GLM](https://z.ai)، [Kimi/Moonshot](https://platform.moonshot.ai)، [MiniMax](https://www.minimax.io)، [Hugging Face](https://huggingface.co)، OpenAI، یا اپنا حسب ضرورت اینڈ پوائنٹ (endpoint) استعمال کریں۔ ماڈل تبدیل کرنے کے لیے صرف `jagoda model` استعمال کریں — کسی کوڈ کو تبدیل کرنے کی ضرورت نہیں، کوئی پابندی نہیں۔
 
 <table>
 <tr><td><b>حقیقی ٹرمینل انٹرفیس</b></td><td>مکمل TUI جس میں ملٹی لائن ایڈیٹنگ، سلیش-کمانڈ آٹو کمپلیٹ، بات چیت کی ہسٹری، انٹرپٹ اور ری ڈائریکٹ، اور سٹریمنگ ٹول آؤٹ پٹ شامل ہے۔</td></tr>
@@ -45,7 +45,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 ### ونڈوز (نیٹو، پاور شیل)
 
-> **توجہ فرمائیں:** مقامی ونڈوز (Native Windows) پر ہرمیس بغیر WSL کے چلتا ہے — CLI، گیٹ وے، TUI، اور ٹولز سب مقامی طور پر کام کرتے ہیں۔ اگر آپ WSL2 استعمال کرنا پسند کرتے ہیں، تو اوپر دی گئی لینکس/میک او ایس کی کمانڈ وہاں بھی کام کرے گی۔ کوئی مسئلہ نظر آیا؟ براہ کرم [مسائل (issues) درج کریں](https://github.com/NousResearch/hermes-agent/issues)۔
+> **توجہ فرمائیں:** مقامی ونڈوز (Native Windows) پر J.A.G.O.D.A بغیر WSL کے چلتا ہے — CLI، گیٹ وے، TUI، اور ٹولز سب مقامی طور پر کام کرتے ہیں۔ اگر آپ WSL2 استعمال کرنا پسند کرتے ہیں، تو اوپر دی گئی لینکس/میک او ایس کی کمانڈ وہاں بھی کام کرے گی۔ کوئی مسئلہ نظر آیا؟ براہ کرم [مسائل (issues) درج کریں](https://github.com/NousResearch/hermes-agent/issues)۔
 
 اسے پاور شیل (PowerShell) میں چلائیں:
 
@@ -57,13 +57,13 @@ iex (irm https://hermes-agent.nousresearch.com/install.ps1)
 
 </div>
 
-انسٹالر سب کچھ خود سنبھالتا ہے: uv، Python 3.11، Node.js، ripgrep، ffmpeg، **اور ایک پورٹ ایبل (portable) گٹ بیش (Git Bash)** (یعنی MinGit، جو `%LOCALAPPDATA%\hermes\git` میں ان پیک ہوتا ہے — اس کے لیے ایڈمن کی اجازت درکار نہیں، اور یہ سسٹم کے کسی بھی گٹ انسٹال سے بالکل الگ ہے)۔ ہرمیس اس بنڈل شدہ گٹ بیش کو شیل کمانڈز چلانے کے لیے استعمال کرتا ہے۔
+انسٹالر سب کچھ خود سنبھالتا ہے: uv، Python 3.11، Node.js، ripgrep، ffmpeg، **اور ایک پورٹ ایبل (portable) گٹ بیش (Git Bash)** (یعنی MinGit، جو `%LOCALAPPDATA%\hermes\git` میں ان پیک ہوتا ہے — اس کے لیے ایڈمن کی اجازت درکار نہیں، اور یہ سسٹم کے کسی بھی گٹ انسٹال سے بالکل الگ ہے)۔ J.A.G.O.D.A اس بنڈل شدہ گٹ بیش کو شیل کمانڈز چلانے کے لیے استعمال کرتا ہے۔
 
 اگر آپ کے پاس پہلے سے گٹ (Git) انسٹال ہے، تو انسٹالر اسے شناخت کر لیتا ہے اور اسے ہی استعمال کرتا ہے۔ بصورت دیگر آپ کو صرف ~45MB کے MinGit ڈاؤنلوڈ کی ضرورت ہوگی — یہ آپ کے سسٹم کے گٹ پر کوئی اثر نہیں ڈالے گا۔
 
-> **اینڈرائیڈ (Android) / ٹرمکس (Termux):** ٹیسٹ کیا گیا مینوئل طریقہ [Termux گائیڈ](https://hermes-agent.nousresearch.com/docs/getting-started/termux) میں موجود ہے۔ ٹرمکس پر ہرمیس ایک مخصوص `.[termux]` ایکسٹرا انسٹال کرتا ہے کیونکہ مکمل `.[all]` ایکسٹرا میں ایسی وائس ڈیپینڈینسیز شامل ہیں جو اینڈرائیڈ کے ساتھ مطابقت نہیں رکھتیں۔
+> **اینڈرائیڈ (Android) / ٹرمکس (Termux):** ٹیسٹ کیا گیا مینوئل طریقہ [Termux گائیڈ](https://hermes-agent.nousresearch.com/docs/getting-started/termux) میں موجود ہے۔ ٹرمکس پر J.A.G.O.D.A ایک مخصوص `.[termux]` ایکسٹرا انسٹال کرتا ہے کیونکہ مکمل `.[all]` ایکسٹرا میں ایسی وائس ڈیپینڈینسیز شامل ہیں جو اینڈرائیڈ کے ساتھ مطابقت نہیں رکھتیں۔
 >
-> **ونڈوز (Windows):** مقامی ونڈوز کی مکمل سپورٹ موجود ہے — اوپر دی گئی پاور شیل کی کمانڈ سب کچھ انسٹال کر دیتی ہے۔ اگر آپ WSL2 استعمال کرنا چاہتے ہیں، تو لینکس کی کمانڈ وہاں کام کرتی ہے۔ مقامی ونڈوز میں انسٹالیشن `%LOCALAPPDATA%\hermes` میں ہوتی ہے؛ جبکہ WSL2 میں لینکس کی طرح `~/.hermes` میں ہوتی ہے۔ ہرمیس کا وہ واحد فیچر جسے فی الحال خاص طور پر WSL2 کی ضرورت ہے وہ براؤزر پر مبنی ڈیش بورڈ چیٹ پین ہے (یہ POSIX PTY استعمال کرتا ہے — کلاسک CLI اور گیٹ وے دونوں مقامی طور پر چلتے ہیں)۔
+> **ونڈوز (Windows):** مقامی ونڈوز کی مکمل سپورٹ موجود ہے — اوپر دی گئی پاور شیل کی کمانڈ سب کچھ انسٹال کر دیتی ہے۔ اگر آپ WSL2 استعمال کرنا چاہتے ہیں، تو لینکس کی کمانڈ وہاں کام کرتی ہے۔ مقامی ونڈوز میں انسٹالیشن `%LOCALAPPDATA%\hermes` میں ہوتی ہے؛ جبکہ WSL2 میں لینکس کی طرح `~/.hermes` میں ہوتی ہے۔ J.A.G.O.D.A کا وہ واحد فیچر جسے فی الحال خاص طور پر WSL2 کی ضرورت ہے وہ براؤزر پر مبنی ڈیش بورڈ چیٹ پین ہے (یہ POSIX PTY استعمال کرتا ہے — کلاسک CLI اور گیٹ وے دونوں مقامی طور پر چلتے ہیں)۔
 
 انسٹالیشن کے بعد:
 
@@ -71,7 +71,7 @@ iex (irm https://hermes-agent.nousresearch.com/install.ps1)
 
 ```bash
 source ~/.bashrc    # شیل کو ری لوڈ کریں (یا: source ~/.zshrc)
-hermes              # بات چیت شروع کریں!
+jagoda              # بات چیت شروع کریں!
 ```
 
 </div>
@@ -83,15 +83,15 @@ hermes              # بات چیت شروع کریں!
 <div dir="ltr">
 
 ```bash
-hermes              # انٹرایکٹو CLI — بات چیت شروع کریں
-hermes model        # اپنا LLM پرووائیڈر اور ماڈل منتخب کریں
-hermes tools        # کنفیگر کریں کہ کون سے ٹولز ایکٹو ہیں
-hermes config set   # انفرادی کنفگ (config) ویلیوز سیٹ کریں
-hermes gateway      # میسجنگ گیٹ وے شروع کریں (ٹیلی گرام، ڈسکارڈ، وغیرہ)
-hermes setup        # مکمل سیٹ اپ وزرڈ چلائیں (یہ سب کچھ ایک ساتھ کنفیگر کر دے گا)
-hermes claw migrate # OpenClaw سے مائیگریٹ کریں (اگر آپ OpenClaw سے آ رہے ہیں)
-hermes update       # لیٹسٹ ورژن پر اپ ڈیٹ کریں
-hermes doctor       # کسی بھی مسئلے کی تشخیص کریں
+jagoda              # انٹرایکٹو CLI — بات چیت شروع کریں
+jagoda model        # اپنا LLM پرووائیڈر اور ماڈل منتخب کریں
+jagoda tools        # کنفیگر کریں کہ کون سے ٹولز ایکٹو ہیں
+jagoda config set   # انفرادی کنفگ (config) ویلیوز سیٹ کریں
+jagoda gateway      # میسجنگ گیٹ وے شروع کریں (ٹیلی گرام، ڈسکارڈ، وغیرہ)
+jagoda setup        # مکمل سیٹ اپ وزرڈ چلائیں (یہ سب کچھ ایک ساتھ کنفیگر کر دے گا)
+jagoda claw migrate # OpenClaw سے مائیگریٹ کریں (اگر آپ OpenClaw سے آ رہے ہیں)
+jagoda update       # لیٹسٹ ورژن پر اپ ڈیٹ کریں
+jagoda doctor       # کسی بھی مسئلے کی تشخیص کریں
 ```
 
 </div>
@@ -102,7 +102,7 @@ hermes doctor       # کسی بھی مسئلے کی تشخیص کریں
 
 ## API-کیز اکٹھی کرنے سے بچیں — Nous Portal
 
-ہرمیس آپ کے پسندیدہ پرووائیڈر کے ساتھ کام کرتا ہے — یہ چیز تبدیل نہیں ہو رہی۔ لیکن اگر آپ ماڈل، ویب سرچ، امیج جنریشن، TTS، اور کلاؤڈ براؤزر کے لیے پانچ الگ الگ API کیز جمع نہیں کرنا چاہتے، تو **[Nous Portal](https://portal.nousresearch.com)** ان سب کو ایک ہی سبسکرپشن کے تحت کور کرتا ہے:
+J.A.G.O.D.A آپ کے پسندیدہ پرووائیڈر کے ساتھ کام کرتا ہے — یہ چیز تبدیل نہیں ہو رہی۔ لیکن اگر آپ ماڈل، ویب سرچ، امیج جنریشن، TTS، اور کلاؤڈ براؤزر کے لیے پانچ الگ الگ API کیز جمع نہیں کرنا چاہتے، تو **[Nous Portal](https://portal.nousresearch.com)** ان سب کو ایک ہی سبسکرپشن کے تحت کور کرتا ہے:
 
 - **300+ ماڈلز** — ان میں سے کوئی بھی ماڈل `/model <name>` کے ذریعے منتخب کریں
 - **ٹول گیٹ وے (Tool Gateway)** — ویب سرچ (Firecrawl)، امیج جنریشن (FAL)، ٹیکسٹ ٹو سپیچ (OpenAI)، کلاؤڈ براؤزر (Browser Use)، یہ سب آپ کی سبسکرپشن کے ذریعے چلتے ہیں۔ کسی اضافی اکاؤنٹ کی ضرورت نہیں۔
@@ -112,12 +112,12 @@ hermes doctor       # کسی بھی مسئلے کی تشخیص کریں
 <div dir="ltr">
 
 ```bash
-hermes setup --portal
+jagoda setup --portal
 ```
 
 </div>
 
-یہ آپ کو OAuth کے ذریعے لاگ ان کرواتا ہے، Nous کو آپ کا پرووائیڈر مقرر کرتا ہے، اور ٹول گیٹ وے کو آن کر دیتا ہے۔ `hermes portal info` کمانڈ استعمال کر کے آپ کسی بھی وقت چیک کر سکتے ہیں کہ کون کون سی سروسز منسلک ہیں۔ مکمل تفصیلات [Tool Gateway دستاویزات کے صفحے](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway) پر موجود ہیں۔
+یہ آپ کو OAuth کے ذریعے لاگ ان کرواتا ہے، Nous کو آپ کا پرووائیڈر مقرر کرتا ہے، اور ٹول گیٹ وے کو آن کر دیتا ہے۔ `jagoda portal info` کمانڈ استعمال کر کے آپ کسی بھی وقت چیک کر سکتے ہیں کہ کون کون سی سروسز منسلک ہیں۔ مکمل تفصیلات [Tool Gateway دستاویزات کے صفحے](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway) پر موجود ہیں۔
 
 آپ اب بھی کسی بھی ٹول کے لیے اپنی مرضی کی API کیز استعمال کر سکتے ہیں — گیٹ وے ہر سروس کے لیے الگ الگ کام کرتا ہے، ایسا نہیں کہ یا تو سب کچھ استعمال کریں یا کچھ بھی نہیں۔
 
@@ -125,13 +125,13 @@ hermes setup --portal
 
 ## CLI بمقابلہ میسجنگ فوری حوالہ
 
-ہرمیس کے دو بنیادی انٹر فیس ہیں: آپ ٹرمینل UI کو `hermes` کے ساتھ شروع کریں، یا گیٹ وے چلا کر اس کے ساتھ ٹیلی گرام، ڈسکارڈ، سلیک، واٹس ایپ، سگنل، یا ای میل کے ذریعے بات کریں۔ جب آپ کسی بات چیت میں ہوتے ہیں، تو بہت سی سلیش (slash) کمانڈز دونوں انٹرفیسز میں ایک جیسی ہوتی ہیں۔
+J.A.G.O.D.A کے دو بنیادی انٹر فیس ہیں: آپ ٹرمینل UI کو `hermes` کے ساتھ شروع کریں، یا گیٹ وے چلا کر اس کے ساتھ ٹیلی گرام، ڈسکارڈ، سلیک، واٹس ایپ، سگنل، یا ای میل کے ذریعے بات کریں۔ جب آپ کسی بات چیت میں ہوتے ہیں، تو بہت سی سلیش (slash) کمانڈز دونوں انٹرفیسز میں ایک جیسی ہوتی ہیں۔
 
 <div dir="ltr">
 
 | کارروائی (Action)                         | سی ایل آئی (CLI)                              | میسجنگ پلیٹ فارمز (Messaging platforms)                                          |
 | --------------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------- |
-| بات چیت شروع کریں                       | `hermes`                                      | `hermes gateway setup` اور `hermes gateway start` چلائیں، پھر بوٹ کو میسج بھیجیں |
+| بات چیت شروع کریں                       | `jagoda`                                      | `jagoda gateway setup` اور `jagoda gateway start` چلائیں، پھر بوٹ کو میسج بھیجیں |
 | نئی بات چیت شروع کریں                   | `/new` یا `/reset`                            | `/new` یا `/reset`                                                               |
 | ماڈل تبدیل کریں                         | `/model [provider:model]`                     | `/model [provider:model]`                                                        |
 | پرسنلٹی (Personality) سیٹ کریں           | `/personality [name]`                         | `/personality [name]`                                                            |
@@ -177,19 +177,19 @@ hermes setup --portal
 
 ## OpenClaw سے منتقلی
 
-اگر آپ OpenClaw سے منتقل ہو رہے ہیں، تو ہرمیس آپ کی سیٹنگز، یادیں (memories)، مہارتیں (skills)، اور API کیز کو خود بخود امپورٹ کر سکتا ہے۔
+اگر آپ OpenClaw سے منتقل ہو رہے ہیں، تو J.A.G.O.D.A آپ کی سیٹنگز، یادیں (memories)، مہارتیں (skills)، اور API کیز کو خود بخود امپورٹ کر سکتا ہے۔
 
-**پہلی بار سیٹ اپ کے دوران:** سیٹ اپ وزرڈ (`hermes setup`) خود بخود `~/.openclaw` کو پہچان لیتا ہے اور کنفیگریشن شروع ہونے سے پہلے مائیگریٹ (migrate) کرنے کا آپشن دیتا ہے۔
+**پہلی بار سیٹ اپ کے دوران:** سیٹ اپ وزرڈ (`jagoda setup`) خود بخود `~/.openclaw` کو پہچان لیتا ہے اور کنفیگریشن شروع ہونے سے پہلے مائیگریٹ (migrate) کرنے کا آپشن دیتا ہے۔
 
 **انسٹالیشن کے بعد کسی بھی وقت:**
 
 <div dir="ltr">
 
 ```bash
-hermes claw migrate              # انٹرایکٹو مائیگریشن (مکمل پری سیٹ)
-hermes claw migrate --dry-run    # جائزہ لیں کہ کیا کیا مائیگریٹ ہوگا
-hermes claw migrate --preset user-data   # حساس معلومات (secrets) کے بغیر مائیگریٹ کریں
-hermes claw migrate --overwrite  # موجودہ متصادم فائلوں کو اوور رائٹ کریں
+jagoda claw migrate              # انٹرایکٹو مائیگریشن (مکمل پری سیٹ)
+jagoda claw migrate --dry-run    # جائزہ لیں کہ کیا کیا مائیگریٹ ہوگا
+jagoda claw migrate --preset user-data   # حساس معلومات (secrets) کے بغیر مائیگریٹ کریں
+jagoda claw migrate --overwrite  # موجودہ متصادم فائلوں کو اوور رائٹ کریں
 ```
 
 </div>
@@ -205,7 +205,7 @@ hermes claw migrate --overwrite  # موجودہ متصادم فائلوں کو �
 - **TTS اثاثے** — ورک اسپیس کی آڈیو فائلیں
 - **ورک اسپیس کی ہدایات** — AGENTS.md (`--workspace-target` کے ساتھ)
 
-تمام آپشنز دیکھنے کے لیے `hermes claw migrate --help` استعمال کریں، یا انٹرایکٹو ایجنٹ کی مدد سے مائیگریٹ کرنے کے لیے `openclaw-migration` سکل کا استعمال کریں (جس میں ڈرائی رن (dry-run) پریویوز شامل ہیں)۔
+تمام آپشنز دیکھنے کے لیے `jagoda claw migrate --help` استعمال کریں، یا انٹرایکٹو ایجنٹ کی مدد سے مائیگریٹ کرنے کے لیے `openclaw-migration` سکل کا استعمال کریں (جس میں ڈرائی رن (dry-run) پریویوز شامل ہیں)۔
 
 ---
 
@@ -247,8 +247,8 @@ scripts/run_tests.sh
 - 💬 [ڈسکارڈ (Discord)](https://discord.gg/NousResearch)
 - 📚 [سکلز ہب (Skills Hub)](https://agentskills.io)
 - 🐛 [مسائل (Issues)](https://github.com/NousResearch/hermes-agent/issues)
-- 🔌 [computer-use-linux](https://github.com/avifenesh/computer-use-linux) — ہرمیس اور دیگر MCP ہوسٹس کے لیے لینکس (Linux) ڈیسک ٹاپ کنٹرول MCP سرور، جس میں AT-SPI ایکسیسیبلٹی ٹریز، Wayland/X11 ان پٹ، سکرین شاٹس، اور کمپوزیٹر ونڈو ٹارگیٹنگ شامل ہے۔
-- 🔌 [HermesClaw](https://github.com/AaronWong1999/hermesclaw) — کمیونٹی وی چیٹ (WeChat) برج: ہرمیس ایجنٹ اور OpenClaw کو ایک ہی وی چیٹ اکاؤنٹ پر چلائیں۔
+- 🔌 [computer-use-linux](https://github.com/avifenesh/computer-use-linux) — J.A.G.O.D.A اور دیگر MCP ہوسٹس کے لیے لینکس (Linux) ڈیسک ٹاپ کنٹرول MCP سرور، جس میں AT-SPI ایکسیسیبلٹی ٹریز، Wayland/X11 ان پٹ، سکرین شاٹس، اور کمپوزیٹر ونڈو ٹارگیٹنگ شامل ہے۔
+- 🔌 [HermesClaw](https://github.com/AaronWong1999/hermesclaw) — کمیونٹی وی چیٹ (WeChat) برج: J.A.G.O.D.A اور OpenClaw کو ایک ہی وی چیٹ اکاؤنٹ پر چلائیں۔
 
 ---
 
