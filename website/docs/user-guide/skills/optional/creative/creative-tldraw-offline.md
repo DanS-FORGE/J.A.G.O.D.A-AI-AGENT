@@ -17,7 +17,7 @@ Drive and script tldraw offline canvases with an agent.
 | Source | Optional — install with `hermes skills install official/creative/tldraw-offline` |
 | Path | `optional-skills/creative\tldraw-offline` |
 | Version | `1.0.0` |
-| Author | Teknium + Hermes Agent |
+| Author | Teknium + Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `tldraw`, `canvas`, `whiteboard`, `document-script`, `diagramming` |
@@ -25,7 +25,7 @@ Drive and script tldraw offline canvases with an agent.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # tldraw offline Skill

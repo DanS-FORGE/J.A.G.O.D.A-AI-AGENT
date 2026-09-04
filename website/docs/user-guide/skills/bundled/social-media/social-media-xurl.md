@@ -17,7 +17,7 @@ X/Twitter via xurl CLI: raw post search, posting, DM, media.
 | Source | Bundled (installed by default) |
 | Path | `skills/social-media\xurl` |
 | Version | `1.1.3` |
-| Author | xdevplatform + openclaw + Hermes Agent |
+| Author | xdevplatform + openclaw + Jagoda |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `twitter`, `x`, `social-media`, `xurl`, `official-api` |
@@ -25,7 +25,7 @@ X/Twitter via xurl CLI: raw post search, posting, DM, media.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # xurl — X (Twitter) API via the Official CLI
@@ -52,7 +52,7 @@ Critical rules when operating inside an agent/LLM session:
 
 - **Never** read, print, parse, summarize, upload, or send `~/.xurl` to LLM context.
 - **Never** ask the user to paste credentials/tokens into chat.
-- The user must fill `~/.xurl` with secrets manually on their own machine. In Docker, this must be the `~` seen by Hermes tool subprocesses; see the Docker note below.
+- The user must fill `~/.xurl` with secrets manually on their own machine. In Docker, this must be the `~` seen by J.A.G.O.D.A tool subprocesses; see the Docker note below.
 - **Never** recommend or execute auth commands with inline secrets in agent sessions.
 - **Never** use `--verbose` / `-v` in agent sessions — it can expose auth headers/tokens.
 - To verify credentials exist, only use: `xurl auth status`.
@@ -129,14 +129,14 @@ After this, the agent can use any command below without further setup. OAuth 2.0
 
 > **Common pitfall:** If you omit `--app my-app` from `xurl auth oauth2`, the OAuth token is saved to the built-in `default` app profile — which has no client-id or client-secret. Commands will fail with auth errors even though the OAuth flow appeared to succeed. If you hit this, re-run `xurl auth oauth2 --app my-app` and `xurl auth default my-app`.
 
-> **Docker HOME pitfall:** In the official Hermes Docker layout, `/opt/data` is `HERMES_HOME`, but Hermes tool subprocesses use `/opt/data/home` as `HOME`. That means `~/.xurl` resolves to `/opt/data/home/.xurl` for Hermes-run `xurl` commands, not `/opt/data/.xurl`. Run the user setup with the same HOME:
+> **Docker HOME pitfall:** In the official Hermes Docker layout, `/opt/data` is `HERMES_HOME`, but J.A.G.O.D.A tool subprocesses use `/opt/data/home` as `HOME`. That means `~/.xurl` resolves to `/opt/data/home/.xurl` for Hermes-run `xurl` commands, not `/opt/data/.xurl`. Run the user setup with the same HOME:
 > ```bash
 > HOME=/opt/data/home xurl auth apps add my-app --client-id YOUR_CLIENT_ID --client-secret YOUR_CLIENT_SECRET
 > HOME=/opt/data/home xurl auth oauth2 --app my-app YOUR_USERNAME
 > HOME=/opt/data/home xurl auth default my-app YOUR_USERNAME
 > HOME=/opt/data/home xurl auth status
 > ```
-> If `HOME=/opt/data xurl auth status` succeeds but `HOME=/opt/data/home xurl auth status` shows no apps or tokens, Hermes tool calls will not see the credentials.
+> If `HOME=/opt/data xurl auth status` succeeds but `HOME=/opt/data/home xurl auth status` shows no apps or tokens, J.A.G.O.D.A tool calls will not see the credentials.
 
 ---
 

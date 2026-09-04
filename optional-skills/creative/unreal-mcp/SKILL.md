@@ -3,7 +3,7 @@ name: unreal-mcp
 description: Automate Unreal Engine editor scenes, actors, and renders.
 version: 1.0.0
 requires: Unreal Editor 5.8+ with the Unreal MCP plugin enabled and its server running
-author: Hermes Agent
+author: Jagoda
 license: MIT
 tags: [unreal, unreal-engine, ue5, 3d, mcp, scenes, cinematics, lighting, gamedev]
 platforms: [linux, macos, windows]
@@ -90,7 +90,7 @@ By default the plugin runs in **tool-search mode**: `tools/list` returns only
 three meta-tools, and every real tool is reached through them. Through Hermes
 they appear as:
 
-| Hermes tool | Purpose |
+| J.A.G.O.D.A tool | Purpose |
 |---|---|
 | `mcp_unreal_engine_list_toolsets` | Names + descriptions of every registered toolset |
 | `mcp_unreal_engine_describe_toolset` | Full JSON schemas for one named toolset's tools |

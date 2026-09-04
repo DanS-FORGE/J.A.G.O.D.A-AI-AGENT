@@ -1,14 +1,14 @@
 ---
-title: "Hermes S6 Container Supervision — Modify or debug s6 services in the Hermes Docker image"
+title: "Hermes S6 Container Supervision — Modify or debug s6 services in the J.A.G.O.D.A Docker image"
 sidebar_label: "Hermes S6 Container Supervision"
-description: "Modify or debug s6 services in the Hermes Docker image"
+description: "Modify or debug s6 services in the J.A.G.O.D.A Docker image"
 ---
 
 {/* This page is auto-generated from the skill's SKILL.md by website/scripts/generate-skill-docs.py. Edit the source SKILL.md, not this page. */}
 
 # Hermes S6 Container Supervision
 
-Modify or debug s6 services in the Hermes Docker image.
+Modify or debug s6 services in the J.A.G.O.D.A Docker image.
 
 ## Skill metadata
 
@@ -17,7 +17,7 @@ Modify or debug s6 services in the Hermes Docker image.
 | Source | Optional — install with `hermes skills install official/devops/hermes-s6-container-supervision` |
 | Path | `optional-skills/devops\hermes-s6-container-supervision` |
 | Version | `1.0.0` |
-| Author | Hermes Agent |
+| Author | Jagoda |
 | License | MIT |
 | Platforms | linux |
 | Tags | `docker`, `s6`, `supervision`, `gateway`, `profiles` |
@@ -26,7 +26,7 @@ Modify or debug s6 services in the Hermes Docker image.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Hermes s6-overlay Container Supervision
@@ -40,7 +40,7 @@ Load this skill when you're working on:
 - Modifying `cont-init.d` boot scripts (UID remap, volume seeding, profile reconciliation)
 - Changing the rendered run-script for per-profile gateways (Phase 4)
 
-If you're just running the Hermes Agent and want to use Docker, see `website/docs/user-guide/docker.md` instead.
+If you're just running J.A.G.O.D.A and want to use Docker, see `website/docs/user-guide/docker.md` instead.
 
 ## Architecture at a glance
 

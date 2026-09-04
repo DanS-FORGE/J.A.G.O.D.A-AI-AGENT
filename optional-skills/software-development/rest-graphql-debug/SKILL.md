@@ -14,7 +14,7 @@ metadata:
 
 # API Testing & Debugging
 
-Drive REST and GraphQL diagnosis through Hermes tools — `terminal` for `curl`, `execute_code` for Python `requests`, `web_extract` for vendor docs. Isolate the failing layer before guessing at the fix.
+Drive REST and GraphQL diagnosis through J.A.G.O.D.A tools — `terminal` for `curl`, `execute_code` for Python `requests`, `web_extract` for vendor docs. Isolate the failing layer before guessing at the fix.
 
 ## When to Use
 

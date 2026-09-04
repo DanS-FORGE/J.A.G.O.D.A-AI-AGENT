@@ -26,12 +26,12 @@ Debug REST/GraphQL APIs: status codes, auth, schemas, repro.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # API Testing & Debugging
 
-Drive REST and GraphQL diagnosis through Hermes tools — `terminal` for `curl`, `execute_code` for Python `requests`, `web_extract` for vendor docs. Isolate the failing layer before guessing at the fix.
+Drive REST and GraphQL diagnosis through J.A.G.O.D.A tools — `terminal` for `curl`, `execute_code` for Python `requests`, `web_extract` for vendor docs. Isolate the failing layer before guessing at the fix.
 
 ## When to Use
 

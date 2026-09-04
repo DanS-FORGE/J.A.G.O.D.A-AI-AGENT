@@ -17,7 +17,7 @@ Automate Unreal Engine editor scenes, actors, and renders.
 | Source | Optional — install with `hermes skills install official/creative/unreal-mcp` |
 | Path | `optional-skills/creative\unreal-mcp` |
 | Version | `1.0.0` |
-| Author | Hermes Agent |
+| Author | Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `unreal`, `unreal-engine`, `ue5`, `3d`, `mcp`, `scenes`, `cinematics`, `lighting`, `gamedev` |
@@ -25,7 +25,7 @@ Automate Unreal Engine editor scenes, actors, and renders.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Unreal Engine MCP Skill
@@ -105,7 +105,7 @@ By default the plugin runs in **tool-search mode**: `tools/list` returns only
 three meta-tools, and every real tool is reached through them. Through Hermes
 they appear as:
 
-| Hermes tool | Purpose |
+| J.A.G.O.D.A tool | Purpose |
 |---|---|
 | `mcp_unreal_engine_list_toolsets` | Names + descriptions of every registered toolset |
 | `mcp_unreal_engine_describe_toolset` | Full JSON schemas for one named toolset's tools |

@@ -17,7 +17,7 @@ Provision SaaS services + sync creds via Stripe Projects.
 | Source | Optional — install with `hermes skills install official/payments/stripe-projects` |
 | Path | `optional-skills/payments\stripe-projects` |
 | Version | `0.1.0` |
-| Author | Teknium (teknium1), Hermes Agent |
+| Author | Teknium (teknium1), Jagoda |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `Payments`, `Stripe`, `Projects`, `Provisioning`, `Infrastructure` |
@@ -26,7 +26,7 @@ Provision SaaS services + sync creds via Stripe Projects.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Stripe Projects Skill

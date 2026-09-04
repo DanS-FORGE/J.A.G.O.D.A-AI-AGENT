@@ -17,7 +17,7 @@ Delegate coding to OpenHands CLI (model-agnostic, LiteLLM).
 | Source | Optional — install with `hermes skills install official/autonomous-ai-agents/openhands` |
 | Path | `optional-skills/autonomous-ai-agents\openhands` |
 | Version | `0.1.0` |
-| Author | Tim Koepsel (xzessmedia), Hermes Agent |
+| Author | Tim Koepsel (xzessmedia), Jagoda |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `Coding-Agent`, `OpenHands`, `Model-Agnostic`, `LiteLLM` |
@@ -26,7 +26,7 @@ Delegate coding to OpenHands CLI (model-agnostic, LiteLLM).
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # OpenHands CLI

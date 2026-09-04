@@ -2,7 +2,7 @@
 name: claude-code
 description: "Delegate coding to Claude Code CLI (features, PRs)."
 version: 2.2.1
-author: Hermes Agent + Teknium
+author: Jagoda + Teknium
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
@@ -11,9 +11,9 @@ metadata:
     related_skills: [codex, hermes-agent, opencode]
 ---
 
-# Claude Code — Hermes Orchestration Guide
+# Claude Code — J.A.G.O.D.A Orchestration Guide
 
-Delegate coding tasks to [Claude Code](https://code.claude.com/docs/en/cli-reference) (Anthropic's autonomous coding agent CLI) via the Hermes terminal. Claude Code v2.x can read files, write code, run shell commands, spawn subagents, and manage git workflows autonomously.
+Delegate coding tasks to [Claude Code](https://code.claude.com/docs/en/cli-reference) (Anthropic's autonomous coding agent CLI) via the J.A.G.O.D.A terminal. Claude Code v2.x can read files, write code, run shell commands, spawn subagents, and manage git workflows autonomously.
 
 ## Prerequisites
 
@@ -731,7 +731,7 @@ Use `/context` in interactive mode to see a colored grid of context usage. Key t
 11. **`--bare` skips OAuth** — requires `ANTHROPIC_API_KEY` env var or an `apiKeyHelper` in settings.
 12. **Context degradation is real** — AI output quality measurably degrades above 70% context window usage. Monitor with `/context` and proactively `/compact`.
 
-## Rules for Hermes Agents
+## Rules for J.A.G.O.D.A Agents
 
 1. **Prefer print mode (`-p`) for single tasks** — cleaner, no dialog handling, structured output
 2. **Use tmux for multi-turn interactive work** — the only reliable way to orchestrate the TUI

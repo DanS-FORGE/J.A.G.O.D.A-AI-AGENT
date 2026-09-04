@@ -17,7 +17,7 @@ Delegate coding to Claude Code CLI (features, PRs).
 | Source | Bundled (installed by default) |
 | Path | `skills/autonomous-ai-agents\claude-code` |
 | Version | `2.2.1` |
-| Author | Hermes Agent + Teknium |
+| Author | Jagoda + Teknium |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `Coding-Agent`, `Claude`, `Anthropic`, `Code-Review`, `Refactoring`, `PTY`, `Automation` |
@@ -26,12 +26,12 @@ Delegate coding to Claude Code CLI (features, PRs).
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
-# Claude Code — Hermes Orchestration Guide
+# Claude Code — J.A.G.O.D.A Orchestration Guide
 
-Delegate coding tasks to [Claude Code](https://code.claude.com/docs/en/cli-reference) (Anthropic's autonomous coding agent CLI) via the Hermes terminal. Claude Code v2.x can read files, write code, run shell commands, spawn subagents, and manage git workflows autonomously.
+Delegate coding tasks to [Claude Code](https://code.claude.com/docs/en/cli-reference) (Anthropic's autonomous coding agent CLI) via the J.A.G.O.D.A terminal. Claude Code v2.x can read files, write code, run shell commands, spawn subagents, and manage git workflows autonomously.
 
 ## Prerequisites
 
@@ -749,7 +749,7 @@ Use `/context` in interactive mode to see a colored grid of context usage. Key t
 11. **`--bare` skips OAuth** — requires `ANTHROPIC_API_KEY` env var or an `apiKeyHelper` in settings.
 12. **Context degradation is real** — AI output quality measurably degrades above 70% context window usage. Monitor with `/context` and proactively `/compact`.
 
-## Rules for Hermes Agents
+## Rules for J.A.G.O.D.A Agents
 
 1. **Prefer print mode (`-p`) for single tasks** — cleaner, no dialog handling, structured output
 2. **Use tmux for multi-turn interactive work** — the only reliable way to orchestrate the TUI

@@ -17,7 +17,7 @@ Box manages cloud files, sharing, search, and metadata.
 | Source | Bundled (installed by default) |
 | Path | `skills/productivity\box` |
 | Version | `1.0.0` |
-| Author | Chris Kim (iskysun96), Hermes Agent |
+| Author | Chris Kim (iskysun96), Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `Box`, `Productivity`, `Cloud Storage`, `Collaboration`, `Metadata`, `Content Extraction`, `CLI`, `SDK` |
@@ -26,7 +26,7 @@ Box manages cloud files, sharing, search, and metadata.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Box

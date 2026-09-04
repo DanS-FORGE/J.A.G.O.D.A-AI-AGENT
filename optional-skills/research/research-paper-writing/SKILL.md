@@ -1364,9 +1364,9 @@ The main pipeline above targets empirical ML papers. Other paper types require d
 
 ---
 
-## Hermes Agent Integration
+## J.A.G.O.D.A Integration
 
-This skill is designed for the Hermes agent. It uses Hermes tools, delegation, scheduling, and memory for the full research lifecycle.
+This skill is designed for J.A.G.O.D.A. It uses J.A.G.O.D.A tools, delegation, scheduling, and memory for the full research lifecycle.
 
 ### Related Skills
 

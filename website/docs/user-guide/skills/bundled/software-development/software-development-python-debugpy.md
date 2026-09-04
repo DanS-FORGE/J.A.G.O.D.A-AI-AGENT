@@ -17,7 +17,7 @@ Debug Python: pdb REPL + debugpy remote (DAP).
 | Source | Bundled (installed by default) |
 | Path | `skills/software-development\python-debugpy` |
 | Version | `1.0.0` |
-| Author | Hermes Agent |
+| Author | Jagoda |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `debugging`, `python`, `pdb`, `debugpy`, `breakpoints`, `dap`, `post-mortem` |
@@ -26,7 +26,7 @@ Debug Python: pdb REPL + debugpy remote (DAP).
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Python Debugger (pdb + debugpy)

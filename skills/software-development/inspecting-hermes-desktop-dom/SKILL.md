@@ -1,8 +1,8 @@
 ---
 name: inspecting-hermes-desktop-dom
-description: "Read the live Hermes desktop DOM/CSS over CDP."
+description: "Read the live J.A.G.O.D.A desktop DOM/CSS over CDP."
 version: 1.0.0
-author: Hermes Agent
+author: Jagoda
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

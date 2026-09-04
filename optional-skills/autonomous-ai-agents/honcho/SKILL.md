@@ -1,8 +1,8 @@
 ---
 name: honcho
-description: Configure and troubleshoot Honcho memory for Hermes.
+description: Configure and troubleshoot Honcho memory for J.A.G.O.D.A.
 version: 2.0.0
-author: Hermes Agent
+author: Jagoda
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

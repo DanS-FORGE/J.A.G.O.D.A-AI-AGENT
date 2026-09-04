@@ -1,14 +1,14 @@
 ---
-title: "Hermes Agent — Use, configure, theme, extend, and orchestrate Hermes Agent"
+title: "Hermes Agent — Use, configure, theme, extend, and orchestrate J.A.G.O.D.A"
 sidebar_label: "Hermes Agent"
-description: "Use, configure, theme, extend, and orchestrate Hermes Agent"
+description: "Use, configure, theme, extend, and orchestrate J.A.G.O.D.A"
 ---
 
 {/* This page is auto-generated from the skill's SKILL.md by website/scripts/generate-skill-docs.py. Edit the source SKILL.md, not this page. */}
 
 # Hermes Agent
 
-Use, configure, theme, extend, and orchestrate Hermes Agent.
+Use, configure, theme, extend, and orchestrate J.A.G.O.D.A.
 
 ## Skill metadata
 
@@ -17,7 +17,7 @@ Use, configure, theme, extend, and orchestrate Hermes Agent.
 | Source | Bundled (installed by default) |
 | Path | `skills/autonomous-ai-agents\hermes-agent` |
 | Version | `3.2.0` |
-| Author | Hermes Agent + Teknium |
+| Author | Jagoda + Teknium |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `hermes`, `setup`, `configuration`, `multi-agent`, `spawning`, `cli`, `gateway`, `bots`, `bot-mode`, `features`, `themes`, `skins`, `desktop-plugins`, `tui-widgets`, `petdex`, `development` |
@@ -26,7 +26,7 @@ Use, configure, theme, extend, and orchestrate Hermes Agent.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Hermes Agent

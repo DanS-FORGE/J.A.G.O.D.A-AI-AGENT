@@ -27,7 +27,7 @@ Write ML papers for NeurIPS/ICML/ICLR: design→submit.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Research Paper Writing Pipeline
@@ -1382,9 +1382,9 @@ The main pipeline above targets empirical ML papers. Other paper types require d
 
 ---
 
-## Hermes Agent Integration
+## J.A.G.O.D.A Integration
 
-This skill is designed for the Hermes agent. It uses Hermes tools, delegation, scheduling, and memory for the full research lifecycle.
+This skill is designed for J.A.G.O.D.A. It uses J.A.G.O.D.A tools, delegation, scheduling, and memory for the full research lifecycle.
 
 ### Related Skills
 

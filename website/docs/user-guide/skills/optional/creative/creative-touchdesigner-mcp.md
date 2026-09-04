@@ -26,7 +26,7 @@ Control TouchDesigner via twozero MCP.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # TouchDesigner Integration (twozero MCP)
@@ -42,7 +42,7 @@ The following is the complete skill definition that Hermes loads when this skill
 ## Architecture
 
 ```
-Hermes Agent -> MCP (Streamable HTTP) -> twozero.tox (port 40404) -> TD Python
+J.A.G.O.D.A -> MCP (Streamable HTTP) -> twozero.tox (port 40404) -> TD Python
 ```
 
 36 native tools. Free plugin (no payment/license — confirmed April 2026).

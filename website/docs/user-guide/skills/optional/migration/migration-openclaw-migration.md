@@ -1,14 +1,14 @@
 ---
-title: "Openclaw Migration — Import an OpenClaw setup (memories, skills) into Hermes"
+title: "Openclaw Migration — Import an OpenClaw setup (memories, skills) to J.A.G.O.D.A"
 sidebar_label: "Openclaw Migration"
-description: "Import an OpenClaw setup (memories, skills) into Hermes"
+description: "Import an OpenClaw setup (memories, skills) to J.A.G.O.D.A"
 ---
 
 {/* This page is auto-generated from the skill's SKILL.md by website/scripts/generate-skill-docs.py. Edit the source SKILL.md, not this page. */}
 
 # Openclaw Migration
 
-Import an OpenClaw setup (memories, skills) into Hermes.
+Import an OpenClaw setup (memories, skills) to J.A.G.O.D.A.
 
 ## Skill metadata
 
@@ -26,12 +26,12 @@ Import an OpenClaw setup (memories, skills) into Hermes.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # OpenClaw -> Hermes Migration
 
-Use this skill when a user wants to move their OpenClaw setup into Hermes Agent with minimal manual cleanup.
+Use this skill when a user wants to move their OpenClaw setup into J.A.G.O.D.A with minimal manual cleanup.
 
 ## CLI Command
 

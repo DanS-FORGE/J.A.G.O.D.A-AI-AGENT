@@ -1,14 +1,14 @@
 ---
-title: "Honcho — Configure and troubleshoot Honcho memory for Hermes"
+title: "Honcho — Configure and troubleshoot Honcho memory for J.A.G.O.D.A"
 sidebar_label: "Honcho"
-description: "Configure and troubleshoot Honcho memory for Hermes"
+description: "Configure and troubleshoot Honcho memory for J.A.G.O.D.A"
 ---
 
 {/* This page is auto-generated from the skill's SKILL.md by website/scripts/generate-skill-docs.py. Edit the source SKILL.md, not this page. */}
 
 # Honcho
 
-Configure and troubleshoot Honcho memory for Hermes.
+Configure and troubleshoot Honcho memory for J.A.G.O.D.A.
 
 ## Skill metadata
 
@@ -17,7 +17,7 @@ Configure and troubleshoot Honcho memory for Hermes.
 | Source | Optional — install with `hermes skills install official/autonomous-ai-agents/honcho` |
 | Path | `optional-skills/autonomous-ai-agents\honcho` |
 | Version | `2.0.0` |
-| Author | Hermes Agent |
+| Author | Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `Honcho`, `Memory`, `Profiles`, `Observation`, `Dialectic`, `User-Modeling`, `Session-Summary` |
@@ -26,7 +26,7 @@ Configure and troubleshoot Honcho memory for Hermes.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Honcho Memory for Hermes

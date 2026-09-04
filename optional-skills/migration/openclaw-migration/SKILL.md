@@ -1,6 +1,6 @@
 ---
 name: openclaw-migration
-description: Import an OpenClaw setup (memories, skills) into Hermes.
+description: Import an OpenClaw setup (memories, skills) to J.A.G.O.D.A.
 version: 1.0.0
 author: Hermes Agent (Nous Research)
 license: MIT
@@ -13,7 +13,7 @@ metadata:
 
 # OpenClaw -> Hermes Migration
 
-Use this skill when a user wants to move their OpenClaw setup into Hermes Agent with minimal manual cleanup.
+Use this skill when a user wants to move their OpenClaw setup into J.A.G.O.D.A with minimal manual cleanup.
 
 ## CLI Command
 

@@ -17,7 +17,7 @@ Manual OAuth for remote MCP servers on headless gateways.
 | Source | Optional — install with `hermes skills install official/mcp/mcp-oauth-remote-gateway` |
 | Path | `optional-skills/mcp\mcp-oauth-remote-gateway` |
 | Version | `1.0.0` |
-| Author | Ben Barclay (benbarclay), Hermes Agent |
+| Author | Ben Barclay (benbarclay), Jagoda |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `MCP`, `OAuth`, `PKCE`, `Remote-Deployment` |
@@ -26,7 +26,7 @@ Manual OAuth for remote MCP servers on headless gateways.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # MCP OAuth on a Remote Hermes Gateway
@@ -199,7 +199,7 @@ POST to the `registration_endpoint` with:
 
 ```json
 {
-  "client_name": "Hermes Agent (manual OAuth)",
+  "client_name": "J.A.G.O.D.A (manual OAuth)",
   "redirect_uris": ["http://127.0.0.1:8765/callback"],
   "grant_types": ["authorization_code", "refresh_token"],
   "response_types": ["code"],

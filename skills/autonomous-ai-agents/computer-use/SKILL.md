@@ -2,7 +2,7 @@
 name: computer-use
 description: "Drive the desktop background-first; escalate on signal."
 version: 2.0.0
-author: Francesco Bonacci (f-trycua), Hermes Agent
+author: Francesco Bonacci (f-trycua), Jagoda
 license: MIT
 platforms: [macos, windows, linux]
 metadata:

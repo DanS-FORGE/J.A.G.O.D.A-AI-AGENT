@@ -17,7 +17,7 @@ Set up op CLI, sign in, and read or inject secrets.
 | Source | Optional — install with `hermes skills install official/security/1password` |
 | Path | `optional-skills/security\1password` |
 | Version | `1.0.0` |
-| Author | arceus77-7, enhanced by Hermes Agent |
+| Author | arceus77-7, enhanced by Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `security`, `secrets`, `1password`, `op`, `cli` |
@@ -25,7 +25,7 @@ Set up op CLI, sign in, and read or inject secrets.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # 1Password CLI

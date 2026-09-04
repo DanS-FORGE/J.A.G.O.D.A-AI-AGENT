@@ -1,14 +1,14 @@
 ---
-title: "Actual Setup — Set up Actual Computer (actual.inc) inference in Hermes"
+title: "Actual Setup — Wire Actual Computer (actual.inc) into J.A.G.O.D.A"
 sidebar_label: "Actual Setup"
-description: "Set up Actual Computer (actual.inc) inference in Hermes"
+description: "Wire Actual Computer (actual.inc) into J.A.G.O.D.A"
 ---
 
 {/* This page is auto-generated from the skill's SKILL.md by website/scripts/generate-skill-docs.py. Edit the source SKILL.md, not this page. */}
 
 # Actual Setup
 
-Set up Actual Computer (actual.inc) inference in Hermes.
+Wire Actual Computer (actual.inc) into J.A.G.O.D.A.
 
 ## Skill metadata
 
@@ -17,7 +17,7 @@ Set up Actual Computer (actual.inc) inference in Hermes.
 | Source | Optional — install with `hermes skills install official/devops/actual-setup` |
 | Path | `optional-skills/devops\actual-setup` |
 | Version | `2.0.0` |
-| Author | shl0ms + Hermes Agent |
+| Author | shl0ms + Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `actual`, `actual-inc`, `provider`, `local-inference`, `relay`, `gguf`, `setup` |
@@ -25,7 +25,7 @@ Set up Actual Computer (actual.inc) inference in Hermes.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Actual Computer Setup Skill

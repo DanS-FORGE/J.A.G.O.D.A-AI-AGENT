@@ -17,7 +17,7 @@ Embed an in-page natural-language GUI copilot in web apps.
 | Source | Optional — install with `hermes skills install official/web-development/page-agent` |
 | Path | `optional-skills/web-development\page-agent` |
 | Version | `1.0.0` |
-| Author | Hermes Agent |
+| Author | Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `web`, `javascript`, `agent`, `browser`, `gui`, `alibaba`, `embed`, `copilot`, `saas` |
@@ -25,7 +25,7 @@ Embed an in-page natural-language GUI copilot in web apps.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # page-agent

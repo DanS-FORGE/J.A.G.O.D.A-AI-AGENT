@@ -17,7 +17,7 @@ Drive the desktop background-first; escalate on signal.
 | Source | Bundled (installed by default) |
 | Path | `skills/autonomous-ai-agents\computer-use` |
 | Version | `2.0.0` |
-| Author | Francesco Bonacci (f-trycua), Hermes Agent |
+| Author | Francesco Bonacci (f-trycua), Jagoda |
 | License | MIT |
 | Platforms | macos, windows, linux |
 | Tags | `computer-use`, `desktop`, `automation`, `gui`, `cross-platform` |
@@ -25,7 +25,7 @@ Drive the desktop background-first; escalate on signal.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Computer Use (universal, any-model, cross-platform)

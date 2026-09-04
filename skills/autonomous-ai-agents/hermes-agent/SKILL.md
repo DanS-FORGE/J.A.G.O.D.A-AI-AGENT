@@ -1,8 +1,8 @@
 ---
 name: hermes-agent
-description: "Use, configure, theme, extend, and orchestrate Hermes Agent."
+description: "Use, configure, theme, extend, and orchestrate J.A.G.O.D.A."
 version: 3.2.0
-author: Hermes Agent + Teknium
+author: Jagoda + Teknium
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

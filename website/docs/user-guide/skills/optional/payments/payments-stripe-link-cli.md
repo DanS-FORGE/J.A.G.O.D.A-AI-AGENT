@@ -17,7 +17,7 @@ Agent payments via Stripe Link — cards, SPT, approvals.
 | Source | Optional — install with `hermes skills install official/payments/stripe-link-cli` |
 | Path | `optional-skills/payments\stripe-link-cli` |
 | Version | `0.1.0` |
-| Author | Teknium (teknium1), Hermes Agent |
+| Author | Teknium (teknium1), Jagoda |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `Payments`, `Stripe`, `Link`, `Checkout`, `MPP` |
@@ -26,7 +26,7 @@ Agent payments via Stripe Link — cards, SPT, approvals.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Stripe Link CLI Skill

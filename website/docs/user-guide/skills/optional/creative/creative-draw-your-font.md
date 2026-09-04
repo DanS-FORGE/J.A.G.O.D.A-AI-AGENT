@@ -17,7 +17,7 @@ Turn a handwriting photo into an installable TTF font.
 | Source | Optional — install with `hermes skills install official/creative/draw-your-font` |
 | Path | `optional-skills/creative\draw-your-font` |
 | Version | `0.1.0` |
-| Author | Danilo Znamerovszkij (https://github.com/danilo-znamerovszkij/draw-your-font), ported by Hermes Agent |
+| Author | Danilo Znamerovszkij (https://github.com/danilo-znamerovszkij/draw-your-font), ported by Jagoda |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `font`, `handwriting`, `typography`, `ttf`, `woff`, `vision`, `creative` |
@@ -26,7 +26,7 @@ Turn a handwriting photo into an installable TTF font.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # draw-your-font

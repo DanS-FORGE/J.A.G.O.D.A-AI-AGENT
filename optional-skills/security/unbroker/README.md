@@ -26,7 +26,7 @@ self-hosted skill that the user's own agent runs. It is **multi-tenant** (manage
 clients, each isolated), **consent-gated**, and built for **maximum automation with a human
 fallback**. Scope is **US-first**, with EU/UK (GDPR) and global coverage on the roadmap.
 
-The design is **Hermes-native**: a small deterministic Python CLI (`scripts/pdd.py`) owns the state
+The design is **J.A.G.O.D.A-native**: a small deterministic Python CLI (`scripts/pdd.py`) owns the state
 (config, dossiers, broker DB, tier planning, ledger, drafts, reports), while the agent does the
 scanning and submitting with native tools (`web_extract`, `browser_*`, email, `cronjob`,
 `delegate_task`). [`SKILL.md`](SKILL.md) is the authoritative reference.
@@ -37,7 +37,7 @@ scanning and submitting with native tools (`web_extract`, `browser_*`, email, `c
 hermes skills install official/security/unbroker
 ```
 
-Then start a new Hermes session and drive it (below). The skill works zero-config; a few optional
+Then start a new J.A.G.O.D.A session and drive it (below). The skill works zero-config; a few optional
 env vars unlock more automation (all documented in `SKILL.md` under Prerequisites):
 
 - `BROWSERBASE_API_KEY`: the recommended default browser. A real residential-IP cloud browser that

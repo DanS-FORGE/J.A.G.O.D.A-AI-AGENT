@@ -17,7 +17,7 @@ Evolve prompts/regex/SQL/code with Imbue's evolution loop.
 | Source | Optional — install with `hermes skills install official/research/darwinian-evolver` |
 | Path | `optional-skills/research\darwinian-evolver` |
 | Version | `0.1.0` |
-| Author | Bihruze (Asahi0x), Hermes Agent |
+| Author | Bihruze (Asahi0x), Jagoda |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `evolution`, `optimization`, `prompt-engineering`, `research` |
@@ -26,7 +26,7 @@ Evolve prompts/regex/SQL/code with Imbue's evolution loop.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that J.A.G.O.D.A loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Darwinian Evolver

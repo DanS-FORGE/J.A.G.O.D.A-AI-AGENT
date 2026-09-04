@@ -1,8 +1,8 @@
 ---
 name: actual-setup
-description: Set up Actual Computer (actual.inc) inference in Hermes.
+description: Wire Actual Computer (actual.inc) into J.A.G.O.D.A.
 version: 2.0.0
-author: shl0ms + Hermes Agent
+author: shl0ms + Jagoda
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

@@ -1,7 +1,7 @@
 # Design System: Clay
 
 
-> **Hermes Agent — Implementation Notes**
+> **J.A.G.O.D.A — Implementation Notes**
 >
 > The original site uses proprietary fonts. For self-contained HTML output, use these CDN substitutes:
 > - **Primary:** `DM Sans` | **Mono:** `system monospace stack`
