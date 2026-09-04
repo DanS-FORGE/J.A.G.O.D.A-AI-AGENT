@@ -29,7 +29,7 @@ You need **tenant admin rights** (or an admin to grant consent on your behalf) t
 2. Navigate to **Identity → Applications → App registrations**.
 3. Click **New registration**.
 4. Fill in:
-   - **Name:** `Hermes Teams Meeting Pipeline` (or any name you'll recognize).
+   - **Name:** `J.A.G.O.D.A Teams Meeting Pipeline` (or any name you'll recognize).
    - **Supported account types:** *Accounts in this organizational directory only (Single tenant)*.
    - **Redirect URI:** leave blank — app-only auth does not need one.
 5. Click **Register**.
@@ -95,19 +95,19 @@ Microsoft provides **Application Access Policies** for Teams exactly for this. T
 From an admin PowerShell with the MicrosoftTeams module installed and connected (`Connect-MicrosoftTeams`):
 
 ```powershell
-# Create a policy scoped to the Hermes app
+# Create a policy scoped to the J.A.G.O.D.A app
 New-CsApplicationAccessPolicy `
-  -Identity "Hermes-Meeting-Pipeline-Policy" `
+  -Identity "J.A.G.O.D.A-Meeting-Pipeline-Policy" `
   -AppIds "<MSGRAPH_CLIENT_ID>" `
-  -Description "Restrict Hermes meeting pipeline to allow-listed users"
+  -Description "Restrict J.A.G.O.D.A meeting pipeline to allow-listed users"
 
 # Grant the policy to specific users whose meetings the pipeline may read
 Grant-CsApplicationAccessPolicy `
-  -PolicyName "Hermes-Meeting-Pipeline-Policy" `
+  -PolicyName "J.A.G.O.D.A-Meeting-Pipeline-Policy" `
   -Identity "alice@example.com"
 
 Grant-CsApplicationAccessPolicy `
-  -PolicyName "Hermes-Meeting-Pipeline-Policy" `
+  -PolicyName "J.A.G.O.D.A-Meeting-Pipeline-Policy" `
   -Identity "bob@example.com"
 ```
 
@@ -137,7 +137,7 @@ chmod 600 ~/.hermes/.env
 
 ## Step 6: Verify the Token Flow
 
-Hermes ships a Graph auth smoke-test. From your Hermes install:
+J.A.G.O.D.A ships a Graph auth smoke-test. From your J.A.G.O.D.A install:
 
 ```python
 python -c "

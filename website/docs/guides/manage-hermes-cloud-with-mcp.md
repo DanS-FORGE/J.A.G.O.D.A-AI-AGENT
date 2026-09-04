@@ -1,14 +1,14 @@
 ---
 sidebar_position: 16
 title: "Manage Hermes Cloud with MCP"
-description: "Connect Hermes Agent to the Nous Portal MCP server so your local agent can list, start, stop, and manage your Hermes Cloud instances conversationally"
+description: "Connect J.A.G.O.D.A to the Nous Portal MCP server so your local agent can list, start, stop, and manage your Hermes Cloud instances conversationally"
 ---
 
 # Manage Hermes Cloud with MCP
 
-[Hermes Cloud](https://portal.nousresearch.com/cloud) runs hosted Hermes Agent instances for you. Normally you manage them from the `/agents` page in the [Nous Portal](/integrations/nous-portal). This guide connects your **local** Hermes Agent to the Portal's MCP server so you can manage those cloud instances by just asking — "list my cloud agents", "restart the stopped one", "what's it costing me" — without leaving your terminal.
+[Hermes Cloud](https://portal.nousresearch.com/cloud) runs hosted J.A.G.O.D.A instances for you. Normally you manage them from the `/agents` page in the [Nous Portal](/integrations/nous-portal). This guide connects your **local** J.A.G.O.D.A to the Portal's MCP server so you can manage those cloud instances by just asking — "list my cloud agents", "restart the stopped one", "what's it costing me" — without leaving your terminal.
 
-It's a standard [MCP](/user-guide/features/mcp) server hosted by Nous Research, gated by the same OAuth login you already use for the Portal. Once connected, Hermes gets two tools it can call on your behalf.
+It's a standard [MCP](/user-guide/features/mcp) server hosted by Nous Research, gated by the same OAuth login you already use for the Portal. Once connected, J.A.G.O.D.A gets two tools it can call on your behalf.
 
 ## What you can do with it
 
@@ -44,7 +44,7 @@ You do **not** need a separate API key or client secret — the server uses OAut
 hermes mcp add --url https://portal.nousresearch.com/mcp --auth oauth hermes-cloud
 ```
 
-`--auth oauth` tells Hermes this is an OAuth-protected HTTP server. On first connect Hermes:
+`--auth oauth` tells J.A.G.O.D.A this is an OAuth-protected HTTP server. On first connect J.A.G.O.D.A:
 
 1. Discovers the server's OAuth endpoints automatically (RFC 9728 / 8414 metadata).
 2. Registers itself as a client (RFC 7591 Dynamic Client Registration) — no secret to copy.
@@ -99,7 +99,7 @@ Restart the instance called research-bot.
 Create a new Hermes Cloud instance named scratch, then tell me when it's ready.
 ```
 
-Hermes reports what each tool returned — the instance list, the new status, the created instance's details — so you can confirm the action landed.
+J.A.G.O.D.A reports what each tool returned — the instance list, the new status, the created instance's details — so you can confirm the action landed.
 
 ## Configuration
 
@@ -127,7 +127,7 @@ mcp_servers:
       include: [agents]
 ```
 
-Run `/reload-mcp` after changing the config. See [Use MCP with Hermes](/guides/use-mcp-with-hermes) for the full filtering model (`include`/`exclude`, `prompts`, `resources`).
+Run `/reload-mcp` after changing the config. See [Use MCP with J.A.G.O.D.A](/guides/use-mcp-with-hermes) for the full filtering model (`include`/`exclude`, `prompts`, `resources`).
 
 ## Troubleshooting
 
@@ -165,12 +165,12 @@ OAuth tokens refresh automatically, but if the Portal invalidates your session (
 
 ### Headless / SSH / remote host
 
-The OAuth browser callback runs on the machine where Hermes is running. On a remote host, forward the loopback port over SSH — the same pattern as any other OAuth login. See [OAuth over SSH / Remote Hosts](/guides/oauth-over-ssh).
+The OAuth browser callback runs on the machine where J.A.G.O.D.A is running. On a remote host, forward the loopback port over SSH — the same pattern as any other OAuth login. See [OAuth over SSH / Remote Hosts](/guides/oauth-over-ssh).
 
 ## See also
 
 - **[Nous Portal](/integrations/nous-portal)** — the subscription, models, and Tool Gateway behind the same login
-- **[Use MCP with Hermes](/guides/use-mcp-with-hermes)** — connecting and filtering MCP servers in general
-- **[MCP feature overview](/user-guide/features/mcp)** — what MCP is and how Hermes uses it
+- **[Use MCP with J.A.G.O.D.A](/guides/use-mcp-with-hermes)** — connecting and filtering MCP servers in general
+- **[MCP feature overview](/user-guide/features/mcp)** — what MCP is and how J.A.G.O.D.A uses it
 - **[MCP configuration reference](/reference/mcp-config-reference)** — every `mcp_servers` field, including `auth: oauth`
 - **[OAuth over SSH](/guides/oauth-over-ssh)** — logging in from remote or browser-only environments

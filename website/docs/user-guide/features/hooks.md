@@ -6,7 +6,7 @@ description: "Run custom code at key lifecycle points — log activity, send ale
 
 # Event Hooks
 
-Hermes has four hook systems that run custom code at key lifecycle points:
+J.A.G.O.D.A has four hook systems that run custom code at key lifecycle points:
 
 | System | Registered via | Runs in | Use case |
 |--------|---------------|---------|----------|
@@ -194,7 +194,7 @@ async def handle(event_type: str, context: dict):
 
 A popular pattern from the community: drop a Markdown checklist at `~/.hermes/BOOT.md`, and have the agent run it once every time the gateway starts. Useful for "on every boot, check overnight cron failures and ping me on Discord if anything failed," or "summarize the last 24h of deploy.log and post it to Slack #ops."
 
-This tutorial shows how to build it yourself as a user-defined hook. Hermes does not ship a built-in BOOT.md hook — you wire up exactly the behavior you want.
+This tutorial shows how to build it yourself as a user-defined hook. J.A.G.O.D.A does not ship a built-in BOOT.md hook — you wire up exactly the behavior you want.
 
 #### What we're building
 
@@ -344,7 +344,7 @@ Delete `~/.hermes/BOOT.md` to disable the checklist — the hook stays loaded bu
 
 #### Why this isn't a built-in
 
-An earlier version of Hermes shipped this as a built-in hook and silently spawned an agent with bare defaults on every gateway boot. That surprised users with custom endpoints and made the feature invisible to users who didn't know it was running. Keeping it as a documented pattern — built by you, in your hooks directory — means you see exactly what it does and opt in by writing the files.
+An earlier version of J.A.G.O.D.A shipped this as a built-in hook and silently spawned an agent with bare defaults on every gateway boot. That surprised users with custom endpoints and made the feature invisible to users who didn't know it was running. Keeping it as a documented pattern — built by you, in your hooks directory — means you see exactly what it does and opt in by writing the files.
 
 ### How It Works
 
@@ -499,7 +499,7 @@ Common fields for all four hooks:
 |-----------|------|-------------|
 | `turn_id` | `str` | Opaque turn identifier, when available |
 | `iteration` | `int` | Current API-call/tool-loop iteration |
-| `session_id` | `str` | Current Hermes session id |
+| `session_id` | `str` | Current J.A.G.O.D.A session id |
 | `model` | `str` | Active model identifier |
 | `provider` | `str` | Active provider name |
 | `surface` | `str` | Calling surface, e.g. `cli`, `discord`, `telegram` |
@@ -570,7 +570,7 @@ Shell hooks also accept the Claude Code-compatible format:
 
 Both formats are normalized internally to `{"action": "modify", "args": {...}}`.
 
-If a `pre_tool_call` callback exceeds `plugins.hook_callback_timeout` (or is still running from a previous timed-out fire), Hermes **fails closed**: the tool is blocked with a timeout message rather than proceeding without a policy decision.
+If a `pre_tool_call` callback exceeds `plugins.hook_callback_timeout` (or is still running from a previous timed-out fire), J.A.G.O.D.A **fails closed**: the tool is blocked with a timeout message rather than proceeding without a policy decision.
 
 **Use cases:** Logging, audit trails, tool call counters, blocking dangerous operations, rate limiting, per-user policy enforcement, argument sanitization, path rewriting, injecting default parameters.
 
@@ -691,9 +691,9 @@ return "Recalled memories:\n- User likes Python"
 return None
 ```
 
-**Where context is injected:** Always the **user message**, never the system prompt. This preserves the prompt cache — the system prompt stays identical across turns, so cached tokens are reused. The system prompt is Hermes's territory (model guidance, tool enforcement, personality, skills). Plugins contribute context alongside the user's input.
+**Where context is injected:** Always the **user message**, never the system prompt. This preserves the prompt cache — the system prompt stays identical across turns, so cached tokens are reused. The system prompt is J.A.G.O.D.A's territory (model guidance, tool enforcement, personality, skills). Plugins contribute context alongside the user's input.
 
-The clean user-message `content` remains unchanged. For replay and prompt-cache stability, Hermes may persist the exact API-bound message, including plugin-injected context, in the row's `api_content` sidecar.
+The clean user-message `content` remains unchanged. For replay and prompt-cache stability, J.A.G.O.D.A may persist the exact API-bound message, including plugin-injected context, in the row's `api_content` sidecar.
 
 When **multiple plugins** return context, their outputs are joined with double newlines in plugin discovery order (alphabetical by directory name).
 
@@ -805,7 +805,7 @@ def register(ctx):
 
 Fires **once per turn when the agent edited code**, just before it finishes (after the built-in verify-on-stop guard). This is a user/plugin policy gate: a callback can keep the agent going — run a check, defer it, tidy the diff — instead of letting it stop.
 
-Hermes' shipped verification guidance is not a default `pre_verify` hook. It is appended to the evidence-based verify-on-stop nudge when edited code lacks fresh verification evidence, so it does not create a second default continuation path. Set `agent.verify_guidance: false` to keep that built-in evidence nudge terse.
+J.A.G.O.D.A's shipped verification guidance is not a default `pre_verify` hook. It is appended to the evidence-based verify-on-stop nudge when edited code lacks fresh verification evidence, so it does not create a second default continuation path. Set `agent.verify_guidance: false` to keep that built-in evidence nudge terse.
 
 **Callback signature:**
 
@@ -1307,7 +1307,7 @@ def my_callback(
 import subprocess
 
 def notify_approval(command, description, session_key, **kwargs):
-    title = "Hermes needs approval"
+    title = "J.A.G.O.D.A needs approval"
     body = f"{description}: {command[:80]}"
     subprocess.Popen([
         "osascript", "-e",
@@ -1392,7 +1392,7 @@ def my_callback(
 **Use cases:** Inject a per-user or per-chat vocabulary list before the audio is uploaded, force `language` from the caller's locale, downgrade `model` for long recordings, route noisy sources to a different model.
 
 ```python
-VOCAB = "Hermes, Teknium, Nous Research, kanban"
+VOCAB = "J.A.G.O.D.A, Teknium, Nous Research, kanban"
 
 def add_vocab(provider, prompt, source, **kwargs):
     if source != "gateway":
@@ -1577,7 +1577,7 @@ Five additional observers (RFC #58548) extend the kanban family. All are observe
 
 ## Shell Hooks
 
-Declare shell-script hooks in your `~/.hermes/config.yaml` and Hermes will run them as subprocesses whenever the corresponding plugin-hook event fires — in both CLI and gateway sessions. No Python plugin authoring required.
+Declare shell-script hooks in your `~/.hermes/config.yaml` and J.A.G.O.D.A will run them as subprocesses whenever the corresponding plugin-hook event fires — in both CLI and gateway sessions. No Python plugin authoring required.
 
 Use shell hooks when you want a drop-in, single-file script (Bash, Python, anything with a shebang) to:
 
@@ -1620,7 +1620,7 @@ Event names must be one of the [plugin hook events](#plugin-hooks); typos produc
 
 ### JSON wire protocol
 
-Each time the event fires, Hermes spawns a subprocess for every matching hook (matcher permitting), pipes a JSON payload to **stdin**, and reads **stdout** back as JSON.
+Each time the event fires, J.A.G.O.D.A spawns a subprocess for every matching hook (matcher permitting), pipes a JSON payload to **stdin**, and reads **stdout** back as JSON.
 
 **stdin — payload the script receives:**
 
@@ -1642,10 +1642,10 @@ Each time the event fires, Hermes spawns a subprocess for every matching hook (m
 ```jsonc
 // Block a pre_tool_call (both shapes accepted; normalised internally):
 {"decision": "block", "reason":  "Forbidden: rm -rf"}   // Claude-Code style
-{"action":   "block", "message": "Forbidden: rm -rf"}   // Hermes-canonical
+{"action":   "block", "message": "Forbidden: rm -rf"}   // J.A.G.O.D.A-canonical
 
 // Modify a pre_tool_call — rewrite tool args before dispatch:
-{"action": "modify", "args": {"new_string": "fixed content"}}         // Hermes-canonical
+{"action": "modify", "args": {"new_string": "fixed content"}}         // J.A.G.O.D.A-canonical
 {"decision": "modify", "tool_input": {"new_string": "fixed content"}} // Claude-Code style
 
 // Inject context for pre_llm_call:
@@ -1769,7 +1769,7 @@ else
 fi
 ```
 
-Claude Code's `UserPromptSubmit` event is intentionally not a separate Hermes event — `pre_llm_call` fires at the same place and already supports context injection. Use it here.
+Claude Code's `UserPromptSubmit` event is intentionally not a separate J.A.G.O.D.A event — `pre_llm_call` fires at the same place and already supports context injection. Use it here.
 
 #### 4. Log every subagent completion
 
@@ -1789,7 +1789,7 @@ printf '{}\n'
 
 ### Consent model
 
-Each unique `(event, command)` pair prompts the user for approval the first time Hermes sees it, then persists the decision to `~/.hermes/shell-hooks-allowlist.json`. Subsequent runs (CLI or gateway) skip the prompt.
+Each unique `(event, command)` pair prompts the user for approval the first time J.A.G.O.D.A sees it, then persists the decision to `~/.hermes/shell-hooks-allowlist.json`. Subsequent runs (CLI or gateway) skip the prompt.
 
 Three escape hatches bypass the interactive prompt — any one is sufficient:
 
@@ -1842,14 +1842,14 @@ Both Python plugin hooks and shell hooks flow through the same `invoke_hook()` d
 
 ## Outbound Webhooks
 
-Outbound webhooks are the push-side mirror of the [inbound webhook platform](/user-guide/messaging/webhooks): inbound webhooks wake Hermes when the world changes; outbound webhooks tell the world when Hermes does something. Configure a list of HTTP endpoints and the lifecycle events they care about, and Hermes POSTs a signed JSON payload to each endpoint whenever a matching event fires — no polling on the receiving end.
+Outbound webhooks are the push-side mirror of the [inbound webhook platform](/user-guide/messaging/webhooks): inbound webhooks wake J.A.G.O.D.A when the world changes; outbound webhooks tell the world when J.A.G.O.D.A does something. Configure a list of HTTP endpoints and the lifecycle events they care about, and J.A.G.O.D.A POSTs a signed JSON payload to each endpoint whenever a matching event fires — no polling on the receiving end.
 
 Typical uses:
 
 - Notify a CI system or dashboard when an agent turn finishes (`on_session_end`)
 - Track subagent completions across a fleet (`subagent_stop`)
 - Feed tool activity into external monitoring (`post_tool_call` with a `matcher`)
-- Wake *another* Hermes instance: point the URL at that instance's inbound webhook
+- Wake *another* J.A.G.O.D.A instance: point the URL at that instance's inbound webhook
 
 ### Configuration
 
@@ -1912,7 +1912,7 @@ def verify(body: bytes, header: str, secret: str) -> bool:
 
 Because `delivery_id` and `timestamp` live **inside the signed body**, a verified receiver also gets replay protection for free:
 
-- **Dedupe** on `delivery_id` (or the matching `X-Hermes-Delivery` header) — remember recently seen ids and skip duplicates. Hermes retries failed deliveries once, so the same id can legitimately arrive twice.
+- **Dedupe** on `delivery_id` (or the matching `X-Hermes-Delivery` header) — remember recently seen ids and skip duplicates. J.A.G.O.D.A retries failed deliveries once, so the same id can legitimately arrive twice.
 - **Reject stale events** by checking `timestamp` against your clock with a tolerance window (5 minutes is the common default). An attacker replaying a captured request can't forge a fresh timestamp without the secret.
 
 ### Delivery semantics

@@ -183,7 +183,7 @@ J.A.G.O.D.A ships with built-in personalities you can switch to with `/personali
 | **teacher** | Patient educator with clear examples |
 | **kawaii** | Cute expressions, sparkles, and enthusiasm ★ |
 | **catgirl** | Neko-chan with cat-like expressions, nya~ |
-| **pirate** | Captain Hermes, tech-savvy buccaneer |
+| **pirate** | Captain J.A.G.O.D.A, tech-savvy buccaneer |
 | **shakespeare** | Bardic prose with dramatic flair |
 | **surfer** | Totally chill bro vibes |
 | **noir** | Hard-boiled detective narration |
@@ -242,7 +242,7 @@ To cancel the active personality overlay and return to base behavior (your `SOUL
 All three clear the selection (`display.personality`) and the change takes effect on your next message. Running `/personality` with no arguments also lists `none` alongside the available presets and marks the active one.
 
 :::note One-time reset on upgrade
-Older Hermes versions saved personality state inconsistently across surfaces, which could re-enable a personality you had previously turned off. On your first run after upgrading, any saved personality selection is reset to `none` once (the migration prints which personality was cleared). Re-enable it with `/personality <name>` if you still want it. Manual `agent.system_prompt` text is never touched.
+Older J.A.G.O.D.A versions saved personality state inconsistently across surfaces, which could re-enable a personality you had previously turned off. On your first run after upgrading, any saved personality selection is reset to `none` once (the migration prints which personality was cleared). Re-enable it with `/personality <name>` if you still want it. Manual `agent.system_prompt` text is never touched.
 :::
 
 ## Recommended workflow

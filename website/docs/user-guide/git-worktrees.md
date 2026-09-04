@@ -2,23 +2,23 @@
 sidebar_position: 3
 sidebar_label: "Git Worktrees"
 title: "Git Worktrees"
-description: "Run multiple Hermes agents safely on the same repository using git worktrees and isolated checkouts"
+description: "Run multiple J.A.G.O.D.A agents safely on the same repository using git worktrees and isolated checkouts"
 ---
 
 # Git Worktrees
 
-Hermes Agent is often used on large, long‑lived repositories. When you want to:
+J.A.G.O.D.A is often used on large, long‑lived repositories. When you want to:
 
 - Run **multiple agents in parallel** on the same project, or
 - Keep experimental refactors isolated from your main branch,
 
 Git **worktrees** are the safest way to give each agent its own checkout without duplicating the entire repository.
 
-This page shows how to combine worktrees with Hermes so each session has a clean, isolated working directory.
+This page shows how to combine worktrees with J.A.G.O.D.A so each session has a clean, isolated working directory.
 
-## Why Use Worktrees with Hermes?
+## Why Use Worktrees with J.A.G.O.D.A?
 
-Hermes treats the **current working directory** as the project root:
+J.A.G.O.D.A treats the **current working directory** as the project root:
 
 - CLI: the directory where you run `hermes` or `hermes chat`
 - Messaging gateways: the directory set by `terminal.cwd` in `~/.hermes/config.yaml`
@@ -46,7 +46,7 @@ interactive CLI session, run
 /worktree new my-experiment
 ```
 
-Hermes creates `.worktrees/my-experiment/` inside the repo (branch
+J.A.G.O.D.A creates `.worktrees/my-experiment/` inside the repo (branch
 `hermes/my-experiment`, based on the freshly-fetched remote tip unless
 `worktree_sync: false`), and retargets the session's terminal and file tools
 into it — no restart needed. Omit the name to get a random `hermes-<id>`
@@ -71,16 +71,16 @@ This creates:
 - A new directory: `../repo-feature`
 - A new branch: `feature/hermes-experiment` checked out in that directory
 
-Now you can `cd` into the new worktree and run Hermes there:
+Now you can `cd` into the new worktree and run J.A.G.O.D.A there:
 
 ```bash
 cd ../repo-feature
 
-# Start Hermes in the worktree
+# Start J.A.G.O.D.A in the worktree
 hermes
 ```
 
-Hermes will:
+J.A.G.O.D.A will:
 
 - See `../repo-feature` as the project root.
 - Use that directory for context files, code edits, and tools.
@@ -109,7 +109,7 @@ cd ../repo-experiment-b
 hermes
 ```
 
-Each Hermes process:
+Each J.A.G.O.D.A process:
 
 - Works on its own branch (`feature/hermes-a` vs `feature/hermes-b`).
 - Writes checkpoints under a different shadow repo hash (derived from the worktree path).
@@ -141,11 +141,11 @@ Notes:
 
 - `git worktree remove` will refuse to remove a worktree with uncommitted changes unless you force it.
 - Removing a worktree does **not** automatically delete the branch; you can delete or keep the branch using normal `git branch` commands.
-- Hermes checkpoint data under `~/.hermes/checkpoints/` is not automatically pruned when you remove a worktree, but it is usually very small.
+- J.A.G.O.D.A checkpoint data under `~/.hermes/checkpoints/` is not automatically pruned when you remove a worktree, but it is usually very small.
 
 ## Best Practices
 
-- **One worktree per Hermes experiment**
+- **One worktree per J.A.G.O.D.A experiment**
   - Create a dedicated branch/worktree for each substantial change.
   - This keeps diffs focused and PRs small and reviewable.
 - **Name branches after the experiment**
@@ -153,19 +153,19 @@ Notes:
 - **Commit frequently**
   - Use git commits for high‑level milestones.
   - Use [checkpoints and /rollback](./checkpoints-and-rollback.md) as a safety net for tool‑driven edits in between.
-- **Avoid running Hermes from the bare repo root when using worktrees**
+- **Avoid running J.A.G.O.D.A from the bare repo root when using worktrees**
   - Prefer the worktree directories instead, so each agent has a clear scope.
 
 ## Using `hermes -w` (Automatic Worktree Mode)
 
-Hermes has a built‑in `-w` flag that **automatically creates a disposable git worktree** with its own branch. You don't need to set up worktrees manually — just `cd` into your repo and run:
+J.A.G.O.D.A has a built‑in `-w` flag that **automatically creates a disposable git worktree** with its own branch. You don't need to set up worktrees manually — just `cd` into your repo and run:
 
 ```bash
 cd /path/to/your/repo
 hermes -w
 ```
 
-Hermes will:
+J.A.G.O.D.A will:
 
 - Create a temporary worktree under `.worktrees/` inside your repo.
 - Check out an isolated branch (e.g. `hermes/hermes-<hash>`).
@@ -181,7 +181,7 @@ For parallel agents, open multiple terminals and run `hermes -w` in each — eve
 
 ## Putting It All Together
 
-- Use **git worktrees** to give each Hermes session its own clean checkout.
+- Use **git worktrees** to give each J.A.G.O.D.A session its own clean checkout.
 - Use **branches** to capture the high‑level history of your experiments.
 - Use **checkpoints + `/rollback`** to recover from mistakes inside each worktree.
 

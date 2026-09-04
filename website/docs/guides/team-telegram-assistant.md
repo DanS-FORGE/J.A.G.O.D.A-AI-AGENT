@@ -6,7 +6,7 @@ description: "Step-by-step guide to setting up a Telegram bot that your whole te
 
 # Set Up a Team Telegram Assistant
 
-This tutorial walks you through setting up a Telegram bot powered by Hermes Agent that multiple team members can use. By the end, your team will have a shared AI assistant they can message for help with code, research, system administration, and anything else — secured with per-user authorization.
+This tutorial walks you through setting up a Telegram bot powered by J.A.G.O.D.A that multiple team members can use. By the end, your team will have a shared AI assistant they can message for help with code, research, system administration, and anything else — secured with per-user authorization.
 
 ## What We're Building
 
@@ -24,12 +24,12 @@ A Telegram bot that:
 
 Before starting, make sure you have:
 
-- **Hermes Agent installed** on a server or VPS (not your laptop — the bot needs to stay running). Follow the [installation guide](/getting-started/installation) if you haven't yet.
+- **J.A.G.O.D.A installed** on a server or VPS (not your laptop — the bot needs to stay running). Follow the [installation guide](/getting-started/installation) if you haven't yet.
 - **A Telegram account** for yourself (the bot owner)
 - **An LLM provider configured** — at minimum, an API key for OpenAI, Anthropic, or another supported provider in `~/.hermes/.env`
 
 :::tip
-A $5/month VPS is plenty for running the gateway. Hermes itself is lightweight — the LLM API calls are what cost money, and those happen remotely.
+A $5/month VPS is plenty for running the gateway. J.A.G.O.D.A itself is lightweight — the LLM API calls are what cost money, and those happen remotely.
 :::
 
 ---
@@ -57,7 +57,7 @@ Every Telegram bot starts with **@BotFather** — Telegram's official bot for cr
    ```
    Choose your bot, then enter something like:
    ```
-   Team AI assistant powered by Hermes Agent. DM me for help with code, research, debugging, and more.
+   Team AI assistant powered by J.A.G.O.D.A. DM me for help with code, research, debugging, and more.
    ```
 
 5. **Set bot commands** (optional — gives users a command menu):
@@ -130,7 +130,7 @@ hermes gateway
 You should see output like:
 
 ```
-[Gateway] Starting Hermes Gateway...
+[Gateway] Starting J.A.G.O.D.A Gateway...
 [Gateway] Telegram adapter connected
 [Gateway] Cron scheduler started (tick every 60s)
 ```
@@ -291,7 +291,7 @@ Users can also change this per-session with the `/verbose` command in chat.
 
 Customize how the bot communicates by editing `~/.hermes/SOUL.md`:
 
-For a full guide, see [Use SOUL.md with Hermes](/guides/use-soul-with-hermes).
+For a full guide, see [Use SOUL.md with J.A.G.O.D.A](/guides/use-soul-with-hermes).
 
 ```markdown
 # Soul
@@ -403,7 +403,7 @@ journalctl --user -u hermes-gateway -f
 tail -f ~/.hermes/logs/gateway.log
 ```
 
-### Keep Hermes Updated
+### Keep J.A.G.O.D.A Updated
 
 From Telegram, send `/update` to the bot — it will pull the latest version and restart. Or from the server:
 

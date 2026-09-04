@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # LLM and Model Providers
 
-This page covers setting up inference providers for Hermes Agent — from cloud APIs like OpenRouter and Anthropic, to self-hosted endpoints like Ollama and vLLM, to advanced routing and fallback configurations. You need at least one provider configured to use Hermes.
+This page covers setting up inference providers for J.A.G.O.D.A — from cloud APIs like OpenRouter and Anthropic, to self-hosted endpoints like Ollama and vLLM, to advanced routing and fallback configurations. You need at least one provider configured to use J.A.G.O.D.A.
 
 ## Inference Providers
 
@@ -45,7 +45,7 @@ You need at least one way to connect to an LLM. Use `hermes model` to switch pro
 | **OpenCode Zen** | `OPENCODE_ZEN_API_KEY` in `~/.hermes/.env` (provider: `opencode-zen`) |
 | **CommandCode** | `COMMANDCODE_API_KEY` in `~/.hermes/.env` (provider: `commandcode`, alias: `commandcode-chat`; Claude models via `commandcode-anthropic`, alias: `commandcode-claude`). Works with GOAT/Pro/Max/Provider plans (not the $1 Go plan — no API access). |
 | **OpenCode Go** | `OPENCODE_GO_API_KEY` in `~/.hermes/.env` (provider: `opencode-go`) |
-| **OpenCode Free** | Keyless — no API key or account needed (provider: `opencode-free`, aliases: `free`, `opencode_free`). Select via `hermes model` or `/model free`; requests are sent anonymously. The model list refreshes automatically from OpenCode's live catalog, so rotating free promotions appear (and delisted ones disappear) without a Hermes update |
+| **OpenCode Free** | Keyless — no API key or account needed (provider: `opencode-free`, aliases: `free`, `opencode_free`). Select via `hermes model` or `/model free`; requests are sent anonymously. The model list refreshes automatically from OpenCode's live catalog, so rotating free promotions appear (and delisted ones disappear) without a J.A.G.O.D.A update |
 | **DeepSeek** | `DEEPSEEK_API_KEY` in `~/.hermes/.env` (provider: `deepseek`) |
 | **Hugging Face** | `HF_TOKEN` in `~/.hermes/.env` (provider: `huggingface`, aliases: `hf`) |
 | **Google / Gemini** | `GOOGLE_API_KEY` (or `GEMINI_API_KEY`) in `~/.hermes/.env` (provider: `gemini`) |
@@ -70,7 +70,7 @@ In the `model:` config section, you can use either `default:` or `model:` as the
 
 ### Nous Portal
 
-[Nous Portal](https://portal.nousresearch.com) is Nous Research's unified subscription gateway and **the recommended way to run Hermes Agent**. One OAuth login covers 300+ frontier agentic models (Claude, GPT, Gemini, DeepSeek, Qwen, Kimi, GLM, MiniMax, Grok, ...) plus the [Tool Gateway](/user-guide/features/tool-gateway) (web search, image generation, TTS, browser automation) — billed against your Nous subscription instead of separate per-provider accounts.
+[Nous Portal](https://portal.nousresearch.com) is Nous Research's unified subscription gateway and **the recommended way to run J.A.G.O.D.A**. One OAuth login covers 300+ frontier agentic models (Claude, GPT, Gemini, DeepSeek, Qwen, Kimi, GLM, MiniMax, Grok, ...) plus the [Tool Gateway](/user-guide/features/tool-gateway) (web search, image generation, TTS, browser automation) — billed against your Nous subscription instead of separate per-provider accounts.
 
 ```bash
 hermes setup --portal     # fresh install — OAuth + provider + gateway in one command
@@ -80,21 +80,21 @@ hermes portal info        # inspect login + routing at any time
 
 Don't have a subscription yet? Get one at [portal.nousresearch.com/manage-subscription](https://portal.nousresearch.com/manage-subscription).
 
-**For full details:** see the dedicated [Nous Portal integration page](/integrations/nous-portal) (what's in the subscription, model catalog, troubleshooting) and the step-by-step [Run Hermes Agent with Nous Portal guide](/guides/run-hermes-with-nous-portal).
+**For full details:** see the dedicated [Nous Portal integration page](/integrations/nous-portal) (what's in the subscription, model catalog, troubleshooting) and the step-by-step [Run J.A.G.O.D.A with Nous Portal guide](/guides/run-hermes-with-nous-portal).
 
-**Client identification.** Every Portal request from Hermes Agent carries a `client=hermes-client-v<version>` tag (e.g. `client=hermes-client-v0.13.0`) auto-aligned to your installed release. This is sent on all Portal pathways — main chat loop, auxiliary calls, compression summarizer, web extraction — and lets Portal-side telemetry distinguish Hermes traffic from other clients. No config required; the tag updates automatically when you `hermes update`.
+**Client identification.** Every Portal request from J.A.G.O.D.A carries a `client=hermes-client-v<version>` tag (e.g. `client=hermes-client-v0.13.0`) auto-aligned to your installed release. This is sent on all Portal pathways — main chat loop, auxiliary calls, compression summarizer, web extraction — and lets Portal-side telemetry distinguish J.A.G.O.D.A traffic from other clients. No config required; the tag updates automatically when you `hermes update`.
 
-**JWT auth (automatic).** Hermes prefers scoped `inference:invoke` JWTs for Portal requests with the legacy opaque session-key path as a fallback. No configuration is required — credentials are managed by the OAuth flow and rotate transparently. Revoked refresh tokens are quarantined to avoid replay loops.
+**JWT auth (automatic).** J.A.G.O.D.A prefers scoped `inference:invoke` JWTs for Portal requests with the legacy opaque session-key path as a fallback. No configuration is required — credentials are managed by the OAuth flow and rotate transparently. Revoked refresh tokens are quarantined to avoid replay loops.
 
 
 :::info Codex Note
-The OpenAI Codex provider authenticates via device code (open a URL, enter a code). Hermes stores the resulting credentials in its own auth store under `~/.hermes/auth.json` and can import existing Codex CLI credentials from `~/.codex/auth.json` when present. No Codex CLI installation is required.
+The OpenAI Codex provider authenticates via device code (open a URL, enter a code). J.A.G.O.D.A stores the resulting credentials in its own auth store under `~/.hermes/auth.json` and can import existing Codex CLI credentials from `~/.codex/auth.json` when present. No Codex CLI installation is required.
 
-If a token refresh fails with a terminal error (HTTP 4xx, `invalid_grant`, revoked grant, etc.), Hermes marks the refresh token as dead and stops replaying it so you don't see a flood of identical auth failures. The next request surfaces a typed re-auth message instead. Run `hermes auth add openai-codex` (or `hermes model` → **ChatGPT or Codex Subscription**) to start a fresh device-code login; the quarantine clears on the next successful exchange.
+If a token refresh fails with a terminal error (HTTP 4xx, `invalid_grant`, revoked grant, etc.), J.A.G.O.D.A marks the refresh token as dead and stops replaying it so you don't see a flood of identical auth failures. The next request surfaces a typed re-auth message instead. Run `hermes auth add openai-codex` (or `hermes model` → **ChatGPT or Codex Subscription**) to start a fresh device-code login; the quarantine clears on the next successful exchange.
 :::
 
 :::warning
-Even when using Nous Portal, Codex, or a custom endpoint, some tools (vision, web summarization, MoA) use a separate "auxiliary" model. By default (`auxiliary.*.provider: "auto"`), Hermes routes these tasks to your **main chat model** — the same model you picked in `hermes model`. You can override each task individually to route it to a cheaper/faster model (e.g. Gemini Flash on OpenRouter) — see [Auxiliary Models](/user-guide/configuration#auxiliary-models).
+Even when using Nous Portal, Codex, or a custom endpoint, some tools (vision, web summarization, MoA) use a separate "auxiliary" model. By default (`auxiliary.*.provider: "auto"`), J.A.G.O.D.A routes these tasks to your **main chat model** — the same model you picked in `hermes model`. You can override each task individually to route it to a cheaper/faster model (e.g. Gemini Flash on OpenRouter) — see [Auxiliary Models](/user-guide/configuration#auxiliary-models).
 :::
 
 :::tip Nous Tool Gateway
@@ -103,37 +103,37 @@ Paid Nous Portal subscribers also get access to the **[Tool Gateway](/user-guide
 
 ### Two Commands for Model Management
 
-Hermes has **two** model commands that serve different purposes:
+J.A.G.O.D.A has **two** model commands that serve different purposes:
 
 | Command | Where to run | What it does |
 |---------|-------------|--------------|
 | **`hermes model`** | Your terminal (outside any session) | Full setup wizard — add providers, run OAuth, enter API keys, configure endpoints |
-| **`/model`** | Inside a Hermes chat session | Quick switch between **already-configured** providers and models |
+| **`/model`** | Inside a J.A.G.O.D.A chat session | Quick switch between **already-configured** providers and models |
 
 If you're trying to switch to a provider you haven't set up yet (e.g. you only have OpenRouter configured and want to use Anthropic), you need `hermes model`, not `/model`. Exit your session first (`Ctrl+C` or `/quit`), run `hermes model`, complete the provider setup, then start a new session.
 
 
 ### Subscription plans: what your plan pays for
 
-Several providers let you sign in to Hermes with a **consumer subscription** (Claude Max, ChatGPT, SuperGrok / X Premium+, …) instead of an API key. What that subscription actually pays for — and what it doesn't — differs per provider, and it's the single most common source of billing surprises. The table below is the short version; each provider's own section has the details.
+Several providers let you sign in to J.A.G.O.D.A with a **consumer subscription** (Claude Max, ChatGPT, SuperGrok / X Premium+, …) instead of an API key. What that subscription actually pays for — and what it doesn't — differs per provider, and it's the single most common source of billing surprises. The table below is the short version; each provider's own section has the details.
 
-> Cells marked *not currently documented* mean exactly that: Hermes docs do not yet specify the behavior. Don't assume — check your provider's billing dashboard, and treat these as open questions.
+> Cells marked *not currently documented* mean exactly that: J.A.G.O.D.A docs do not yet specify the behavior. Don't assume — check your provider's billing dashboard, and treat these as open questions.
 
-| Plan / path | Can Hermes use it? | What gets consumed | What does NOT get consumed | Common surprise |
+| Plan / path | Can J.A.G.O.D.A use it? | What gets consumed | What does NOT get consumed | Common surprise |
 |---|---|---|---|---|
-| **Anthropic — Claude Max + OAuth** | ✅ Yes — `hermes model` → Anthropic OAuth. Requires Max **and** purchased extra usage credits | The **extra/overage credits** you've added on top of the Max plan | The **base Max plan allowance** (the usage included in Claude Code by default) | All Hermes usage bills as "extra usage" even while your included Max allowance sits untouched |
+| **Anthropic — Claude Max + OAuth** | ✅ Yes — `hermes model` → Anthropic OAuth. Requires Max **and** purchased extra usage credits | The **extra/overage credits** you've added on top of the Max plan | The **base Max plan allowance** (the usage included in Claude Code by default) | All J.A.G.O.D.A usage bills as "extra usage" even while your included Max allowance sits untouched |
 | **Anthropic — Claude Pro** | ❌ No — Pro subscribers cannot use the OAuth path | Nothing (path unavailable) | Your Pro subscription | Pro looks like it should work; it doesn't. Use an `ANTHROPIC_API_KEY` instead (pay-per-token, independent of any Claude subscription) |
 | **OpenAI Codex — ChatGPT plan OAuth** | ✅ Yes — `hermes model` → **ChatGPT or Codex Subscription** (ChatGPT OAuth device-code login, uses Codex models) | *Not currently documented* | *Not currently documented* | Docs cover auth and token refresh only; plan-quota semantics are not yet documented |
 | **xAI — SuperGrok / X Premium+ OAuth** | ✅ Yes — browser OAuth, no API key needed | Your **subscription quota** (documented explicitly for X Search: OAuth is preferred over an API key and "uses your subscription quota instead of API spend"). Inference quota semantics beyond that: *not currently documented* | `XAI_API_KEY` / pay-per-token API spend, when OAuth credentials are configured and preferred | `HTTP 403` after a successful login — xAI has restricted OAuth API access to specific SuperGrok tiers despite an active in-app subscription |
-| **Google — Gemini consumer plan (Google AI Pro / Ultra)** | ❌ No documented path — the `gemini` provider is API-key only (`GOOGLE_API_KEY` / `GEMINI_API_KEY`); Vertex AI uses GCP billing | Your **API key's quota** (free tier or billing-enabled Google Cloud project) — *consumer-plan consumption not currently documented* | *Not currently documented* | Free-tier keys can be exhausted after a handful of agent turns, because Hermes may make several model calls per user turn |
+| **Google — Gemini consumer plan (Google AI Pro / Ultra)** | ❌ No documented path — the `gemini` provider is API-key only (`GOOGLE_API_KEY` / `GEMINI_API_KEY`); Vertex AI uses GCP billing | Your **API key's quota** (free tier or billing-enabled Google Cloud project) — *consumer-plan consumption not currently documented* | *Not currently documented* | Free-tier keys can be exhausted after a handful of agent turns, because J.A.G.O.D.A may make several model calls per user turn |
 
-**Anthropic.** The OAuth path routes as Claude Code against your Anthropic account and **only works on a Claude Max plan with purchased extra usage credits** — the base Max allowance is never consumed by Hermes, only the extra/overage credits on top. Claude Pro subscribers cannot use this path; the supported alternative is an `ANTHROPIC_API_KEY`, billed pay-per-token against that key's organization at standard API pricing. See [Anthropic (Native)](#anthropic-native) below.
+**Anthropic.** The OAuth path routes as Claude Code against your Anthropic account and **only works on a Claude Max plan with purchased extra usage credits** — the base Max allowance is never consumed by J.A.G.O.D.A, only the extra/overage credits on top. Claude Pro subscribers cannot use this path; the supported alternative is an `ANTHROPIC_API_KEY`, billed pay-per-token against that key's organization at standard API pricing. See [Anthropic (Native)](#anthropic-native) below.
 
-**OpenAI Codex.** Hermes authenticates via ChatGPT device-code OAuth, stores credentials in `~/.hermes/auth.json`, and can import existing Codex CLI credentials from `~/.codex/auth.json`. Which ChatGPT plan tiers are eligible, and how Hermes usage counts against your plan's Codex limits, are **not currently documented** — the Codex note under [Nous Portal](#nous-portal) covers authentication and token-refresh behavior only.
+**OpenAI Codex.** J.A.G.O.D.A authenticates via ChatGPT device-code OAuth, stores credentials in `~/.hermes/auth.json`, and can import existing Codex CLI credentials from `~/.codex/auth.json`. Which ChatGPT plan tiers are eligible, and how J.A.G.O.D.A usage counts against your plan's Codex limits, are **not currently documented** — the Codex note under [Nous Portal](#nous-portal) covers authentication and token-refresh behavior only.
 
 **xAI (SuperGrok / X Premium+).** Browser OAuth works with either an active SuperGrok subscription or an X Premium+ subscription on the linked X account, and the same bearer token is reused by direct-to-xAI tools (TTS, image gen, video gen, transcription, X Search). If inference returns `HTTP 403` after a successful login, that's a tier/entitlement restriction on xAI's side, not a stale token — the workaround is switching to an `XAI_API_KEY`. See [xAI (Grok)](#xai-grok--responses-api--prompt-caching) below and the [xAI Grok OAuth guide](../guides/xai-grok-oauth.md).
 
-**Google Gemini.** There is currently no way to sign in to Hermes with a consumer Gemini subscription — the `gemini` provider takes an API key, and [Google Vertex AI](#google-vertex-ai) bills to your GCP project. A billing-enabled Google Cloud project is recommended for agent use; free-tier quotas are too small for long-running agent sessions. See the [Google Gemini guide](/guides/google-gemini).
+**Google Gemini.** There is currently no way to sign in to J.A.G.O.D.A with a consumer Gemini subscription — the `gemini` provider takes an API key, and [Google Vertex AI](#google-vertex-ai) bills to your GCP project. A billing-enabled Google Cloud project is recommended for agent use; free-tier quotas are too small for long-running agent sessions. See the [Google Gemini guide](/guides/google-gemini).
 
 :::tip One subscription instead of five
 If you'd rather not track per-provider plan semantics at all, [Nous Portal](#nous-portal) covers 300+ models under a single subscription with one OAuth login.
@@ -144,7 +144,7 @@ If you'd rather not track per-provider plan semantics at all, [Nous Portal](#nou
 Use Claude models directly through the Anthropic API — no OpenRouter proxy needed. Supports three auth methods:
 
 :::caution Requires Claude Max "extra usage" credits
-When you authenticate via `hermes model` → Anthropic OAuth (or via `hermes auth add anthropic --type oauth`), Hermes routes as Claude Code against your Anthropic account. **It only works if you're on a Claude Max plan and have purchased extra usage credits.** The base Max plan allowance (the usage included in Claude Code by default) is not consumed by Hermes — only the extra/overage credits you've added on top are. Claude Pro subscribers cannot use this path.
+When you authenticate via `hermes model` → Anthropic OAuth (or via `hermes auth add anthropic --type oauth`), J.A.G.O.D.A routes as Claude Code against your Anthropic account. **It only works if you're on a Claude Max plan and have purchased extra usage credits.** The base Max plan allowance (the usage included in Claude Code by default) is not consumed by J.A.G.O.D.A — only the extra/overage credits you've added on top are. Claude Pro subscribers cannot use this path.
 
 If you don't have Max + extra credits, use an `ANTHROPIC_API_KEY` instead — requests are billed pay-per-token against that key's organization (standard API pricing, independent of any Claude subscription).
 :::
@@ -155,7 +155,7 @@ export ANTHROPIC_API_KEY=***
 hermes chat --provider anthropic --model claude-sonnet-4-6
 
 # Preferred: authenticate through `hermes model`
-# Hermes will use Claude Code's credential store directly when available
+# J.A.G.O.D.A will use Claude Code's credential store directly when available
 hermes model
 
 # Manual override with a setup-token (fallback / legacy)
@@ -166,7 +166,7 @@ hermes chat --provider anthropic
 hermes chat --provider anthropic  # reads Claude Code credential files automatically
 ```
 
-When you choose Anthropic OAuth through `hermes model`, Hermes prefers Claude Code's own credential store over copying the token into `~/.hermes/.env`. That keeps refreshable Claude credentials refreshable.
+When you choose Anthropic OAuth through `hermes model`, J.A.G.O.D.A prefers Claude Code's own credential store over copying the token into `~/.hermes/.env`. That keeps refreshable Claude credentials refreshable.
 
 Or set it permanently:
 ```yaml
@@ -181,7 +181,7 @@ model:
 
 ### GitHub Copilot
 
-Hermes supports GitHub Copilot as a first-class provider with two modes:
+J.A.G.O.D.A supports GitHub Copilot as a first-class provider with two modes:
 
 **`copilot` — Direct Copilot API** (recommended). Uses your GitHub Copilot subscription to access GPT-5.x, Claude, Gemini, and other models through the Copilot API.
 
@@ -210,16 +210,16 @@ The Copilot API does **not** support classic Personal Access Tokens (`ghp_*`). S
 If your `gh auth token` returns a `ghp_*` token, use `hermes model` to authenticate via OAuth instead.
 :::
 
-:::info Copilot auth behavior in Hermes
-Hermes sends a supported GitHub token (`gho_*`, `github_pat_*`, or `ghu_*`) directly to `api.githubcopilot.com` and includes Copilot-specific headers (`Editor-Version`, `Copilot-Integration-Id`, `Openai-Intent`, `x-initiator`).
+:::info Copilot auth behavior in J.A.G.O.D.A
+J.A.G.O.D.A sends a supported GitHub token (`gho_*`, `github_pat_*`, or `ghu_*`) directly to `api.githubcopilot.com` and includes Copilot-specific headers (`Editor-Version`, `Copilot-Integration-Id`, `Openai-Intent`, `x-initiator`).
 
-On HTTP 401, Hermes now performs a one-shot credential recovery before fallback:
+On HTTP 401, J.A.G.O.D.A now performs a one-shot credential recovery before fallback:
 
 1. Re-resolve token via the normal priority chain (`COPILOT_GITHUB_TOKEN` → `GH_TOKEN` → `GITHUB_TOKEN` → `gh auth token`)
 2. Rebuild the shared OpenAI client with refreshed headers
 3. Retry the request once
 
-Some older community proxies use `api.github.com/copilot_internal/v2/token` exchange flows. That endpoint can be unavailable for some account types (returns 404). Hermes therefore keeps direct-token auth as the primary path and relies on runtime credential refresh + retry for robustness.
+Some older community proxies use `api.github.com/copilot_internal/v2/token` exchange flows. That endpoint can be unavailable for some account types (returns 404). J.A.G.O.D.A therefore keeps direct-token auth as the primary path and relies on runtime credential refresh + retry for robustness.
 :::
 
 **API routing**: GPT-5+ models (except `gpt-5-mini`) automatically use the Responses API. All other models (GPT-4o, Claude, Gemini, etc.) use Chat Completions. Models are auto-detected from the live Copilot catalog.
@@ -331,16 +331,16 @@ Base URLs can be overridden with `NOVITA_BASE_URL`, `GLM_BASE_URL`, `KIMI_BASE_U
 :::
 
 :::note Z.AI Endpoint Auto-Detection
-When using the Z.AI / GLM provider, Hermes automatically probes multiple endpoints (global, China, coding variants) to find one that accepts your API key. You don't need to set `GLM_BASE_URL` manually — the working endpoint is detected and cached automatically.
+When using the Z.AI / GLM provider, J.A.G.O.D.A automatically probes multiple endpoints (global, China, coding variants) to find one that accepts your API key. You don't need to set `GLM_BASE_URL` manually — the working endpoint is detected and cached automatically.
 :::
 
 ### xAI (Grok) — Responses API + Prompt Caching
 
 xAI is wired through the Responses API (`codex_responses` transport) for automatic reasoning support on Grok 4 models — no `reasoning_effort` parameter needed, the server reasons by default. Set `XAI_API_KEY` in `~/.hermes/.env` and pick xAI in `hermes model`, or drop `grok` as a shortcut into `/model grok-4-fast-reasoning`.
 
-SuperGrok and X Premium+ subscribers can sign in with browser OAuth instead of using an API key — pick **xAI Grok OAuth (SuperGrok / Premium+)** in `hermes model`, or run `hermes auth add xai-oauth`. The same OAuth bearer token is automatically reused by direct-to-xAI tools (TTS, image gen, video gen, transcription). See the [xAI Grok OAuth guide](../guides/xai-grok-oauth.md) for the full flow — and if Hermes runs on a remote host, also see [OAuth over SSH / Remote Hosts](../guides/oauth-over-ssh.md) for the required `ssh -L` tunnel.
+SuperGrok and X Premium+ subscribers can sign in with browser OAuth instead of using an API key — pick **xAI Grok OAuth (SuperGrok / Premium+)** in `hermes model`, or run `hermes auth add xai-oauth`. The same OAuth bearer token is automatically reused by direct-to-xAI tools (TTS, image gen, video gen, transcription). See the [xAI Grok OAuth guide](../guides/xai-grok-oauth.md) for the full flow — and if J.A.G.O.D.A runs on a remote host, also see [OAuth over SSH / Remote Hosts](../guides/oauth-over-ssh.md) for the required `ssh -L` tunnel.
 
-When using xAI as a provider (any base URL containing `x.ai`), Hermes automatically enables prompt caching by sending the `x-grok-conv-id` header with every API request. This routes requests to the same server within a conversation session, allowing xAI's infrastructure to reuse cached system prompts and conversation history.
+When using xAI as a provider (any base URL containing `x.ai`), J.A.G.O.D.A automatically enables prompt caching by sending the `x-grok-conv-id` header with every API request. This routes requests to the same server within a conversation session, allowing xAI's infrastructure to reuse cached system prompts and conversation history.
 
 No configuration is needed — caching activates automatically when an xAI endpoint is detected and a session ID is available. This reduces latency and cost for multi-turn conversations.
 
@@ -380,7 +380,7 @@ Get your API key at [novita.ai/settings/key-management](https://novita.ai/settin
 
 ### Ollama Cloud — Managed Ollama Models, OAuth + API Key
 
-[Ollama Cloud](https://ollama.com/cloud) hosts the same open-weight catalog as local Ollama but without the GPU requirement. Pick it in `hermes model` as **Ollama Cloud**, paste your API key from [ollama.com/settings/keys](https://ollama.com/settings/keys), and Hermes auto-discovers the available models.
+[Ollama Cloud](https://ollama.com/cloud) hosts the same open-weight catalog as local Ollama but without the GPU requirement. Pick it in `hermes model` as **Ollama Cloud**, paste your API key from [ollama.com/settings/keys](https://ollama.com/settings/keys), and J.A.G.O.D.A auto-discovers the available models.
 
 ```bash
 hermes model
@@ -436,7 +436,7 @@ See the [AWS Bedrock guide](/guides/aws-bedrock) for a walkthrough of IAM setup,
 
 ### Google Vertex AI
 
-Gemini models on Google Cloud Vertex AI via Vertex's OpenAI-compatible endpoint. Authentication is **OAuth2** — a short-lived access token (~1 hour) minted from a service-account JSON or Application Default Credentials (ADC). There is **no static API key**; Hermes mints and auto-refreshes the token for you, including re-minting on a mid-session `401`.
+Gemini models on Google Cloud Vertex AI via Vertex's OpenAI-compatible endpoint. Authentication is **OAuth2** — a short-lived access token (~1 hour) minted from a service-account JSON or Application Default Credentials (ADC). There is **no static API key**; J.A.G.O.D.A mints and auto-refreshes the token for you, including re-minting on a mid-session `401`.
 
 ```bash
 # Service account JSON (recommended for servers / gateways)
@@ -457,11 +457,11 @@ vertex:
   region: "global"               # required for the Gemini 3.x previews
 ```
 
-`VERTEX_PROJECT_ID` / `VERTEX_REGION` env vars override the `config.yaml` values. Hermes lazy-installs `google-auth` on first use; run `hermes setup` if the managed install needs repair. See the [Google Vertex AI guide](/guides/google-vertex) for the full walkthrough, and the [Google Gemini guide](/guides/google-gemini) for the static-API-key AI Studio path instead.
+`VERTEX_PROJECT_ID` / `VERTEX_REGION` env vars override the `config.yaml` values. J.A.G.O.D.A lazy-installs `google-auth` on first use; run `hermes setup` if the managed install needs repair. See the [Google Vertex AI guide](/guides/google-vertex) for the full walkthrough, and the [Google Gemini guide](/guides/google-gemini) for the static-API-key AI Studio path instead.
 
 ### Qwen Portal (OAuth)
 
-Alibaba's Qwen Portal with browser-based OAuth login. Pick **Qwen OAuth (Portal)** in `hermes model`, sign in through the browser, and Hermes persists the refresh token.
+Alibaba's Qwen Portal with browser-based OAuth login. Pick **Qwen OAuth (Portal)** in `hermes model`, sign in through the browser, and J.A.G.O.D.A persists the refresh token.
 
 ```bash
 hermes model
@@ -487,7 +487,7 @@ Set `HERMES_QWEN_BASE_URL` only if the portal endpoint relocates (default: `http
 
 ### Alibaba Cloud (Coding Plan)
 
-If you're subscribed to Alibaba's **Coding Plan** (a pricing SKU separate from standard DashScope API access), Hermes exposes it as its own first-class provider: `alibaba-coding-plan`. Endpoint: `https://coding-intl.dashscope.aliyuncs.com/v1`. It's OpenAI-compatible like the regular `alibaba` provider but with a different base URL and billing surface.
+If you're subscribed to Alibaba's **Coding Plan** (a pricing SKU separate from standard DashScope API access), J.A.G.O.D.A exposes it as its own first-class provider: `alibaba-coding-plan`. Endpoint: `https://coding-intl.dashscope.aliyuncs.com/v1`. It's OpenAI-compatible like the regular `alibaba` provider but with a different base URL and billing surface.
 
 ```yaml
 model:
@@ -505,7 +505,7 @@ hermes chat --provider alibaba_coding --model qwen3-coder-plus
 
 ### MiniMax (OAuth)
 
-MiniMax-M2.7 via browser OAuth login — no API key needed. Pick **MiniMax (OAuth)** in `hermes model`, sign in through the browser, and Hermes persists the access + refresh tokens. Uses the Anthropic Messages-compatible endpoint (`/anthropic`) under the hood.
+MiniMax-M2.7 via browser OAuth login — no API key needed. Pick **MiniMax (OAuth)** in `hermes model`, sign in through the browser, and J.A.G.O.D.A persists the access + refresh tokens. Uses the Anthropic Messages-compatible endpoint (`/anthropic`) under the hood.
 
 ```bash
 hermes model
@@ -553,7 +553,7 @@ model:
 For on-prem deployments (DGX Spark, local GPU), set `NVIDIA_BASE_URL=http://localhost:8000/v1`. NIM exposes the same OpenAI-compatible chat completions API as build.nvidia.com, so switching between cloud and local is a one-line env-var change.
 :::
 
-Hermes automatically attaches the NIM billing-origin header on every request to `build.nvidia.com` — no configuration needed. This routes consumption against the correct origin in NVIDIA's billing dashboard.
+J.A.G.O.D.A automatically attaches the NIM billing-origin header on every request to `build.nvidia.com` — no configuration needed. This routes consumption against the correct origin in NVIDIA's billing dashboard.
 
 ### GMI Cloud
 
@@ -576,10 +576,10 @@ The base URL can be overridden with `GMI_BASE_URL` (default: `https://api.gmi-se
 
 ### Actual Computer
 
-Your own hardware as a private inference cluster via [Actual Computer](https://actual.inc). Two serving modes, both OpenAI-compatible (Hermes uses the Responses API transport):
+Your own hardware as a private inference cluster via [Actual Computer](https://actual.inc). Two serving modes, both OpenAI-compatible (J.A.G.O.D.A uses the Responses API transport):
 
 - **Hosted relay** — `https://api.actual.inc`, end-to-end encrypted, routes to *your* cluster. Authenticate with an `ac_` inference key from [actual.inc/user/keys](https://actual.inc/user/keys).
-- **Local daemon** — on-device at `http://127.0.0.1:8080`, fully offline. No API key needed: Hermes detects the loopback base URL and authenticates with an internal placeholder automatically.
+- **Local daemon** — on-device at `http://127.0.0.1:8080`, fully offline. No API key needed: J.A.G.O.D.A detects the loopback base URL and authenticates with an internal placeholder automatically.
 
 ```bash
 # Hosted relay (ACTUAL_API_KEY in ~/.hermes/.env)
@@ -600,7 +600,7 @@ Notes:
 - Model IDs come from your cluster's `GET /v1/models` — discover with `hermes model` or `curl -s https://api.actual.inc/v1/models -H "Authorization: Bearer $ACTUAL_API_KEY"`.
 - Bare hosts are normalized: `ACTUAL_BASE_URL=http://127.0.0.1:8080` becomes `http://127.0.0.1:8080/v1` automatically.
 - Reasoning effort is clamped to Actual's supported range (`none/low/medium/high/max`) — a global `xhigh`/`ultra` setting will not 400 requests.
-- Small local models: Hermes' full default toolset plus the system prompt can exceed a 32k context window, producing an empty-stream error from llama.cpp-family servers. Restrict the toolset (`-t file,web`) or load the model with a larger context. The optional `actual-setup` skill (`hermes skills install official/devops/actual-setup`) covers setup and troubleshooting in detail.
+- Small local models: J.A.G.O.D.A's full default toolset plus the system prompt can exceed a 32k context window, producing an empty-stream error from llama.cpp-family servers. Restrict the toolset (`-t file,web`) or load the model with a larger context. The optional `actual-setup` skill (`hermes skills install official/devops/actual-setup`) covers setup and troubleshooting in detail.
 - Aliases: `actual-computer`, `actualcomputer`, `aci`.
 
 ### StepFun
@@ -650,7 +650,7 @@ The base URL can be overridden with `HF_BASE_URL`.
 
 ## Custom & Self-Hosted LLM Providers
 
-Hermes Agent works with **any OpenAI-compatible API endpoint**. If a server implements `/v1/chat/completions`, you can point Hermes at it. This means you can use local models, GPU inference servers, multi-provider routers, or any third-party API.
+J.A.G.O.D.A works with **any OpenAI-compatible API endpoint**. If a server implements `/v1/chat/completions`, you can point J.A.G.O.D.A at it. This means you can use local models, GPU inference servers, multi-provider routers, or any third-party API.
 
 ### General Setup
 
@@ -684,7 +684,7 @@ Both approaches persist to `config.yaml`, which is the source of truth for model
 :::warning hermes model vs /model
 **`hermes model`** (run from your terminal, outside any chat session) is the **full provider setup wizard**. Use it to add new providers, run OAuth flows, enter API keys, and configure custom endpoints.
 
-**`/model`** (typed inside an active Hermes chat session) can only **switch between providers and models you've already set up**. It cannot add new providers, run OAuth, or prompt for API keys. If you've only configured one provider (e.g. OpenRouter), `/model` will only show models for that provider.
+**`/model`** (typed inside an active J.A.G.O.D.A chat session) can only **switch between providers and models you've already set up**. It cannot add new providers, run OAuth, or prompt for API keys. If you've only configured one provider (e.g. OpenRouter), `/model` will only show models for that provider.
 
 **To add a new provider:** Exit your session (`Ctrl+C` or `/quit`), run `hermes model`, set up the new provider, then start a new session.
 :::
@@ -704,7 +704,7 @@ If you have **named custom providers** configured (see below), use the triple sy
 /model custom:work:llama3       # Use the "work" custom provider with llama3
 ```
 
-When switching providers, Hermes persists the base URL and provider to config so the change survives restarts. When switching away from a custom endpoint to a built-in provider, the stale base URL is automatically cleared.
+When switching providers, J.A.G.O.D.A persists the base URL and provider to config so the change survives restarts. When switching away from a custom endpoint to a built-in provider, the stale base URL is automatically cleared.
 
 :::tip
 `/model custom` (bare, no model name) queries your endpoint's `/models` API and auto-selects the model if exactly one is loaded. Useful for local servers running a single model.
@@ -724,7 +724,7 @@ ollama pull qwen2.5-coder:32b
 ollama serve   # Starts on port 11434
 ```
 
-Then configure Hermes:
+Then configure J.A.G.O.D.A:
 
 ```bash
 hermes model
@@ -753,7 +753,7 @@ Ollama does **not** use your model's full context window by default. Depending o
 | 24–48 GB | 32,768 tokens |
 | 48+ GB | 256,000 tokens |
 
-Hermes Agent requires at least **64,000 tokens** of context for agent use with tools. Smaller windows are rejected at startup because the system prompt, tool schemas, and working conversation state need enough room for reliable multi-step workflows.
+J.A.G.O.D.A requires at least **64,000 tokens** of context for agent use with tools. Smaller windows are rejected at startup because the system prompt, tool schemas, and working conversation state need enough room for reliable multi-step workflows.
 
 **How to increase it** (pick one):
 
@@ -771,7 +771,7 @@ echo -e "FROM qwen2.5-coder:32b\nPARAMETER num_ctx 64000" > Modelfile
 ollama create qwen2.5-coder-64k -f Modelfile
 ```
 
-**You cannot set context length through the OpenAI-compatible API** (`/v1/chat/completions`). It must be configured server-side or via a Modelfile. This is the #1 source of confusion when integrating Ollama with tools like Hermes.
+**You cannot set context length through the OpenAI-compatible API** (`/v1/chat/completions`). It must be configured server-side or via a Modelfile. This is the #1 source of confusion when integrating Ollama with tools like J.A.G.O.D.A.
 :::
 
 **Verify your context is set correctly:**
@@ -801,7 +801,7 @@ vllm serve meta-llama/Llama-3.1-70B-Instruct \
   --tool-call-parser hermes
 ```
 
-Then configure Hermes:
+Then configure J.A.G.O.D.A:
 
 ```bash
 hermes model
@@ -817,12 +817,12 @@ hermes model
 
 | Flag | Purpose |
 |------|---------|
-| `--enable-auto-tool-choice` | Required for `tool_choice: "auto"` (the default in Hermes) |
+| `--enable-auto-tool-choice` | Required for `tool_choice: "auto"` (the default in J.A.G.O.D.A) |
 | `--tool-call-parser <name>` | Parser for the model's tool call format |
 
 Supported parsers: `hermes` (Qwen 2.5, Hermes 2/3), `llama3_json` (Llama 3.x), `mistral`, `deepseek_v3`, `deepseek_v31`, `xlam`, `pythonic`. Without these flags, tool calls won't work — the model will output tool calls as text.
 
-**Qwen reasoning parsers:** Hermes preserves structured reasoning metadata such as `reasoning`, `reasoning_content`, and streamed reasoning deltas when OpenAI-compatible servers return them. That metadata is treated as reasoning/thinking trace data, not as a replacement for the assistant's visible answer. For Qwen reasoning models served by vLLM, make sure the final user-visible response still appears in `content`. If `--reasoning-parser qwen3` leaves `content` empty in your deployment, either disable that parser or pass a server-supported request option such as `chat_template_kwargs.enable_thinking: false` through `extra_body`.
+**Qwen reasoning parsers:** J.A.G.O.D.A preserves structured reasoning metadata such as `reasoning`, `reasoning_content`, and streamed reasoning deltas when OpenAI-compatible servers return them. That metadata is treated as reasoning/thinking trace data, not as a replacement for the assistant's visible answer. For Qwen reasoning models served by vLLM, make sure the final user-visible response still appears in `content`. If `--reasoning-parser qwen3` leaves `content` empty in your deployment, either disable that parser or pass a server-supported request option such as `chat_template_kwargs.enable_thinking: false` through `extra_body`.
 
 :::tip
 vLLM supports human-readable sizes: `--max-model-len 64k` (lowercase k = 1000, uppercase K = 1024).
@@ -844,7 +844,7 @@ python -m sglang.launch_server \
   --tool-call-parser qwen
 ```
 
-Then configure Hermes:
+Then configure J.A.G.O.D.A:
 
 ```bash
 hermes model
@@ -878,9 +878,9 @@ cmake -B build && cmake --build build --config Release
   --port 8080 --host 0.0.0.0
 ```
 
-**Context length (`-c`):** Recent builds default to `0` which reads the model's training context from the GGUF metadata. For models with 128k+ training context, this can OOM trying to allocate the full KV cache. Set `-c` explicitly to at least 64,000 tokens for Hermes. If using parallel slots (`-np`), the total context is divided among slots — with `-c 64000 -np 4`, each slot only gets 16k, which is below Hermes' minimum per active session.
+**Context length (`-c`):** Recent builds default to `0` which reads the model's training context from the GGUF metadata. For models with 128k+ training context, this can OOM trying to allocate the full KV cache. Set `-c` explicitly to at least 64,000 tokens for J.A.G.O.D.A. If using parallel slots (`-np`), the total context is divided among slots — with `-c 64000 -np 4`, each slot only gets 16k, which is below J.A.G.O.D.A's minimum per active session.
 
-Then configure Hermes to point at it:
+Then configure J.A.G.O.D.A to point at it:
 
 ```bash
 hermes model
@@ -893,7 +893,7 @@ hermes model
 This saves the endpoint to `config.yaml` so it persists across sessions.
 
 :::caution `--jinja` is required for tool calling
-Without `--jinja`, llama-server ignores the `tools` parameter entirely. The model will try to call tools by writing JSON in its response text, but Hermes won't recognize it as a tool call — you'll see raw JSON like `{"name": "web_search", ...}` printed as a message instead of an actual search.
+Without `--jinja`, llama-server ignores the `tools` parameter entirely. The model will try to call tools by writing JSON in its response text, but J.A.G.O.D.A won't recognize it as a tool call — you'll see raw JSON like `{"name": "web_search", ...}` printed as a message instead of an actual search.
 
 Native tool calling support (best performance): Llama 3.x, Qwen 2.5 (including Coder), Hermes 2/3, Mistral, DeepSeek, Functionary. All other models use a generic handler that works but may be less efficient. See the [llama.cpp function calling docs](https://github.com/ggml-org/llama.cpp/blob/master/docs/function-calling.md) for the full list.
 
@@ -917,7 +917,7 @@ lms server start                        # Starts on port 1234
 lms load qwen2.5-coder --context-length 64000
 ```
 
-Then configure Hermes:
+Then configure J.A.G.O.D.A:
 
 ```bash
 hermes model
@@ -927,7 +927,7 @@ hermes model
 # If LM Studio server auth is enabled, enter LM_API_KEY when prompted
 ```
 
-Hermes preserves the context of an already-loaded LM Studio instance. For an unloaded model in the default explicit mode, Hermes omits `context_length` unless you configured one in Hermes, so LM Studio can apply its own model setting. Hermes then uses only the context length LM Studio reports after loading.
+J.A.G.O.D.A preserves the context of an already-loaded LM Studio instance. For an unloaded model in the default explicit mode, J.A.G.O.D.A omits `context_length` unless you configured one in J.A.G.O.D.A, so LM Studio can apply its own model setting. J.A.G.O.D.A then uses only the context length LM Studio reports after loading.
 
 To change context length in LM Studio:
 
@@ -943,7 +943,7 @@ You can use the CLI to estimate if the model will fit: `lms load model-name --co
 To set persistent per-model defaults: My Models tab → gear icon on the model → set context size.
 :::
 
-If you use LM Studio's Just-In-Time loading / Auto-Evict feature and want LM Studio to manage model loading and eviction from normal chat requests, skip Hermes' explicit preload step:
+If you use LM Studio's Just-In-Time loading / Auto-Evict feature and want LM Studio to manage model loading and eviction from normal chat requests, skip J.A.G.O.D.A's explicit preload step:
 
 ```bash
 hermes config set model.lmstudio_load_mode jit
@@ -955,13 +955,13 @@ Set it back to the default explicit preload behavior with:
 hermes config set model.lmstudio_load_mode explicit
 ```
 
-**Tool calling:** Supported since LM Studio 0.3.6. Models with native tool-calling training (Qwen 2.5, Llama 3.x, Mistral, Hermes) are auto-detected and shown with a tool badge. Other models use a generic fallback that may be less reliable.
+**Tool calling:** Supported since LM Studio 0.3.6. Models with native tool-calling training (Qwen 2.5, Llama 3.x, Mistral, J.A.G.O.D.A) are auto-detected and shown with a tool badge. Other models use a generic fallback that may be less reliable.
 
 ---
 
 ### WSL2 Networking (Windows Users)
 
-Since Hermes Agent requires a Unix environment, Windows users run it inside WSL2. If your model server (Ollama, LM Studio, etc.) runs on the **Windows host**, you need to bridge the network gap — WSL2 uses a virtual network adapter with its own subnet, so `localhost` inside WSL2 refers to the Linux VM, **not** the Windows host.
+Since J.A.G.O.D.A requires a Unix environment, Windows users run it inside WSL2. If your model server (Ollama, LM Studio, etc.) runs on the **Windows host**, you need to bridge the network gap — WSL2 uses a virtual network adapter with its own subnet, so `localhost` inside WSL2 refers to the Linux VM, **not** the Windows host.
 
 :::tip Both in WSL2? No problem.
 If your model server also runs inside WSL2 (common for vLLM, SGLang, and llama-server), `localhost` works as expected — they share the same network namespace. Skip this section.
@@ -1004,7 +1004,7 @@ ip route show | grep -i default | awk '{ print $3 }'
 # Example output: 172.29.192.1
 ```
 
-Use that IP in your Hermes config:
+Use that IP in your J.A.G.O.D.A config:
 
 ```yaml
 model:
@@ -1066,17 +1066,17 @@ curl http://localhost:11434/v1/models          # Mirrored mode
 curl http://172.29.192.1:11434/v1/models       # NAT mode (use your actual host IP)
 ```
 
-If you get a JSON response listing your models, you're good. Use that same URL as the `base_url` in your Hermes config.
+If you get a JSON response listing your models, you're good. Use that same URL as the `base_url` in your J.A.G.O.D.A config.
 
 ---
 
 ### Troubleshooting Local Models
 
-These issues affect **all** local inference servers when used with Hermes.
+These issues affect **all** local inference servers when used with J.A.G.O.D.A.
 
 #### "Connection refused" from WSL2 to a Windows-hosted model server
 
-If you're running Hermes inside WSL2 and your model server on the Windows host, `http://localhost:<port>` won't work in WSL2's default NAT networking mode. See [WSL2 Networking](#wsl2-networking-windows-users) above for the fix.
+If you're running J.A.G.O.D.A inside WSL2 and your model server on the Windows host, `http://localhost:<port>` won't work in WSL2's default NAT networking mode. See [WSL2 Networking](#wsl2-networking-windows-users) above for the fix.
 
 #### Tool calls appear as text instead of executing
 
@@ -1094,12 +1094,12 @@ The model outputs something like `{"name": "web_search", "arguments": {...}}` as
 
 #### Model seems to forget context or give incoherent responses
 
-**Cause:** Context window is too small. When the conversation exceeds the context limit, most servers silently drop older messages. Hermes's system prompt + tool schemas alone can use 4k–8k tokens.
+**Cause:** Context window is too small. When the conversation exceeds the context limit, most servers silently drop older messages. J.A.G.O.D.A's system prompt + tool schemas alone can use 4k–8k tokens.
 
 **Diagnosis:**
 
 ```bash
-# Check what Hermes thinks the context is
+# Check what J.A.G.O.D.A thinks the context is
 # Look at startup line: "Context limit: X tokens"
 
 # Check your server's actual context
@@ -1112,7 +1112,7 @@ The model outputs something like `{"name": "web_search", "arguments": {...}}` as
 
 #### "Context limit: 2048 tokens" at startup
 
-Hermes auto-detects context length from your server's `/v1/models` endpoint. If the server reports a low value (or doesn't report one at all), Hermes uses the model's declared limit which may be wrong.
+J.A.G.O.D.A auto-detects context length from your server's `/v1/models` endpoint. If the server reports a low value (or doesn't report one at all), J.A.G.O.D.A uses the model's declared limit which may be wrong.
 
 **Fix:** Set it explicitly in `config.yaml`:
 
@@ -1127,8 +1127,8 @@ model:
 #### Responses get cut off mid-sentence
 
 **Possible causes:**
-1. **Low output cap (`max_tokens`) on the server** — SGLang defaults to 128 tokens per response. Set `--default-max-tokens` on the server or configure Hermes with `model.max_tokens` in config.yaml. Note: `max_tokens` controls response length only — it is unrelated to how long your conversation history can be (that is `context_length`).
-2. **Context exhaustion** — The model filled its context window. Increase `model.context_length` or enable [context compression](/user-guide/configuration#context-compression) in Hermes.
+1. **Low output cap (`max_tokens`) on the server** — SGLang defaults to 128 tokens per response. Set `--default-max-tokens` on the server or configure J.A.G.O.D.A with `model.max_tokens` in config.yaml. Note: `max_tokens` controls response length only — it is unrelated to how long your conversation history can be (that is `context_length`).
+2. **Context exhaustion** — The model filled its context window. Increase `model.context_length` or enable [context compression](/user-guide/configuration#context-compression) in J.A.G.O.D.A.
 
 ---
 
@@ -1145,7 +1145,7 @@ litellm --model anthropic/claude-sonnet-4 --port 4000
 litellm --config litellm_config.yaml --port 4000
 ```
 
-Then configure Hermes with `hermes model` → Custom endpoint → `http://localhost:4000/v1`.
+Then configure J.A.G.O.D.A with `hermes model` → Custom endpoint → `http://localhost:4000/v1`.
 
 Example `litellm_config.yaml` with fallback:
 ```yaml
@@ -1173,7 +1173,7 @@ router_settings:
 npx @blockrun/clawrouter    # Starts on port 8402
 ```
 
-Then configure Hermes with `hermes model` → Custom endpoint → `http://localhost:8402/v1` → model name `blockrun/auto`.
+Then configure J.A.G.O.D.A with `hermes model` → Custom endpoint → `http://localhost:8402/v1` → model name `blockrun/auto`.
 
 Routing profiles:
 | Profile | Strategy | Savings |
@@ -1224,7 +1224,7 @@ model:
 ### Context Length Detection
 
 :::note Two settings, easy to confuse
-**`context_length`** is the **total context window** — the combined budget for input *and* output tokens (e.g. 200,000 for Claude Opus 4.6). Hermes uses this to decide when to compress history and to validate API requests.
+**`context_length`** is the **total context window** — the combined budget for input *and* output tokens (e.g. 200,000 for Claude Opus 4.6). J.A.G.O.D.A uses this to decide when to compress history and to validate API requests.
 
 **`model.max_tokens`** is the **output cap** — the maximum number of tokens the model may generate in a *single response*. It has nothing to do with how long your conversation history can be. The industry-standard name `max_tokens` is a common source of confusion; Anthropic's native API has since renamed it `max_output_tokens` for clarity.
 
@@ -1232,7 +1232,7 @@ Set `context_length` when auto-detection gets the window size wrong.
 Set `model.max_tokens` only when you need to limit how long individual responses can be.
 :::
 
-Hermes uses a multi-source resolution chain to detect the correct context window for your model and provider:
+J.A.G.O.D.A uses a multi-source resolution chain to detect the correct context window for your model and provider:
 
 1. **Config override** — `model.context_length` in config.yaml (highest priority)
 2. **Custom provider per-model** — `providers.<name>.models.<id>.context_length`
@@ -1286,7 +1286,7 @@ If you work with multiple custom endpoints (e.g., a local dev server and a remot
 providers:
   local:
     api: http://localhost:8080/v1
-    # api_key omitted — Hermes uses "no-key-required" for keyless local servers
+    # api_key omitted — J.A.G.O.D.A uses "no-key-required" for keyless local servers
   work:
     api: https://gpu-server.internal.corp/v1
     key_env: CORP_API_KEY
@@ -1301,7 +1301,7 @@ Each entry accepts: `api` (the endpoint base URL — `base_url`/`url` are accept
 
 #### Command-minted credentials (`key_cmd`)
 
-Enterprise gateways often issue short-lived bearer tokens (SSO/OIDC brokers, cloud IAM, internal auth proxies) rather than static API keys, so a token copied into `.env` goes stale mid-session and requests start returning 401. `key_cmd` names a command that *prints* a token; Hermes runs it and caches the result until shortly before expiry, so long sessions keep working with no restart:
+Enterprise gateways often issue short-lived bearer tokens (SSO/OIDC brokers, cloud IAM, internal auth proxies) rather than static API keys, so a token copied into `.env` goes stale mid-session and requests start returning 401. `key_cmd` names a command that *prints* a token; J.A.G.O.D.A runs it and caches the result until shortly before expiry, so long sessions keep working with no restart:
 
 ```yaml
 providers:
@@ -1320,10 +1320,10 @@ Precedence: an explicit `--api-key` flag still wins; otherwise `key_cmd` beats a
 Not to be confused with `secrets.command`, which runs a helper **once at startup** to populate env vars process-wide. Use that for a vault/keychain helper handing back many secrets; use `key_cmd` when one provider's credential must be re-minted *during* a session.
 
 :::note Legacy format
-Older configs used a top-level `custom_providers:` list instead. It still works — Hermes reads both — and `hermes update` auto-migrates it to the `providers:` dict (config v12). Field names differ slightly in the dict format: legacy `model` is `default_model`, and legacy `api_mode` is `transport`.
+Older configs used a top-level `custom_providers:` list instead. It still works — J.A.G.O.D.A reads both — and `hermes update` auto-migrates it to the `providers:` dict (config v12). Field names differ slightly in the dict format: legacy `model` is `default_model`, and legacy `api_mode` is `transport`.
 :::
 
-Some OpenAI-compatible endpoints need provider-specific request body fields. Add an `extra_body` map to the matching custom provider and Hermes will merge it into each chat-completions request for that endpoint:
+Some OpenAI-compatible endpoints need provider-specific request body fields. Add an `extra_body` map to the matching custom provider and J.A.G.O.D.A will merge it into each chat-completions request for that endpoint:
 
 ```yaml
 providers:
@@ -1355,7 +1355,7 @@ The configured `extra_body` follows the provider everywhere: it is merged at age
 
 The `hermes model` → Custom Endpoint wizard now prompts for the API mode explicitly and persists your answer to `config.yaml` (as `transport` on the provider entry). URL-based auto-detection (e.g. `/anthropic` paths → `anthropic_messages`) still happens as a fallback when the field is left blank.
 
-**Native vision for custom-provider models.** If your custom endpoint serves a vision-capable model that isn't in models.dev, set `model.supports_vision: true` so Hermes routes attached images natively (as `image_url` parts) instead of pre-processing them through `vision_analyze`. Single knob — no need to also set `agent.image_input_mode: native`.
+**Native vision for custom-provider models.** If your custom endpoint serves a vision-capable model that isn't in models.dev, set `model.supports_vision: true` so J.A.G.O.D.A routes attached images natively (as `image_url` parts) instead of pre-processing them through `vision_analyze`. Single knob — no need to also set `agent.image_input_mode: native`.
 
 ```yaml
 model:
@@ -1519,7 +1519,7 @@ You can switch between providers at any time with `hermes model` — no restart 
 
 ### Self-Hosting Firecrawl
 
-By default, Hermes uses the [Firecrawl cloud API](https://firecrawl.dev/) for web search and scraping. If you prefer to run Firecrawl locally, you can point Hermes at a self-hosted instance instead. See Firecrawl's [SELF_HOST.md](https://github.com/firecrawl/firecrawl/blob/main/SELF_HOST.md) for complete setup instructions.
+By default, J.A.G.O.D.A uses the [Firecrawl cloud API](https://firecrawl.dev/) for web search and scraping. If you prefer to run Firecrawl locally, you can point J.A.G.O.D.A at a self-hosted instance instead. See Firecrawl's [SELF_HOST.md](https://github.com/firecrawl/firecrawl/blob/main/SELF_HOST.md) for complete setup instructions.
 
 **What you get:** No API key required, no rate limits, no per-page costs, full data sovereignty.
 
@@ -1535,7 +1535,7 @@ By default, Hermes uses the [Firecrawl cloud API](https://firecrawl.dev/) for we
    docker compose up -d
    ```
 
-2. Point Hermes at your instance (no API key needed):
+2. Point J.A.G.O.D.A at your instance (no API key needed):
    ```bash
    hermes config set FIRECRAWL_API_URL http://localhost:3002
    ```
@@ -1581,7 +1581,7 @@ Notes:
 
 ## Fallback Providers
 
-Configure a chain of backup providers Hermes tries in order when the primary model fails (rate limits, server errors, auth failures). The canonical format is a top-level `fallback_providers:` list:
+Configure a chain of backup providers J.A.G.O.D.A tries in order when the primary model fails (rate limits, server errors, auth failures). The canonical format is a top-level `fallback_providers:` list:
 
 ```yaml
 fallback_providers:

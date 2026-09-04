@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: "CLI Commands Reference"
-description: "Authoritative reference for Hermes terminal commands and command families"
+description: "Authoritative reference for J.A.G.O.D.A terminal commands and command families"
 ---
 
 # CLI Commands Reference
@@ -21,7 +21,7 @@ hermes [global-options] <command> [subcommand/options]
 | Option | Description |
 |--------|-------------|
 | `--version`, `-V` | Show version and exit. |
-| `--profile <name>`, `-p <name>` | Select which Hermes profile to use for this invocation. Overrides the sticky default set by `hermes profile use`. |
+| `--profile <name>`, `-p <name>` | Select which J.A.G.O.D.A profile to use for this invocation. Overrides the sticky default set by `hermes profile use`. |
 | `--resume <session>`, `-r <session>` | Resume a previous session by ID or title. The keyword `latest` resumes the most recent session (workspace-scoped, same lookup as `-c`). |
 | `--continue [name]`, `-c [name]` | Resume the most recent session, or the most recent session matching a title. |
 | `--in <dir>` | Change into `<dir>` before starting or resuming. Scopes `--resume latest` / `-c` lookups to that directory's workspace and keeps the session there (skips the recorded-cwd restore). |
@@ -53,7 +53,7 @@ hermes [global-options] <command> [subcommand/options]
 | `hermes auth` | Manage credentials — add, list, remove, reset, status, logout. Handles OAuth flows for Codex/Nous/Anthropic. |
 | `hermes login` / `logout` | **Deprecated** — use `hermes auth` instead. |
 | `hermes send` | Send a one-shot message to a configured messaging platform (Telegram, Discord, Slack, Signal, SMS, …). Useful from shell scripts, cron jobs, CI hooks, and monitoring daemons — no agent loop, no LLM. |
-| `hermes peer` | Register peer Hermes gateways on other machines and DM their agents' canonical Bot Chats (`hermes peer dm <peer>[/<agent>] "…"`). The transport behind cross-machine bot-to-bot messaging. |
+| `hermes peer` | Register peer J.A.G.O.D.A gateways on other machines and DM their agents' canonical Bot Chats (`hermes peer dm <peer>[/<agent>] "…"`). The transport behind cross-machine bot-to-bot messaging. |
 | `hermes secrets` | Manage external secret sources (currently Bitwarden Secrets Manager) for pulling API keys at process startup instead of from `~/.hermes/.env`. |
 | `hermes migrate` | Diagnose and (optionally) rewrite `config.yaml` to replace references to retired models or deprecated settings (e.g. `migrate xai`). |
 | `hermes status` | Show agent, auth, and platform status. |
@@ -68,22 +68,22 @@ hermes [global-options] <command> [subcommand/options]
 | `hermes dump` | Copy-pasteable setup summary for support/debugging. |
 | `hermes prompt-size` | Show a byte breakdown of the system prompt + tool schemas (skills index, memory, profile). Runs offline. |
 | `hermes debug` | Debug tools — upload logs and system info for support. |
-| `hermes backup` | Back up Hermes home directory to a zip file. |
+| `hermes backup` | Back up J.A.G.O.D.A home directory to a zip file. |
 | `hermes checkpoints` | Inspect / prune / clear `~/.hermes/checkpoints/` (the shadow store used by `/rollback`). Run with no args for a status overview. |
-| `hermes import` | Restore a Hermes backup from a zip file. |
+| `hermes import` | Restore a J.A.G.O.D.A backup from a zip file. |
 | `hermes logs` | View, tail, and filter agent/gateway/error log files. |
 | `hermes config` | Show, edit, migrate, and query configuration files. |
 | `hermes skin` | List, switch, and tweak display skins. |
-| `hermes console` | Open the safe Hermes command console. |
+| `hermes console` | Open the safe J.A.G.O.D.A command console. |
 | `hermes pairing` | Approve or revoke messaging pairing codes. |
 | `hermes skills` | Browse, install, publish, audit, and configure skills. |
 | `hermes bundles` | Group several skills under a single `/<name>` slash command. See [Skill Bundles](../user-guide/features/skills.md#skill-bundles). |
 | `hermes curator` | Background skill maintenance — status, run, pause, pin. See [Curator](../user-guide/features/curator.md). |
 | `hermes journey` (aliases `learning`, `memory-graph`) | Timeline of learned skills + memories over time. |
 | `hermes memory` | Configure external memory provider. Plugin-specific subcommands (e.g. `hermes honcho`) register automatically when their provider is active. |
-| `hermes acp` | Run Hermes as an ACP server for editor integration. |
-| `hermes mcp` | Manage MCP server configurations and run Hermes as an MCP server. |
-| `hermes plugins` | Manage Hermes Agent plugins (install, enable, disable, remove). |
+| `hermes acp` | Run J.A.G.O.D.A as an ACP server for editor integration. |
+| `hermes mcp` | Manage MCP server configurations and run J.A.G.O.D.A as an MCP server. |
+| `hermes plugins` | Manage J.A.G.O.D.A plugins (install, enable, disable, remove). |
 | `hermes portal` | Nous Portal status, subscription link, and Tool Gateway routing. See [Tool Gateway](../user-guide/features/tool-gateway.md). |
 | `hermes tools` | Configure enabled tools per platform. |
 | `hermes computer-use` | Install or check the Computer Use (cua-driver) backend (macOS/Windows/Linux). |
@@ -93,13 +93,13 @@ hermes [global-options] <command> [subcommand/options]
 | `hermes claw` | OpenClaw migration helpers. |
 | `hermes import-agent` | Import a Claude Code (`~/.claude`) or Codex CLI (`~/.codex`) setup. |
 | `hermes dashboard` | Launch the web dashboard for managing config, API keys, and sessions. |
-| `hermes serve` | Start the Hermes backend server (headless; powers the desktop app and remote backends). |
+| `hermes serve` | Start the J.A.G.O.D.A backend server (headless; powers the desktop app and remote backends). |
 | `hermes desktop` (alias `gui`) | Build and launch the native Electron desktop app. |
-| `hermes profile` | Manage profiles — multiple isolated Hermes instances. |
+| `hermes profile` | Manage profiles — multiple isolated J.A.G.O.D.A instances. |
 | `hermes completion` | Print shell completion scripts (bash/zsh/fish). |
 | `hermes --version` | Show version information. |
 | `hermes update` | Pull latest code and reinstall dependencies. `--check` previews without installing; `--backup` takes a pre-pull `HERMES_HOME` snapshot. |
-| `hermes uninstall` | Remove Hermes from the system. |
+| `hermes uninstall` | Remove J.A.G.O.D.A from the system. |
 
 ## `hermes chat`
 
@@ -128,7 +128,7 @@ Common options:
 | `--pass-session-id` | Pass the session ID into the system prompt. |
 | `--ignore-user-config` | Ignore `~/.hermes/config.yaml` and use built-in defaults. Credentials in `.env` are still loaded. Useful for isolated CI runs, reproducible bug reports, and third-party integrations. |
 | `--ignore-rules` | Skip auto-injection of `AGENTS.md`, `SOUL.md`, `.cursorrules`, persistent memory, and preloaded skills. Combine with `--ignore-user-config` for a fully isolated run. |
-| `--safe-mode` | Troubleshooting mode: disable ALL customizations — user config, rules/memory injection, plugins, shell hooks, and MCP servers (implies `--ignore-user-config` and `--ignore-rules`). Use to isolate whether a problem comes from your setup or from Hermes itself. |
+| `--safe-mode` | Troubleshooting mode: disable ALL customizations — user config, rules/memory injection, plugins, shell hooks, and MCP servers (implies `--ignore-user-config` and `--ignore-rules`). Use to isolate whether a problem comes from your setup or from J.A.G.O.D.A itself. |
 | `--source <tag>` | Session source tag for filtering (default: `cli`). Use `tool` for third-party integrations that should not appear in user session lists. |
 | `--max-turns <N>` | Maximum tool-calling iterations per conversation turn (default: 500, or `agent.max_turns` in config). |
 
@@ -143,7 +143,7 @@ hermes chat --toolsets web,terminal,skills
 hermes chat --quiet -q "Return only JSON"
 hermes chat --worktree -q "Review this repo and open a PR"
 hermes chat --ignore-user-config --ignore-rules -q "Repro without my personal setup"
-hermes chat --safe-mode -q "Is this bug mine or Hermes'?"
+hermes chat --safe-mode -q "Is this bug mine or J.A.G.O.D.A's?"
 ```
 
 ### `hermes -z <prompt>` — scripted one-shot
@@ -185,7 +185,7 @@ jq .estimated_cost_usd /tmp/usage.json
 
 ## `hermes model`
 
-Interactive provider + model selector. **This is the command for adding new providers, setting up API keys, and running OAuth flows.** Run it from your terminal — not from inside an active Hermes chat session.
+Interactive provider + model selector. **This is the command for adding new providers, setting up API keys, and running OAuth flows.** Run it from your terminal — not from inside an active J.A.G.O.D.A chat session.
 
 ```bash
 hermes model
@@ -200,11 +200,11 @@ Use this when you want to:
 - save the new default into config
 
 :::warning hermes model vs /model — know the difference
-**`hermes model`** (run from your terminal, outside any Hermes session) is the **full provider setup wizard**. It can add new providers, run OAuth flows, prompt for API keys, and configure endpoints.
+**`hermes model`** (run from your terminal, outside any J.A.G.O.D.A session) is the **full provider setup wizard**. It can add new providers, run OAuth flows, prompt for API keys, and configure endpoints.
 
-**`/model`** (typed inside an active Hermes chat session) can only **switch between providers and models you've already set up**. It cannot add new providers, run OAuth, or prompt for API keys.
+**`/model`** (typed inside an active J.A.G.O.D.A chat session) can only **switch between providers and models you've already set up**. It cannot add new providers, run OAuth, or prompt for API keys.
 
-**If you need to add a new provider:** Exit your Hermes session first (`Ctrl+C` or `/quit`), then run `hermes model` from your terminal prompt.
+**If you need to add a new provider:** Exit your J.A.G.O.D.A session first (`Ctrl+C` or `/quit`), then run `hermes model` from your terminal prompt.
 :::
 
 ### `/model` slash command (mid-session)
@@ -253,7 +253,7 @@ Subcommands:
 | `uninstall` | Remove the installed service. |
 | `setup` | Interactive messaging-platform setup. |
 | `migrate-legacy` | Remove legacy `hermes.service` units left over from pre-rename installs. Profile units (`hermes-gateway-<profile>.service`) and unrelated services are never touched. Flags: `--dry-run`, `-y`/`--yes`. |
-| `enroll` | Experimental: enroll this gateway with a relay connector and save relay credentials for connector-backed platforms. See [Hermes Relay](/user-guide/messaging/relay). |
+| `enroll` | Experimental: enroll this gateway with a relay connector and save relay credentials for connector-backed platforms. See [J.A.G.O.D.A Relay](/user-guide/messaging/relay). |
 
 Options:
 
@@ -380,7 +380,7 @@ reinstall if scopes or slash commands changed.
 | Flag | Default | Purpose |
 |------|---------|---------|
 | `--write [PATH]` | stdout | Write to a file instead of stdout. Bare `--write` writes `$HERMES_HOME/slack-manifest.json`. |
-| `--name NAME` | `Hermes` | Bot display name in Slack. |
+| `--name NAME` | `J.A.G.O.D.A` | Bot display name in Slack. |
 | `--description DESC` | default blurb | Bot description shown in the Slack app directory. |
 | `--long-description TEXT` | unset | Set `display_information.long_description` inline (175–4,000 characters). Incompatible with `--slashes-only`. |
 | `--long-description-file PATH` | unset | Read the long description from a UTF-8 text file, preserving its contents exactly. Mutually exclusive with `--long-description` and incompatible with `--slashes-only`. |
@@ -455,7 +455,7 @@ hermes peer stop <peer>[/<agent>] <run_id>
 hermes peer remove <name>
 ```
 
-Bot-to-bot DMs across machines. Register another Hermes gateway (any machine
+Bot-to-bot DMs across machines. Register another J.A.G.O.D.A gateway (any machine
 running the `api_server` platform) as a *peer*, then message its agents:
 `hermes peer dm` resolves the remote agent's canonical **Bot Chat** session
 over the peer's API server, runs one agent turn there, and prints the reply
@@ -524,7 +524,7 @@ Common flags for migration subcommands:
 | `--apply` | Rewrite `config.yaml` in-place (default: dry-run, no writes). |
 | `--no-backup` | Skip the timestamped backup of `config.yaml` when applying. |
 
-> Not to be confused with `hermes claw migrate` (one-shot import of OpenClaw configuration into Hermes) — `hermes migrate` is the top-level config-rewrite command.
+> Not to be confused with `hermes claw migrate` (one-shot import of OpenClaw configuration into J.A.G.O.D.A) — `hermes migrate` is the top-level config-rewrite command.
 
 
 ## `hermes proxy`
@@ -548,7 +548,7 @@ Run a local OpenAI-compatible HTTP server that forwards requests to an OAuth-aut
 hermes security <subcommand>
 ```
 
-On-demand vulnerability scan against [OSV.dev](https://osv.dev). Covers the Hermes venv (installed PyPI distributions), Python dependencies declared by plugins under `~/.hermes/plugins/`, and pinned `npx`/`uvx` MCP servers in `config.yaml`. Does NOT scan globally-installed packages or editor/browser extensions.
+On-demand vulnerability scan against [OSV.dev](https://osv.dev). Covers the J.A.G.O.D.A venv (installed PyPI distributions), Python dependencies declared by plugins under `~/.hermes/plugins/`, and pinned `npx`/`uvx` MCP servers in `config.yaml`. Does NOT scan globally-installed packages or editor/browser extensions.
 
 | Subcommand | Description |
 |------------|-------------|
@@ -560,7 +560,7 @@ On-demand vulnerability scan against [OSV.dev](https://osv.dev). Covers the Herm
 |------|---------|-------------|
 | `--json` | off | Emit machine-readable JSON instead of human-readable text. |
 | `--fail-on <level>` | `critical` | Exit non-zero when any finding meets this severity (`low`, `moderate`, `high`, `critical`). |
-| `--skip-venv` | off | Skip scanning the Hermes Python venv. |
+| `--skip-venv` | off | Skip scanning the J.A.G.O.D.A Python venv. |
 | `--skip-plugins` | off | Skip scanning plugin requirements files. |
 | `--skip-mcp` | off | Skip scanning pinned MCP servers in `config.yaml`. |
 
@@ -585,7 +585,7 @@ hermes auth remove openrouter 2                          # Remove by index
 hermes auth reset openrouter                             # Clear cooldowns
 hermes auth status anthropic                             # Show auth status for a provider
 hermes auth logout anthropic                             # Log out and clear stored auth state
-hermes auth spotify                                      # Authenticate Hermes with Spotify via PKCE
+hermes auth spotify                                      # Authenticate J.A.G.O.D.A with Spotify via PKCE
 ```
 
 Subcommands: `add`, `list`, `remove`, `reset`, `status`, `logout`, `spotify`. When called with no subcommand, launches the interactive management wizard.
@@ -833,7 +833,7 @@ hermes doctor [--fix]
 hermes dump [--show-keys]
 ```
 
-Outputs a compact, plain-text summary of your entire Hermes setup. Designed to be copy-pasted into Discord, GitHub issues, or Telegram when asking for support — no ANSI colors, no special formatting, just data.
+Outputs a compact, plain-text summary of your entire J.A.G.O.D.A setup. Designed to be copy-pasted into Discord, GitHub issues, or Telegram when asking for support — no ANSI colors, no special formatting, just data.
 
 | Option | Description |
 |--------|-------------|
@@ -843,7 +843,7 @@ Outputs a compact, plain-text summary of your entire Hermes setup. Designed to b
 
 | Section | Details |
 |---------|---------|
-| **Header** | Hermes version, release date, git commit hash |
+| **Header** | J.A.G.O.D.A version, release date, git commit hash |
 | **Environment** | OS, Python version, OpenAI SDK version |
 | **Identity** | Active profile name, HERMES_HOME path |
 | **Model** | Configured default model and provider |
@@ -919,7 +919,7 @@ Upload a debug report (system info + recent logs) to a paste service and get a s
 | `--local` | Print the report locally instead of uploading. |
 | `--no-redact` | Disable upload-time secret redaction. By default, uploads are redacted. |
 
-The report includes system info (OS, Python version, Hermes version), recent agent, gateway, GUI/dashboard, and desktop logs (512 KB limit per file), and redacted API key status. By default, uploads are redacted so secrets are not included.
+The report includes system info (OS, Python version, J.A.G.O.D.A version), recent agent, gateway, GUI/dashboard, and desktop logs (512 KB limit per file), and redacted API key status. By default, uploads are redacted so secrets are not included.
 
 Default uploads use public paste services tried in order: paste.rs, dpaste.com. `--nous` uploads the same debug bundle to private Nous diagnostics storage instead; the returned viewer link is for the Nous team and auto-deletes after 14 days.
 
@@ -939,7 +939,7 @@ hermes debug share --local      # Print report to terminal (no upload)
 hermes backup [options]
 ```
 
-Create a zip archive of your Hermes configuration, skills, sessions, and data. The backup excludes the hermes-agent codebase itself, and it does not nest earlier backup artifacts (`backups/`, `state-snapshots/`) — each of those already contains its own copy of `state.db`.
+Create a zip archive of your J.A.G.O.D.A configuration, skills, sessions, and data. The backup excludes the hermes-agent codebase itself, and it does not nest earlier backup artifacts (`backups/`, `state-snapshots/`) — each of those already contains its own copy of `state.db`.
 
 | Option | Description |
 |--------|-------------|
@@ -947,7 +947,7 @@ Create a zip archive of your Hermes configuration, skills, sessions, and data. T
 | `-q`, `--quick` | Quick snapshot: only critical state files (config.yaml, state.db, .env, auth, cron jobs). Much faster than a full backup. |
 | `-l`, `--label <name>` | Label for the snapshot (only used with `--quick`). |
 
-The backup uses SQLite's `backup()` API for safe copying, so it works correctly even when Hermes is running (WAL-mode safe).
+The backup uses SQLite's `backup()` API for safe copying, so it works correctly even when J.A.G.O.D.A is running (WAL-mode safe).
 
 **What's excluded from the zip:**
 
@@ -1008,7 +1008,7 @@ See [Checkpoints and `/rollback`](../user-guide/checkpoints-and-rollback.md) for
 hermes import <zipfile> [options]
 ```
 
-Restore a previously created Hermes backup into your Hermes home directory. All files in the archive overwrite existing files in your Hermes home; `--force` only skips the confirmation prompt that fires when the target already has a Hermes installation.
+Restore a previously created J.A.G.O.D.A backup into your J.A.G.O.D.A home directory. All files in the archive overwrite existing files in your J.A.G.O.D.A home; `--force` only skips the confirmation prompt that fires when the target already has a J.A.G.O.D.A installation.
 
 | Option | Description |
 |--------|-------------|
@@ -1030,7 +1030,7 @@ hermes import ~/hermes-backup-20260423.zip --force   # Overwrite without prompti
 hermes logs [log_name] [options]
 ```
 
-View, tail, and filter Hermes log files. All logs are stored in `~/.hermes/logs/` (or `<profile>/logs/` for non-default profiles).
+View, tail, and filter J.A.G.O.D.A log files. All logs are stored in `~/.hermes/logs/` (or `<profile>/logs/` for non-default profiles).
 
 ### Log files
 
@@ -1092,7 +1092,7 @@ Lines without a parseable timestamp are included when `--since` is active (they 
 
 ### Log rotation
 
-Hermes uses Python's `RotatingFileHandler`. Old logs are rotated automatically — look for `agent.log.1`, `agent.log.2`, etc. The `hermes logs list` subcommand shows all log files including rotated ones.
+J.A.G.O.D.A uses Python's `RotatingFileHandler`. Old logs are rotated automatically — look for `agent.log.1`, `agent.log.2`, etc. The `hermes logs list` subcommand shows all log files including rotated ones.
 
 
 ## `hermes prompt-size`
@@ -1113,7 +1113,7 @@ It builds the same system prompt the agent would, then breaks it down:
 - **Skills index** — the `<available_skills>` block. This is often the largest
   single block when many skills are installed.
 - **Memory** and **user profile** — your `MEMORY.md` / `USER.md` snapshots.
-- **Prompt tiers** — stable / context / volatile, matching how Hermes layers
+- **Prompt tiers** — stable / context / volatile, matching how J.A.G.O.D.A layers
   the prompt for cache-friendliness.
 - **Tool schemas** — the JSON for all enabled tools (the other half of the
   fixed per-call payload).
@@ -1246,7 +1246,7 @@ Notes:
 - `--force` can override non-dangerous policy blocks for third-party/community skills.
 - `--force` does not override a `dangerous` scan verdict.
 - `--source skills-sh` searches the public `skills.sh` directory.
-- `--source well-known` lets you point Hermes at a site exposing `/.well-known/skills/index.json`.
+- `--source well-known` lets you point J.A.G.O.D.A at a site exposing `/.well-known/skills/index.json`.
 - `--source browse-sh` searches [browse.sh](https://browse.sh)'s catalog of 200+ site-specific browser-automation skills. Identifiers look like `browse-sh/airbnb.com/search-listings-ddgioa`.
 - Passing an `http(s)://…/*.md` URL installs `SKILL.md` plus explicitly referenced files under `references/`, `templates/`, `scripts/`, `assets/`, and `examples/`. When frontmatter has no `name:` and the URL slug isn't a valid identifier, an interactive terminal prompts for a name; non-interactive surfaces (`/skills install` inside the TUI, gateway platforms) require `--name <x>` instead.
 
@@ -1326,7 +1326,7 @@ hermes moa configure [name]
 hermes moa delete <name>
 ```
 
-`hermes moa configure` reuses Hermes' provider → model picker for each reference model and the aggregator. A preset is an execution-mode configuration, not a primary model or provider.
+`hermes moa configure` reuses J.A.G.O.D.A's provider → model picker for each reference model and the aggregator. A preset is an execution-mode configuration, not a primary model or provider.
 
 ## `hermes fallback`
 
@@ -1388,7 +1388,7 @@ When an external memory provider is active, it may register its own top-level `h
 hermes acp
 ```
 
-Starts Hermes as an ACP (Agent Client Protocol) stdio server for editor integration.
+Starts J.A.G.O.D.A as an ACP (Agent Client Protocol) stdio server for editor integration.
 
 Related entrypoints:
 
@@ -1411,14 +1411,14 @@ See [ACP Editor Integration](../user-guide/features/acp.md) and [ACP Internals](
 hermes mcp <subcommand>
 ```
 
-Manage MCP (Model Context Protocol) server configurations and run Hermes as an MCP server.
+Manage MCP (Model Context Protocol) server configurations and run J.A.G.O.D.A as an MCP server.
 
 | Subcommand | Description |
 |------------|-------------|
 | *(none)* or `picker` | Interactive catalog picker — browse Nous-approved MCPs and install/enable/disable. |
 | `catalog` | List Nous-approved MCPs (plain text, scriptable). |
 | `install <name>` | Install a catalog entry (e.g. `hermes mcp install n8n`). |
-| `serve [-v\|--verbose]` | Run Hermes as an MCP server — expose conversations to other agents. |
+| `serve [-v\|--verbose]` | Run J.A.G.O.D.A as an MCP server — expose conversations to other agents. |
 | `add <name> [--url URL] [--command CMD] [--auth oauth\|header] [--args ...]` | Add a custom MCP server with automatic tool discovery. `--args` passes the remaining argv to the stdio command, so put it last. |
 | `remove <name>` (alias: `rm`) | Remove an MCP server from config. |
 | `list` (alias: `ls`) | List configured MCP servers. |
@@ -1426,7 +1426,7 @@ Manage MCP (Model Context Protocol) server configurations and run Hermes as an M
 | `configure <name>` (alias: `config`) | Toggle tool selection for a server. |
 | `login <name>` | Force re-authentication for an OAuth-based MCP server. |
 
-See [MCP Config Reference](./mcp-config-reference.md), [Use MCP with Hermes](../guides/use-mcp-with-hermes.md), and [MCP Server Mode](../user-guide/features/mcp.md#running-hermes-as-an-mcp-server).
+See [MCP Config Reference](./mcp-config-reference.md), [Use MCP with J.A.G.O.D.A](../guides/use-mcp-with-hermes.md), and [MCP Server Mode](../user-guide/features/mcp.md#running-hermes-as-an-mcp-server).
 
 ## `hermes plugins`
 
@@ -1463,7 +1463,7 @@ Git installs also record only their canonical source, exact installed revision, 
 pin status in the profile-local `plugins/.install-metadata.json` sidecar. It does
 not contain plugin config, environment values, secrets, or capability grants.
 
-See [Plugins](../user-guide/features/plugins.md) and [Build a Hermes Plugin](../developer-guide/plugins/index.md).
+See [Plugins](../user-guide/features/plugins.md) and [Build a J.A.G.O.D.A Plugin](../developer-guide/plugins/index.md).
 
 ## `hermes tools`
 
@@ -1501,20 +1501,20 @@ Subcommands:
 to use for re-running the install if the toolset toggle didn't trigger
 it (for example, on returning-user setups).
 
-If cua-driver is already present, Hermes checks its version and runtime
+If cua-driver is already present, J.A.G.O.D.A checks its version and runtime
 manifest. A compatible 0.20.0 or newer installation is left in place. An old or
 incomplete standard installation is repaired with the current upstream
-installer. Hermes never replaces a custom binary selected through
+installer. J.A.G.O.D.A never replaces a custom binary selected through
 `HERMES_CUA_DRIVER_CMD`; update that binary directly or remove the override.
 `hermes computer-use status` reports when repair is required.
 
-The built-in `computer_use` toolset is the recommended Hermes integration.
+The built-in `computer_use` toolset is the recommended J.A.G.O.D.A integration.
 Registering raw Cua MCP tools is an alternative when you need Cua's low-level
-tool vocabulary. `cua-driver skills install` detects Hermes and links Cua's
-skill pack into the Hermes skills directory automatically.
+tool vocabulary. `cua-driver skills install` detects J.A.G.O.D.A and links Cua's
+skill pack into the J.A.G.O.D.A skills directory automatically.
 
 Permission mode and capability-manifest approval
-belong to runtime launch. In bounded mode Hermes passes Cua's canonical
+belong to runtime launch. In bounded mode J.A.G.O.D.A passes Cua's canonical
 `--capability-manifest` and `--approve-capability-manifest` flags. Every MCP
 transport owns a private lifecycle session inside its runtime. Public session
 names label cursor and session state; they do not own or share the runtime.
@@ -1522,7 +1522,7 @@ names label cursor and session state; they do not own or share the runtime.
 `hermes update` automatically re-runs the upstream installer at the end
 of the update if cua-driver is on PATH, so most users will not need to
 call `--upgrade` manually. Use it when upstream ships a fix you want
-right now without waiting for the next Hermes update.
+right now without waiting for the next J.A.G.O.D.A update.
 
 ## `hermes pets`
 
@@ -1530,7 +1530,7 @@ right now without waiting for the next Hermes update.
 hermes pets <list|install|select|show|off|scale|remove|doctor>
 ```
 
-[Petdex](https://github.com/crafter-station/petdex) is a public gallery of animated sprite pets for coding agents. Install one and Hermes shows it reacting to agent activity across the CLI, TUI, and desktop app.
+[Petdex](https://github.com/crafter-station/petdex) is a public gallery of animated sprite pets for coding agents. Install one and J.A.G.O.D.A shows it reacting to agent activity across the CLI, TUI, and desktop app.
 
 | Subcommand | Description |
 |------------|-------------|
@@ -1587,13 +1587,13 @@ hermes insights [--days N] [--source platform]
 hermes claw migrate [options]
 ```
 
-Migrate your OpenClaw setup to Hermes. Reads from `~/.openclaw` (or a custom path) and writes to `~/.hermes`. Automatically detects legacy directory names (`~/.clawdbot`, `~/.moltbot`) and config filenames (`clawdbot.json`, `moltbot.json`).
+Migrate your OpenClaw setup to J.A.G.O.D.A. Reads from `~/.openclaw` (or a custom path) and writes to `~/.hermes`. Automatically detects legacy directory names (`~/.clawdbot`, `~/.moltbot`) and config filenames (`clawdbot.json`, `moltbot.json`).
 
 | Option | Description |
 |--------|-------------|
 | `--dry-run` | Preview what would be migrated without writing anything. |
 | `--preset <name>` | Migration preset: `full` (all compatible settings) or `user-data` (excludes infrastructure config). Neither preset imports secrets — pass `--migrate-secrets` explicitly. |
-| `--overwrite` | Overwrite existing Hermes files on conflicts (default: refuse to apply when the plan has conflicts). |
+| `--overwrite` | Overwrite existing J.A.G.O.D.A files on conflicts (default: refuse to apply when the plan has conflicts). |
 | `--migrate-secrets` | Include API keys in migration. Required even under `--preset full`. |
 | `--no-backup` | Skip the pre-migration zip snapshot of `~/.hermes/` (by default a single restore-point archive is written to `~/.hermes/backups/pre-migration-*.zip` before apply; restorable with `hermes import`). |
 | `--source <path>` | Custom OpenClaw directory (default: `~/.openclaw`). |
@@ -1603,7 +1603,7 @@ Migrate your OpenClaw setup to Hermes. Reads from `~/.openclaw` (or a custom pat
 
 ### What gets migrated
 
-The migration covers 30+ categories across persona, memory, skills, model providers, messaging platforms, agent behavior, session policies, MCP servers, TTS, and more. Items are either **directly imported** into Hermes equivalents or **archived** for manual review.
+The migration covers 30+ categories across persona, memory, skills, model providers, messaging platforms, agent behavior, session policies, MCP servers, TTS, and more. Items are either **directly imported** into J.A.G.O.D.A equivalents or **archived** for manual review.
 
 **Directly imported:** SOUL.md, MEMORY.md, USER.md, AGENTS.md, skills (4 source directories), default model, custom providers, MCP servers, messaging platform tokens and allowlists (Telegram, Discord, Slack, WhatsApp, Signal, Matrix, Mattermost), agent defaults (reasoning effort, compression, human delay, timezone, sandbox), session reset policies, approval rules, TTS config, browser settings, tool settings, exec timeout, command allowlist, gateway config, and API keys from 3 sources.
 
@@ -1638,7 +1638,7 @@ hermes claw migrate --source /home/user/old-openclaw
 hermes import-agent [claude-code|codex] [options]
 ```
 
-Import a **Claude Code** (`~/.claude`) or **OpenAI Codex CLI** (`~/.codex`) setup into Hermes. Maps `CLAUDE.md`/`AGENTS.md` instructions to memory entries, `Bash(...)` permission allow/deny rules to `command_allowlist`/`approvals.deny`, MCP servers to `mcp_servers` in `config.yaml`, and skill directories into `~/.hermes/skills/`. Always previews before applying; API keys and credentials are never imported.
+Import a **Claude Code** (`~/.claude`) or **OpenAI Codex CLI** (`~/.codex`) setup into J.A.G.O.D.A. Maps `CLAUDE.md`/`AGENTS.md` instructions to memory entries, `Bash(...)` permission allow/deny rules to `command_allowlist`/`approvals.deny`, MCP servers to `mcp_servers` in `config.yaml`, and skill directories into `~/.hermes/skills/`. Always previews before applying; API keys and credentials are never imported.
 
 | Option | Description |
 | --- | --- |
@@ -1656,7 +1656,7 @@ See the **[import guide](../user-guide/import-from-other-agents.md)** for the fu
 hermes serve [options]
 ```
 
-Start the Hermes **backend server** — the JSON-RPC/WebSocket gateway the [desktop app](/user-guide/desktop) and remote clients connect to. It is the same server `hermes dashboard` runs, but **headless**: it never opens a browser UI. The desktop app launches its own `hermes serve` backend; use this command directly when you want a headless backend on a remote host. Accepts the same `--host` / `--port` / `--insecure` / `--skip-build` / `--stop` / `--status` options as `hermes dashboard` below (a non-loopback bind engages the same auth gate). Requires the `[web]` extra; the embedded Chat socket additionally needs `[pty]` on a POSIX host.
+Start the J.A.G.O.D.A **backend server** — the JSON-RPC/WebSocket gateway the [desktop app](/user-guide/desktop) and remote clients connect to. It is the same server `hermes dashboard` runs, but **headless**: it never opens a browser UI. The desktop app launches its own `hermes serve` backend; use this command directly when you want a headless backend on a remote host. Accepts the same `--host` / `--port` / `--insecure` / `--skip-build` / `--stop` / `--status` options as `hermes dashboard` below (a non-loopback bind engages the same auth gate). Requires the `[web]` extra; the embedded Chat socket additionally needs `[pty]` on a POSIX host.
 
 **Port conflicts:** if the requested port (default `9119`) is already held by another process (e.g. a second `hermes serve` or the gateway), the command prints a machine-readable sentinel line `BACKEND_PORT_IN_USE port=<port>` to stdout, a human hint naming the likely holder, and exits with code **75** (`EX_TEMPFAIL`) instead of a generic error — so scripts and the desktop app can tell "port occupied" apart from "backend broken". Pass `--port 0` to bind a free ephemeral port (the successful boot announces the chosen port via `HERMES_BACKEND_READY port=<port>`).
 
@@ -1707,7 +1707,7 @@ worker dashboard
 hermes profile <subcommand>
 ```
 
-Manage profiles — multiple isolated Hermes instances, each with its own config, sessions, skills, and home directory.
+Manage profiles — multiple isolated J.A.G.O.D.A instances, each with its own config, sessions, skills, and home directory.
 
 | Subcommand | Description |
 |------------|-------------|
@@ -1744,7 +1744,7 @@ hermes -p work chat -q "Hello from work profile"
 hermes completion [bash|zsh|fish]
 ```
 
-Print a shell completion script to stdout. Source the output in your shell profile for tab-completion of Hermes commands, subcommands, and profile names.
+Print a shell completion script to stdout. Source the output in your shell profile for tab-completion of J.A.G.O.D.A commands, subcommands, and profile names.
 
 Examples:
 
@@ -1767,26 +1767,26 @@ hermes update [--gateway] [--check] [--plan] [--no-backup] [--backup] [--yes]
 
 Pulls the latest `hermes-agent` code and reinstalls dependencies in the managed venv, then re-runs the post-install hooks (MCP servers, skills sync, completion install). Safe to run on a live install. Use `--check` to see whether your checkout is behind `origin/main` without installing.
 
-`hermes update` pulls the configured update branch (default: `main`). If your checkout is on another branch, Hermes may check out the update branch before pulling. Commit branch work before updating when you want to keep it outside the update autostash flow.
+`hermes update` pulls the configured update branch (default: `main`). If your checkout is on another branch, J.A.G.O.D.A may check out the update branch before pulling. Commit branch work before updating when you want to keep it outside the update autostash flow.
 
 | Option | Description |
 |--------|-------------|
 | `--gateway` | Internal mode used by the messaging `/update` command. Uses file-based IPC for prompts and progress streaming instead of reading from terminal stdin. Not a gateway restart flag. |
 | `--check` | Check whether an update is available without pulling, installing dependencies, or restarting anything. |
-| `--plan` | Print the update plan and exit without changing anything: install kind (git/Docker/Nix/apt), every running Hermes service across all profiles with its supervisor and running code version, and how each will be restarted. On image- or package-managed installs, reports the correct external update command instead. Read-only. |
+| `--plan` | Print the update plan and exit without changing anything: install kind (git/Docker/Nix/apt), every running J.A.G.O.D.A service across all profiles with its supervisor and running code version, and how each will be restarted. On image- or package-managed installs, reports the correct external update command instead. Read-only. |
 | `--no-backup` | Skip all pre-update backups for this run (both the quick state snapshot and the full zip), regardless of `updates.pre_update_backup`. |
 | `--backup` | Force a **full** pre-update backup for this run: the quick state snapshot plus a complete zip of `HERMES_HOME` (config, auth, sessions, skills, pairing data). The default mode is `quick` — a lightweight state snapshot only. Set the permanent mode via `updates.pre_update_backup: quick | full | off` in `config.yaml`. |
 | `--yes`, `-y` | Assume yes for interactive prompts such as config migration and stash restore. API-key entry is skipped; run `hermes config migrate` separately for those. |
 
 Additional behavior:
 
-- **Gateway restart.** After a successful update, Hermes attempts to restart all running gateway profiles automatically so they pick up the new code. Use `hermes gateway restart` when you want to restart a gateway without applying an update.
+- **Gateway restart.** After a successful update, J.A.G.O.D.A attempts to restart all running gateway profiles automatically so they pick up the new code. Use `hermes gateway restart` when you want to restart a gateway without applying an update.
 - **Restart-phase recovery.** If the in-process restart phase aborts while importing the freshly pulled tree, supervised gateway profiles are retried through a clean Python process. Only restarts independently confirmed by systemd (`systemctl --user is-active`) are reported as verified; a relaunch that merely exited 0 is recorded as `relaunch_attempted` and still fails the update conservatively. Manual gateways and serve/dashboard runtimes are never killed without a relaunch authority; they are recorded as skipped with a reason and remain in the incomplete-update report with the exact restart command.
 - **Update receipts + fleet version check.** Every run writes a machine-readable receipt to `~/.hermes/logs/update_receipts/` (pre-update fleet plan, steps, skips with reasons, restart outcome; `latest.json` points at the newest). After the restart phase the updater verifies each live gateway's running code against the updated checkout and prints a per-profile version matrix; a gateway still on pre-update code fails the update (exit 1) with the exact restart command.
 - **Local source changes.** For git installs, dirty tracked files and untracked files are auto-stashed before branch checkout or pull (`git stash push --include-untracked`). Interactive terminal updates ask before restoring the stash. Non-interactive updates restore it by default; set `updates.non_interactive_local_changes: discard` only on managed installs where local source edits should be thrown away after a successful pull. If stash restore conflicts or the pull fails, the stash is left in place for manual recovery.
-- **npm lockfile churn.** Before stashing or switching branches, Hermes makes a best-effort cleanup of tracked `package-lock.json` diffs produced by npm install/build steps. Commit or manually stash intentional lockfile edits before running `hermes update`.
+- **npm lockfile churn.** Before stashing or switching branches, J.A.G.O.D.A makes a best-effort cleanup of tracked `package-lock.json` diffs produced by npm install/build steps. Commit or manually stash intentional lockfile edits before running `hermes update`.
 - **Pairing data snapshot.** Even when `--backup` is off, `hermes update` takes a lightweight snapshot of `~/.hermes/pairing/` and the Feishu comment rules before `git pull`. You can roll it back with `hermes backup restore --state pre-update` if a pull rewrites a file you were editing.
-- **Legacy `hermes.service` warning.** If Hermes detects a pre-rename `hermes.service` systemd unit (instead of the current `hermes-gateway.service`), it prints a one-time migration hint so you can avoid flap-loop issues.
+- **Legacy `hermes.service` warning.** If J.A.G.O.D.A detects a pre-rename `hermes.service` systemd unit (instead of the current `hermes-gateway.service`), it prints a one-time migration hint so you can avoid flap-loop issues.
 - **Exit codes.** `0` on success, `1` on pull/install/post-install errors, `2` on unexpected working-tree changes that block `git pull`.
 
 ## Maintenance commands
@@ -1796,7 +1796,7 @@ Additional behavior:
 | `hermes --version` | Print version information. |
 | `hermes update` | Pull latest changes and reinstall dependencies. |
 
-| `hermes uninstall [--full] [--gui] [--dry-run] [--yes]` | Remove Hermes, optionally deleting all config/data. `--gui` removes only the desktop Chat GUI, leaving the agent intact; `--full` also deletes config/data; `--dry-run` prints what would be removed without changing anything; `--yes` skips prompts. |
+| `hermes uninstall [--full] [--gui] [--dry-run] [--yes]` | Remove J.A.G.O.D.A, optionally deleting all config/data. `--gui` removes only the desktop Chat GUI, leaving the agent intact; `--full` also deletes config/data; `--dry-run` prints what would be removed without changing anything; `--yes` skips prompts. |
 
 ## See also
 

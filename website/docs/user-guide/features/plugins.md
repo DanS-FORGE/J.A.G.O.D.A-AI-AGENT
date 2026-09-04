@@ -2,19 +2,19 @@
 sidebar_position: 11
 sidebar_label: "Plugins"
 title: "Plugins"
-description: "Extend Hermes with custom tools, hooks, and integrations via the plugin system"
+description: "Extend J.A.G.O.D.A with custom tools, hooks, and integrations via the plugin system"
 ---
 
 # Plugins
 
-Hermes has a plugin system for adding custom tools, hooks, and integrations without modifying core code.
+J.A.G.O.D.A has a plugin system for adding custom tools, hooks, and integrations without modifying core code.
 
 If you want to create a custom tool for yourself, your team, or one project,
 this is usually the right path. The developer guide's
-[Adding Tools](/developer-guide/adding-tools) page is for built-in Hermes
+[Adding Tools](/developer-guide/adding-tools) page is for built-in J.A.G.O.D.A
 core tools that live in `tools/` and `toolsets.py`.
 
-**→ [Build a Hermes Plugin](/developer-guide/plugins)** — step-by-step guide with a complete working example.
+**→ [Build a J.A.G.O.D.A Plugin](/developer-guide/plugins)** — step-by-step guide with a complete working example.
 
 ## Quick overview
 
@@ -28,7 +28,7 @@ Drop a directory into `~/.hermes/plugins/` with a `plugin.yaml` and Python code:
 └── tools.py         # tool handlers (what runs when called)
 ```
 
-Start Hermes — your tools appear alongside built-in tools. The model can call them immediately.
+Start J.A.G.O.D.A — your tools appear alongside built-in tools. The model can call them immediately.
 
 ### Minimal working example
 
@@ -45,7 +45,7 @@ description: A minimal example plugin
 **`~/.hermes/plugins/hello-world/__init__.py`**
 
 ```python
-"""Minimal Hermes plugin — registers a tool and a hook."""
+"""Minimal J.A.G.O.D.A plugin — registers a tool and a hook."""
 
 import json
 
@@ -86,11 +86,11 @@ def register(ctx):
     ctx.register_hook("post_tool_call", on_tool_call)
 ```
 
-Drop both files into `~/.hermes/plugins/hello-world/`, restart Hermes, and the model can immediately call `hello_world`. The hook prints a log line after every tool invocation.
+Drop both files into `~/.hermes/plugins/hello-world/`, restart J.A.G.O.D.A, and the model can immediately call `hello_world`. The hook prints a log line after every tool invocation.
 
-The model-facing tool description belongs in `schema["description"]`. The optional `ctx.register_tool(description=...)` value is separate `ToolEntry` registry metadata: when omitted, it defaults to the schema description, but Hermes does not copy it back into a schema that lacks `description`. Prefer defining the text once in the schema. If you provide both values, keep them synchronized; the model sees the schema value.
+The model-facing tool description belongs in `schema["description"]`. The optional `ctx.register_tool(description=...)` value is separate `ToolEntry` registry metadata: when omitted, it defaults to the schema description, but J.A.G.O.D.A does not copy it back into a schema that lacks `description`. Prefer defining the text once in the schema. If you provide both values, keep them synchronized; the model sees the schema value.
 
-Project-local plugins under `./.hermes/plugins/` are disabled by default. Enable them only for trusted repositories by setting `HERMES_ENABLE_PROJECT_PLUGINS=true` before starting Hermes.
+Project-local plugins under `./.hermes/plugins/` are disabled by default. Enable them only for trusted repositories by setting `HERMES_ENABLE_PROJECT_PLUGINS=true` before starting J.A.G.O.D.A.
 
 ## What plugins can do
 
@@ -123,7 +123,7 @@ Every `ctx.*` API below is available inside a plugin's `register(ctx)` function.
 
 | Source | Path | Use case |
 |--------|------|----------|
-| Bundled | `<repo>/plugins/` | Ships with Hermes — see [Built-in Plugins](/user-guide/features/built-in-plugins) |
+| Bundled | `<repo>/plugins/` | Ships with J.A.G.O.D.A — see [Built-in Plugins](/user-guide/features/built-in-plugins) |
 | User | `~/.hermes/plugins/` | Personal plugins |
 | Project | `.hermes/plugins/` | Project-specific plugins (requires `HERMES_ENABLE_PROJECT_PLUGINS=true`) |
 | pip | `hermes_agent.plugins` entry_points | Distributed packages |
@@ -133,7 +133,7 @@ Later sources override earlier ones on name collision, so a user plugin with the
 
 ### Plugin sub-categories
 
-Within each source, Hermes also recognizes sub-category directories that route plugins to specialized discovery systems:
+Within each source, J.A.G.O.D.A also recognizes sub-category directories that route plugins to specialized discovery systems:
 
 | Sub-directory | What it holds | Discovery system |
 |---|---|---|
@@ -183,7 +183,7 @@ abbreviated SHAs are not accepted):
 hermes plugins install owner/repo --ref 0123456789abcdef0123456789abcdef01234567
 ```
 
-Hermes checks out the commit detached, verifies that `HEAD` exactly matches the
+J.A.G.O.D.A checks out the commit detached, verifies that `HEAD` exactly matches the
 requested SHA, and records the canonical source, installed revision, and pin
 status in the current profile. `hermes plugins update` refuses to move a pinned
 plugin; choose a new exact commit explicitly with
@@ -193,7 +193,7 @@ secrets, or capability grants.
 
 ### What the allow-list does NOT gate
 
-Several categories of plugin bypass `plugins.enabled` — they're part of Hermes' built-in surface and would break basic functionality if gated off by default:
+Several categories of plugin bypass `plugins.enabled` — they're part of J.A.G.O.D.A's built-in surface and would break basic functionality if gated off by default:
 
 | Plugin kind | How it's activated instead |
 |---|---|
@@ -210,7 +210,7 @@ In short: **bundled "always-works" infrastructure loads automatically; third-par
 ### Approval transports
 
 An approval transport changes **where a human sees and answers** an existing
-Hermes tool-approval request. It does not decide whether a command needs
+J.A.G.O.D.A tool-approval request. It does not decide whether a command needs
 approval and it is not an authorization-policy API.
 
 ```python
@@ -225,7 +225,7 @@ def register(ctx):
     ctx.register_approval_transport("my-ui", present)
 ```
 
-`present` may be synchronous or async. Hermes runs it on a bounded worker and
+`present` may be synchronous or async. J.A.G.O.D.A runs it on a bounded worker and
 enforces the canonical `approvals.timeout` even if the plugin does not. The
 request is immutable and contains redacted display text, its host presentation
 class (`cli` or `gateway`), the host timeout, allowed choices, and an opaque
@@ -251,10 +251,10 @@ security:
 Transport exceptions, timeouts, unavailable registrations, invalid choices,
 and stale responses deny by default. To deliberately show the prompt on the
 ordinary CLI/TUI/gateway/ACP surface when the selected transport fails, set
-`transport_fallback: builtin`. Without that exact opt-in, Hermes never
+`transport_fallback: builtin`. Without that exact opt-in, J.A.G.O.D.A never
 materializes the prompt on another surface.
 
-Hermes still owns hardline blocks, sudo-stdin protection, user deny rules,
+J.A.G.O.D.A still owns hardline blocks, sudo-stdin protection, user deny rules,
 request binding, allowed scopes, persistence, hooks, and final authorization.
 Hardline commands are blocked before any transport callback. There is
 intentionally **no plugin approval policy, auto-allow callback, or required
@@ -264,7 +264,7 @@ grant it.
 
 ### Migration for existing users
 
-When you upgrade to a version of Hermes that has opt-in plugins (config schema v21+), any user plugins already installed under `~/.hermes/plugins/` that weren't already in `plugins.disabled` are **automatically grandfathered** into `plugins.enabled`. Your existing setup keeps working. Bundled standalone plugins are NOT grandfathered — even existing users have to opt in explicitly. (Bundled platform/backend plugins never needed grandfathering because they were never gated.)
+When you upgrade to a version of J.A.G.O.D.A that has opt-in plugins (config schema v21+), any user plugins already installed under `~/.hermes/plugins/` that weren't already in `plugins.disabled` are **automatically grandfathered** into `plugins.enabled`. Your existing setup keeps working. Bundled standalone plugins are NOT grandfathered — even existing users have to opt in explicitly. (Bundled platform/backend plugins never needed grandfathering because they were never gated.)
 
 ## Available hooks
 
@@ -279,7 +279,7 @@ Plugins can register the 26 lifecycle events currently accepted by `hermes_cli.p
 These categories describe current behavior rather than defining future naming rules. Plugin middleware remains a separate registry/surface.
 ## Plugin types
 
-Hermes has four kinds of plugins:
+J.A.G.O.D.A has four kinds of plugins:
 
 | Type | What it does | Selection | Location |
 |------|-------------|-----------|----------|
@@ -292,13 +292,13 @@ Memory providers and context engines are **provider plugins** — only one of ea
 
 ## Pluggable interfaces — where to go for each
 
-The table above shows the four plugin categories, but within "General plugins" the `PluginContext` exposes several distinct extension points — and Hermes also accepts extensions outside the Python plugin system (config-driven backends, shell-hooked commands, external servers, etc.). Use this table to find the right doc for what you want to build:
+The table above shows the four plugin categories, but within "General plugins" the `PluginContext` exposes several distinct extension points — and J.A.G.O.D.A also accepts extensions outside the Python plugin system (config-driven backends, shell-hooked commands, external servers, etc.). Use this table to find the right doc for what you want to build:
 
 | Want to add… | How | Authoring guide |
 |---|---|---|
-| A **tool** the LLM can call | Python plugin — `ctx.register_tool()` | [Build a Hermes Plugin](/developer-guide/plugins) · [Adding Tools](/developer-guide/adding-tools) |
-| A **lifecycle hook** (pre/post LLM, session start/end, tool filter) | Python plugin — `ctx.register_hook()` | [Hooks reference](/user-guide/features/hooks) · [Build a Hermes Plugin](/developer-guide/plugins) |
-| A **slash command** for the CLI / gateway | Python plugin — `ctx.register_command()` | [Build a Hermes Plugin](/developer-guide/plugins) · [Extending the CLI](/developer-guide/extending-the-cli) |
+| A **tool** the LLM can call | Python plugin — `ctx.register_tool()` | [Build a J.A.G.O.D.A Plugin](/developer-guide/plugins) · [Adding Tools](/developer-guide/adding-tools) |
+| A **lifecycle hook** (pre/post LLM, session start/end, tool filter) | Python plugin — `ctx.register_hook()` | [Hooks reference](/user-guide/features/hooks) · [Build a J.A.G.O.D.A Plugin](/developer-guide/plugins) |
+| A **slash command** for the CLI / gateway | Python plugin — `ctx.register_command()` | [Build a J.A.G.O.D.A Plugin](/developer-guide/plugins) · [Extending the CLI](/developer-guide/extending-the-cli) |
 | A **subcommand** for `hermes <thing>` | Python plugin — `ctx.register_cli_command()` | [Extending the CLI](/developer-guide/extending-the-cli) |
 | A bundled **skill** that your plugin ships | Python plugin — `ctx.register_skill()` | [Creating Skills](/developer-guide/creating-skills) |
 | An **inference backend** (LLM provider: OpenAI-compat, Codex, Anthropic-Messages, Bedrock) | Provider plugin — `register_provider(ProviderProfile(...))` in `plugins/model-providers/<name>/` | **[Model Provider Plugins](/developer-guide/model-provider-plugin)** · [Adding Providers](/developer-guide/adding-providers) |
@@ -309,7 +309,7 @@ The table above shows the four plugin categories, but within "General plugins" t
 | A **video-generation backend** (Veo, Kling, Pixverse, Grok-Imagine, Runway, …) | Backend plugin — `ctx.register_video_gen_provider()` | [Video Generation Provider Plugins](/developer-guide/video-gen-provider-plugin) |
 | A **TTS backend** (any CLI — Piper, VoxCPM, Kokoro, xtts, voice-cloning scripts, …) | Config-driven (recommended) — declare under `tts.providers.<name>` with `type: command` in `config.yaml`. OR Python backend plugin — `ctx.register_tts_provider()` for Python-SDK / streaming engines that need more than a shell template. | [TTS Setup](/user-guide/features/tts#custom-command-providers) · [Python plugin guide](/user-guide/features/tts#python-plugin-providers) |
 | An **STT backend** (any CLI — whisper.cpp, custom whisper binary, local ASR CLI) | Config-driven (recommended) — declare under `stt.providers.<name>` with `type: command` in `config.yaml`, or set `HERMES_LOCAL_STT_COMMAND` for the legacy single-command escape hatch. OR Python backend plugin — `ctx.register_transcription_provider()` for Python-SDK engines (OpenRouter, SenseAudio, Gemini-STT, etc.). | [STT Setup](/user-guide/features/tts#stt-custom-command-providers) · [Python plugin guide](/user-guide/features/tts#python-plugin-providers-stt) |
-| **External tools via MCP** (filesystem, GitHub, Linear, Notion, any MCP server) | Config-driven — declare `mcp_servers.<name>` with `command:` / `url:` in `config.yaml`. Hermes auto-discovers the server's tools and registers them alongside built-ins. | [MCP](/user-guide/features/mcp) |
+| **External tools via MCP** (filesystem, GitHub, Linear, Notion, any MCP server) | Config-driven — declare `mcp_servers.<name>` with `command:` / `url:` in `config.yaml`. J.A.G.O.D.A auto-discovers the server's tools and registers them alongside built-ins. | [MCP](/user-guide/features/mcp) |
 | **Additional skill sources** (custom GitHub repos, private skill indexes) | CLI — `hermes skills tap add <repo>` | [Skills Hub](/user-guide/features/skills#skills-hub) · [Publishing a custom tap](/user-guide/features/skills#publishing-a-custom-skill-tap) |
 | **Gateway event hooks** (fire on `gateway:startup`, `session:start`, `agent:end`, `command:*`) | Drop `HOOK.yaml` + `handler.py` into `~/.hermes/hooks/<name>/` | [Event Hooks](/user-guide/features/hooks#gateway-event-hooks) |
 | **Shell hooks** (run a shell command on events — notifications, audit logs, desktop alerts) | Config-driven — declare under `hooks:` in `config.yaml` | [Shell Hooks](/user-guide/features/hooks#shell-hooks) |
@@ -354,7 +354,7 @@ hermes plugins capabilities [my-plugin]      # declared vs granted capabilities
 
 ### One-click install links (Desktop)
 
-Hermes Desktop registers the `hermes://` URL scheme, so a website, README, or
+J.A.G.O.D.A Desktop registers the `hermes://` URL scheme, so a website, README, or
 chat message can link straight to a plugin install:
 
 ```
@@ -363,7 +363,7 @@ hermes://plugin/install?repo=owner/repo&enable=1   # enable the agent plugin aft
 hermes://plugin/install?repo=owner/repo&force=1    # replace an existing install
 ```
 
-Clicking one opens Hermes and shows a **confirmation dialog** — the repo id,
+Clicking one opens J.A.G.O.D.A and shows a **confirmation dialog** — the repo id,
 a "Before you install" note, and GitHub browse + clone links — then
 shallow-clones the repo to detect what it ships (an **agent plugin** —
 backend Python, a **desktop plugin** — app UI, or both). You pick the
@@ -381,7 +381,7 @@ Install from Git**. Legacy `hermes://plugin-agent/…` and
 Websites need no SDK — a normal anchor works:
 
 ```html
-<a href="hermes://plugin/install?repo=owner/repo&enable=1">Install in Hermes</a>
+<a href="hermes://plugin/install?repo=owner/repo&enable=1">Install in J.A.G.O.D.A</a>
 ```
 
 MCP servers have the equivalent link form — see
@@ -443,7 +443,7 @@ set — existing configs keep working unchanged.
 Capabilities are a **consent and audit layer**, not isolation. Plugins run as
 regular in-process Python: a malicious plugin can ignore every gate here.
 Granting a capability is a statement of trust in the plugin author — it is
-not a code audit, and Hermes has not reviewed the plugin's code. Only install
+not a code audit, and J.A.G.O.D.A has not reviewed the plugin's code. Only install
 plugins from sources you trust.
 :::
 
@@ -525,7 +525,7 @@ overrides the index pin.
 overridable via `hermes config set plugins.index_url <url>`). Fetches are
 cached under `~/.hermes/cache/plugin_index.json` for 24 hours; when the
 remote is unreachable the stale cache is used, and when there is no cache at
-all a bundled seed copy ships with Hermes — so search works fully offline.
+all a bundled seed copy ships with J.A.G.O.D.A — so search works fully offline.
 
 **Index entry format.** Each entry is a JSON object:
 
@@ -734,11 +734,11 @@ In CLI mode:
 In gateway mode:
 
 - `session_key` is required and must identify an existing gateway session. It is the stable routing key, not the CLI session ID.
-- Hermes reuses that session's stored platform, chat, thread, profile, and conversation history. Plugins cannot supply a new chat route through this API.
-- Hermes rechecks the stored route against the gateway's current authorisation rules before dispatch.
-- Routes that relied only on an adapter-time or upstream authorisation decision are rejected unless Hermes can revalidate them from current core allowlists, pairing, or explicit allow-all configuration.
+- J.A.G.O.D.A reuses that session's stored platform, chat, thread, profile, and conversation history. Plugins cannot supply a new chat route through this API.
+- J.A.G.O.D.A rechecks the stored route against the gateway's current authorisation rules before dispatch.
+- Routes that relied only on an adapter-time or upstream authorisation decision are rejected unless J.A.G.O.D.A can revalidate them from current core allowlists, pairing, or explicit allow-all configuration.
 - Injected text is always conversational input. It cannot invoke slash commands, approve tools, or resolve pending confirmation and clarification prompts.
-- The route and conversation are pinned while dispatch is pending. Hermes drops the request if topic recovery changes the route or the session rotates before handling starts.
+- The route and conversation are pinned while dispatch is pending. J.A.G.O.D.A drops the request if topic recovery changes the route or the session rotates before handling starts.
 - The request enters the platform adapter's normal message path. Active sessions use the existing busy-session queue rather than starting a competing turn.
 - Returns `True` when the live gateway accepts the request for asynchronous dispatch. This does not confirm that the agent turn or platform delivery has completed.
 - Returns `False` when `session_key` is omitted, the permission is not granted, or no live gateway can accept the request. Unknown or unroutable session keys discovered after asynchronous acceptance are written to the gateway log.
@@ -755,7 +755,7 @@ plugins:
 ```
 
 :::warning
-Only grant gateway injection to plugins you trust. Hermes checks this host API permission and restricts it to existing session routes, but Python plugins run in-process and this setting is not a sandbox.
+Only grant gateway injection to plugins you trust. J.A.G.O.D.A checks this host API permission and restricts it to existing session routes, but Python plugins run in-process and this setting is not a sandbox.
 :::
 
 :::note
@@ -764,7 +764,7 @@ This plugin API does not expose a public HTTP endpoint or CLI command for extern
 
 ## Calling MCP servers from plugins
 
-`ctx.call_mcp()` lets a plugin call a tool on one of the user's configured MCP servers — synchronously, from any hook or tool handler — routing through Hermes' existing native MCP client (same connections, trust-tier gates, circuit breaker, and reconnect logic as model-invoked MCP tools; never a parallel client).
+`ctx.call_mcp()` lets a plugin call a tool on one of the user's configured MCP servers — synchronously, from any hook or tool handler — routing through J.A.G.O.D.A's existing native MCP client (same connections, trust-tier gates, circuit breaker, and reconnect logic as model-invoked MCP tools; never a parallel client).
 
 ```python
 result = ctx.call_mcp(

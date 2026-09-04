@@ -4,7 +4,7 @@ sidebar_position: 18
 
 # Photon iMessage
 
-Connect Hermes to **iMessage** through [Photon][photon], a managed
+Connect J.A.G.O.D.A to **iMessage** through [Photon][photon], a managed
 service that handles the Apple line allocation and abuse-prevention
 layer so you don't have to run your own Mac relay.
 
@@ -16,7 +16,7 @@ recommended starting point.
 
 :::info Free to start
 Photon's shared-line pool is free. No subscription is required to send
-your first iMessage from Hermes — just a phone number we can bind to
+your first iMessage from J.A.G.O.D.A — just a phone number we can bind to
 your account.
 :::
 
@@ -26,7 +26,7 @@ Photon is a **persistent-connection** channel, like Discord or Slack —
 **no webhook, no public URL, no signing secret to manage.**
 
 The `spectrum-ts` SDK holds a long-lived **gRPC stream** to Photon for
-both directions. Because the SDK is TypeScript-only, Hermes runs it in a
+both directions. Because the SDK is TypeScript-only, J.A.G.O.D.A runs it in a
 small supervised **Node sidecar** and talks to it over loopback:
 
 - **Inbound** — the sidecar consumes the SDK's `app.messages` gRPC
@@ -66,7 +66,7 @@ The setup, in order:
 
 1. **Device login** (`client_id=photon-cli`) — opens
    `https://app.photon.codes/` for approval and stores the bearer token.
-2. **Finds or creates** the `Hermes Agent` project on your account.
+2. **Finds or creates** the `J.A.G.O.D.A` project on your account.
 3. **Enables Spectrum**, reads the project's Spectrum id, and rotates
    the project secret.
 4. **Registers your phone number** as a Spectrum user — skipped if a
@@ -87,11 +87,11 @@ the same place every other channel keeps its token. Management metadata
 
 ## Authorizing users
 
-Photon uses the same authorization model as every other Hermes
+Photon uses the same authorization model as every other J.A.G.O.D.A
 channel. Choose one approach:
 
 **DM pairing (default).** When an unknown number messages your Photon
-line, Hermes replies with a pairing code. Approve it with:
+line, J.A.G.O.D.A replies with a pairing code. Approve it with:
 
 ```bash
 hermes pairing approve photon <CODE>
@@ -117,7 +117,7 @@ deliberately restricted access).
 
 ### Require mentions in group chats
 
-By default Hermes responds to every authorized DM and group message.
+By default J.A.G.O.D.A responds to every authorized DM and group message.
 To make group chats opt-in, enable mention gating (DMs still always
 work):
 
@@ -130,7 +130,7 @@ gateway:
 ```
 
 With `require_mention: true`, group-chat messages are ignored unless
-they match a wake-word pattern. The defaults match `Hermes` and
+they match a wake-word pattern. The defaults match `J.A.G.O.D.A` and
 `@Hermes agent` variants. For a custom agent name, set regex patterns:
 
 ```yaml
@@ -158,7 +158,7 @@ You'll see something like:
 [photon] connected — sidecar on 127.0.0.1:8789, streaming inbound over gRPC
 ```
 
-Send an iMessage to your assigned number and Hermes will reply.
+Send an iMessage to your assigned number and J.A.G.O.D.A will reply.
 
 ## Status & troubleshooting
 
@@ -167,7 +167,7 @@ hermes photon status
 ```
 
 Prints saved credentials, sidecar health, your registered number, and the
-assigned iMessage line Hermes uses. When a Photon token and dashboard project
+assigned iMessage line J.A.G.O.D.A uses. When a Photon token and dashboard project
 are available, `status` refreshes missing number rows from the dashboard
 without provisioning new lines.
 
@@ -201,19 +201,19 @@ Common issues:
   filename + MIME type; the agent sees a marker but can't yet read the
   bytes. The SDK exposes attachment bytes via `content.read()`, so this
   is a sidecar follow-up.
-- **Outbound attachments are supported.** Hermes sends images, voice
+- **Outbound attachments are supported.** J.A.G.O.D.A sends images, voice
   notes, video, and documents through spectrum-ts' `attachment()` /
   `voice()` content builders via the sidecar's `/send-attachment`
   endpoint. Captions arrive as a separate iMessage bubble after the
   media.
-- **Native polls are supported.** Hermes sends poll content through
+- **Native polls are supported.** J.A.G.O.D.A sends poll content through
   spectrum-ts' `poll()` builder via the sidecar's `/send-poll` endpoint.
 - **Read receipts are supported.** The sidecar marks an inbound iMessage
-  read after forwarding it to Hermes, so the sender sees `Read` without
-  waiting for a model/tool turn. Inbound receipts for Hermes-sent messages
+  read after forwarding it to J.A.G.O.D.A, so the sender sees `Read` without
+  waiting for a model/tool turn. Inbound receipts for J.A.G.O.D.A-sent messages
   are consumed as presence telemetry and never create an agent turn. Set
   `PHOTON_READ_RECEIPTS=false` to keep messages at `Delivered`.
-- **Message effects are supported.** Hermes sends text with native iMessage
+- **Message effects are supported.** J.A.G.O.D.A sends text with native iMessage
   bubble/screen effects through spectrum-ts' iMessage `effect()` builder
   via the sidecar's `/send-effect` endpoint.
 - **Photon's free quotas:** 5,000 messages per server per day,
@@ -229,7 +229,7 @@ Common issues:
 - **Shared/free-tier lines can't initiate conversations with new
   targets.** Photon-side policy: a shared line can only message a number
   after that number has texted the line first. A cron/standalone send to a
-  brand-new recipient will be rejected by Photon even when Hermes is set
+  brand-new recipient will be rejected by Photon even when J.A.G.O.D.A is set
   up correctly — either have the recipient message the line once, or move
   to a dedicated line.
 

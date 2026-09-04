@@ -1,17 +1,17 @@
 ---
 sidebar_position: 3
-title: "Hermes Desktop"
-description: "The native Hermes desktop app — a polished experience for chatting with Hermes, with streaming tool output, side-by-side previews, a file browser, voice, cron, profiles, skills, and settings. macOS, Windows, and Linux."
+title: "J.A.G.O.D.A Desktop"
+description: "The native J.A.G.O.D.A desktop app — a polished experience for chatting with J.A.G.O.D.A, with streaming tool output, side-by-side previews, a file browser, voice, cron, profiles, skills, and settings. macOS, Windows, and Linux."
 ---
 
-# Hermes Desktop
+# J.A.G.O.D.A Desktop
 
-The Hermes desktop app is a native app built around the **same** agent you get from the CLI and the gateway — same config, same API keys, same sessions, same skills, same memory. It is not a separate product or a lightweight clone; it uses the same Hermes Agent core and settings, and drives it through a modern & thoughtfully designed UI. If you have used `hermes` in a terminal, everything you set up there is already here, and anything you do here shows up there.
+The J.A.G.O.D.A desktop app is a native app built around the **same** agent you get from the CLI and the gateway — same config, same API keys, same sessions, same skills, same memory. It is not a separate product or a lightweight clone; it uses the same J.A.G.O.D.A core and settings, and drives it through a modern & thoughtfully designed UI. If you have used `hermes` in a terminal, everything you set up there is already here, and anything you do here shows up there.
 
 It runs on **macOS, Windows, and Linux**.
 
 :::tip Which interface is which?
-Hermes has several front ends that all talk to the same agent:
+J.A.G.O.D.A has several front ends that all talk to the same agent:
 
 - **Desktop App** (this page) — a native application with a purpose-built UI for chat, configuration, and management.
 - **CLI** (`hermes`) and **[TUI](./tui.md)** (`hermes --tui`) — terminal interfaces.
@@ -22,9 +22,9 @@ Pick whichever fits the moment. They share state, so you can start a session in 
 
 ## Install
 
-Download the app from the [Hermes Desktop product page](https://hermes-agent.nousresearch.com/desktop), or follow the [installation instructions for Hermes Desktop](../getting-started/installation.md).
+Download the app from the [J.A.G.O.D.A Desktop product page](https://hermes-agent.nousresearch.com/desktop), or follow the [installation instructions for J.A.G.O.D.A Desktop](../getting-started/installation.md).
 
-If you already have Hermes installed, simply run
+If you already have J.A.G.O.D.A installed, simply run
 
 ```bash
 hermes desktop
@@ -41,7 +41,7 @@ The desktop app is organized as a chat-first window with a left sidebar for navi
 The center of the app. You get:
 
 - **Streaming responses** with live tool activity and structured tool-call summaries as the agent works.
-- **The same conversation history** as every other Hermes surface — sessions started here resume in the CLI/TUI and vice versa.
+- **The same conversation history** as every other J.A.G.O.D.A surface — sessions started here resume in the CLI/TUI and vice versa.
 - **Drag-and-drop files** anywhere in the chat area to attach them to your next message.
 - **A right-hand preview rail** — render web pages, files, and tool outputs side by side while you keep chatting.
 - **Composer history and queue editing** — press the up/down arrow keys in an empty composer to recall and reuse previous prompts, and edit messages you've queued up before they're sent. Pressing Stop (or Esc) while turns are queued pauses the queue and expands it above the composer; resume it from there, or send, edit, and delete individual entries.
@@ -56,11 +56,11 @@ The bar along the bottom of the chat shows live session state and exposes quick 
 - **Context-usage meter** — a live "% full" meter of the session's context window. Click it to open the **Context Usage** popover with a token breakdown by category (system prompt, tool definitions, skills, memory, rules, MCP, subagent definitions, and the conversation itself) so you can see exactly what's eating the window before compression kicks in.
 - **Customizable items** — right-click the status bar (**Show in status bar**) to choose what appears: the context meter, workspace, model, approvals, turn/session timers, terminal, Command Center, backend version, and more — or hide the bar entirely (**Cmd/Ctrl+Shift+S** toggles it).
 
-Chatting against a Hermes instance on another machine instead of the bundled local backend? See [Connecting to a remote backend](#connecting-to-a-remote-backend) below — and for the full picture of how the remote-hosted dashboard connection works (the auth gate, the `/api/ws` chat socket, and WebSocket close-code triage), see [Web Dashboard → Connecting Hermes Desktop to a remote backend](./features/web-dashboard.md#connecting-hermes-desktop-to-a-remote-backend).
+Chatting against a J.A.G.O.D.A instance on another machine instead of the bundled local backend? See [Connecting to a remote backend](#connecting-to-a-remote-backend) below — and for the full picture of how the remote-hosted dashboard connection works (the auth gate, the `/api/ws` chat socket, and WebSocket close-code triage), see [Web Dashboard → Connecting Hermes Desktop to a remote backend](./features/web-dashboard.md#connecting-hermes-desktop-to-a-remote-backend).
 
 #### Repository discovery
 
-Hermes Desktop discovers local Git repositories for the Projects sidebar by scanning your home directory to a bounded depth. You can change this per profile in **Settings → Workspace**, or in `config.yaml`:
+J.A.G.O.D.A Desktop discovers local Git repositories for the Projects sidebar by scanning your home directory to a bounded depth. You can change this per profile in **Settings → Workspace**, or in `config.yaml`:
 
 ```yaml
 desktop:
@@ -69,7 +69,7 @@ desktop:
   repo_scan_exclude_paths: []
 ```
 
-- Set `repo_scan_enabled: false` to stop the filesystem scan completely. Existing disk-discovery cache rows for that profile are cleared; explicit projects and repositories inferred from intentional Hermes sessions remain available.
+- Set `repo_scan_enabled: false` to stop the filesystem scan completely. Existing disk-discovery cache rows for that profile are cleared; explicit projects and repositories inferred from intentional J.A.G.O.D.A sessions remain available.
 - Set `repo_scan_roots` to a list of folders to restrict scanning. An empty list preserves the default home-directory scan.
 - Set `repo_scan_exclude_paths` to folders whose complete subtrees should be skipped.
 
@@ -112,12 +112,12 @@ A real terminal lives in the right sidebar, next to the file browser:
 
 For sessions running inside a Git repository, the app has a built-in source-control surface:
 
-- **Review pane** — **Cmd/Ctrl+G** toggles the working-tree review pane: branch and ahead/behind status, changed files (list or tree view), and diffs scoped to **Uncommitted**, **Branch**, or **Last turn** (just what the agent changed in its most recent turn). Stage/unstage files, revert changes, write a commit message (or **Generate commit message**), then **Commit** or **Commit & Push** — and **Create PR** via the GitHub CLI (`gh`), or hand the whole thing to the agent with **Ask Hermes to open PR**. You can also create and switch branches from here.
+- **Review pane** — **Cmd/Ctrl+G** toggles the working-tree review pane: branch and ahead/behind status, changed files (list or tree view), and diffs scoped to **Uncommitted**, **Branch**, or **Last turn** (just what the agent changed in its most recent turn). Stage/unstage files, revert changes, write a commit message (or **Generate commit message**), then **Commit** or **Commit & Push** — and **Create PR** via the GitHub CLI (`gh`), or hand the whole thing to the agent with **Ask J.A.G.O.D.A to open PR**. You can also create and switch branches from here.
 - **Worktrees** — **Cmd/Ctrl+Shift+B** (or **New worktree** on a project in the sidebar) creates a Git worktree on a new branch so an agent can work on a parallel copy of the repo without touching your checkout. Worktrees show up as their own lanes under the project; removing one offers to delete the worktree directory (the branch stays) or just hide the lane and leave it on disk, with a force option when it has uncommitted changes.
 
 ### Memory Graph
 
-The **Memory Graph** (command palette → *Memory Graph*, or the status-bar item) is an interactive map of what Hermes has learned for you — skills and memories laid out as a zoomable node graph with a timeline, filterable by **All / Used / Learned**. A share control exports the map layout as a compact code you can paste to someone else (layout only — none of your memory or skill text is included) and imports codes the same way.
+The **Memory Graph** (command palette → *Memory Graph*, or the status-bar item) is an interactive map of what J.A.G.O.D.A has learned for you — skills and memories laid out as a zoomable node graph with a timeline, filterable by **All / Used / Learned**. A share control exports the map layout as a compact code you can paste to someone else (layout only — none of your memory or skill text is included) and imports codes the same way.
 
 ### Quick Entry
 
@@ -125,11 +125,11 @@ Quick Entry is a small always-available composer summoned by a **global hotkey f
 
 ### Voice
 
-Talk to Hermes and hear it back, the same [voice mode](./features/voice-mode.md) available elsewhere. On macOS the OS will prompt once for microphone access.
+Talk to J.A.G.O.D.A and hear it back, the same [voice mode](./features/voice-mode.md) available elsewhere. On macOS the OS will prompt once for microphone access.
 
 ### HUD mode
 
-**⌘/Ctrl+Shift+H** (or the titlebar button) detaches the chat into a chrome-free, always-on-top floating bar that sits over whatever you are working in. The app window steps aside; the HUD keeps your live conversation and a composer. Where you park it is context — the bar's position tells Hermes which app and screen you're asking about, so "this", "here", and "that page" resolve to what's underneath it.
+**⌘/Ctrl+Shift+H** (or the titlebar button) detaches the chat into a chrome-free, always-on-top floating bar that sits over whatever you are working in. The app window steps aside; the HUD keeps your live conversation and a composer. Where you park it is context — the bar's position tells J.A.G.O.D.A which app and screen you're asking about, so "this", "here", and "that page" resolve to what's underneath it.
 
 - **Moving the bar** — on macOS and Windows, **press and hold** anywhere on the composer for a beat, then drag. On Linux/X11, hold **Ctrl** and drag with the primary mouse button for an immediate grab (including over selected text); press-and-hold remains available too. Keep the grab held while invoking your desktop switch shortcut to carry the HUD onto another virtual desktop. On native Wayland the composer bar is a compositor drag handle (the only way to move it, because an app cannot place its own window).
 - **Resizing** — drag any edge or corner of the bar; the opposite edge stays anchored. Native Wayland exposes the right and bottom edges because the compositor does not allow apps to position top-level windows themselves.
@@ -180,22 +180,22 @@ When you have two or more [profiles](./profiles.md), the config-backed settings 
 
 ### Management panes
 
-The app also surfaces the broader Hermes management surface so you don't have to drop to a terminal:
+The app also surfaces the broader J.A.G.O.D.A management surface so you don't have to drop to a terminal:
 
 - **Skills** — browse, install, and manage [skills](./features/skills.md).
 - **Memory graph (Star Map)** — type `/journey` (aliases `/learning`, `/memory-graph`) in chat to open an interactive constellation of learned skills and memories over time, with a playback scrubber. Nodes can be edited or deleted right from the panel (skills are archived, memories removed). See [Learning Journey](./features/memory.md#learning-journey-journey).
 - **Cron** — view and manage [scheduled jobs](../reference/cli-commands.md#hermes-cron).
-- **Profiles** — switch between [Hermes profiles](./profiles.md) (isolated config/skills/sessions).
+- **Profiles** — switch between [J.A.G.O.D.A profiles](./profiles.md) (isolated config/skills/sessions).
 - **Messaging** — set up gateway channels.
 - **Agents** and **Command Center** — orchestration surfaces for multi-agent work.
 
 ### Bot Mode (built in)
 
 **Bot Mode** ships with the app and is on by default: a "one chat per agent"
-roster where every [Hermes profile](./profiles.md) appears as a bot with its
+roster where every [J.A.G.O.D.A profile](./profiles.md) appears as a bot with its
 own avatar (geometric face, uploaded image, AI-generated portrait, or a pixel
 pet), its own canonical **Bot Chat** conversation, and its own **Routines**
-(recurring tasks backed by Hermes cron). The roster lives in the left
+(recurring tasks backed by J.A.G.O.D.A cron). The roster lives in the left
 sidebar as a tab next to your conversations — a **Sessions | Bots** tab
 strip — rather than a second pane stacked below the session list. Installs
 that picked up the older stacked layout are re-homed into the tab strip
@@ -247,7 +247,7 @@ chats decide who replies: [Bot Mode: A Roster of Agents](./bot-mode.md).
 
 ### Keyboard & navigation
 
-- **Command palette** — press **Cmd+K** or **Cmd+P** (Ctrl+K / Ctrl+P on Windows/Linux) to jump to actions and navigate the app from the keyboard: open any page or settings section, jump to a session by title or id, switch model/theme/color mode, spawn a terminal, restart the gateway, update Hermes, and more.
+- **Command palette** — press **Cmd+K** or **Cmd+P** (Ctrl+K / Ctrl+P on Windows/Linux) to jump to actions and navigate the app from the keyboard: open any page or settings section, jump to a session by title or id, switch model/theme/color mode, spawn a terminal, restart the gateway, update J.A.G.O.D.A, and more.
 - **Rebindable shortcuts** — **Settings → Keyboard Shortcuts** (or **Cmd/Ctrl+/**) opens the shortcuts panel where you can remap almost every binding — profile switching, session navigation, view toggles, and any shortcuts contributed by desktop plugins. Duplicate assignments are flagged as conflicts. A few defaults worth knowing: **Cmd/Ctrl+N** new session, **Cmd/Ctrl+.** Command Center, **Cmd/Ctrl+,** Settings, **Cmd/Ctrl+Shift+F** search sessions, **Cmd/Ctrl+1–9** switch profiles, **Shift+X** toggle light/dark.
 - **Custom zoom shortcuts** — zoom the interface in half-step increments for finer control over text size.
 - **UI language switcher** — change the app's interface language in-app, including Simplified Chinese (zh-Hans).
@@ -263,7 +263,7 @@ chats decide who replies: [Bot Mode: A Roster of Agents](./bot-mode.md).
 
 The app checks for updates in the background and offers a one-click update when one is ready.
 
-The desktop app and the Hermes backend it talks to update on separate clocks — the app package on your machine, the backend wherever it runs. When more than one update target exists (a remote gateway, or several registered gateways), the update affordances (**Update now** on the About panel, the ⌘K **Update Hermes** row, and the update-ready toast) update **everything**: the connected backend first, then every other eligible registered gateway (Hermes Cloud entries are platform-managed and skipped), and the desktop app itself last, since applying the client update relaunches the app. Single-machine installs keep the one-button experience.
+The desktop app and the J.A.G.O.D.A backend it talks to update on separate clocks — the app package on your machine, the backend wherever it runs. When more than one update target exists (a remote gateway, or several registered gateways), the update affordances (**Update now** on the About panel, the ⌘K **Update J.A.G.O.D.A** row, and the update-ready toast) update **everything**: the connected backend first, then every other eligible registered gateway (Hermes Cloud entries are platform-managed and skipped), and the desktop app itself last, since applying the client update relaunches the app. Single-machine installs keep the one-button experience.
 
 After any backend update, the app also re-checks its own version and warns with a one-click **Update desktop app** action if the GUI is still behind — so updating a remote backend can never silently leave you on a stale desktop build.
 
@@ -273,7 +273,7 @@ The [manual update process](https://hermes-agent.nousresearch.com/docs/getting-s
 
 Open **Settings → About → Danger zone** and pick how much to remove:
 
-- **Uninstall Chat GUI only** — removes the desktop app and its data; the Hermes agent, your config, and your chats stay. (Same as `hermes uninstall --gui`.)
+- **Uninstall Chat GUI only** — removes the desktop app and its data; the J.A.G.O.D.A agent, your config, and your chats stay. (Same as `hermes uninstall --gui`.)
 - **Uninstall GUI + agent, keep my data** — removes the app and the agent but keeps config, chats, and secrets for a future reinstall. (Same as `hermes uninstall`.)
 - **Uninstall everything** — removes the app, the agent, and all user data. (Same as `hermes uninstall --full`.)
 
@@ -296,17 +296,17 @@ To launch via the CLI, simply run `hermes desktop`. By default it installs works
 | `--build-only`       | Build the desktop app but do not launch it (used by `hermes update`)                      |
 | `--source`           | Launch via `electron .` against `apps/desktop/dist` instead of the packaged app           |
 | `--cwd PATH`         | Initial project directory for desktop chat sessions (sets `HERMES_DESKTOP_CWD`)           |
-| `--hermes-root PATH` | Override the Hermes source root the app uses (sets `HERMES_DESKTOP_HERMES_ROOT`)          |
+| `--hermes-root PATH` | Override the J.A.G.O.D.A source root the app uses (sets `HERMES_DESKTOP_HERMES_ROOT`)          |
 | `--ignore-existing`  | Force the app to ignore any `hermes` CLI already on `PATH` during backend resolution      |
 | `--fake-boot`        | Enable deterministic boot delays for validating the startup UI                            |
 
 ## How it works
 
-The packaged app ships the Electron shell and a native React chat surface. On first launch it can install the Hermes Agent runtime into `HERMES_HOME` (`~/.hermes`, or `%LOCALAPPDATA%\hermes` on Windows) — **the same layout a CLI install uses**, which is why the two are interchangeable. Backend resolution first honours `HERMES_DESKTOP_HERMES_ROOT`, then a completed managed install, then a probed `hermes` on `PATH` (unless `--ignore-existing` / `HERMES_DESKTOP_IGNORE_EXISTING=1` is set), and finally an explicit `HERMES_DESKTOP_HERMES` command override for packagers such as Nix. The React renderer talks to a headless backend the app launches for you — a `hermes serve` process that serves the `tui_gateway` JSON-RPC/WebSocket API — and reuses the agent runtime rather than embedding `hermes --tui`. The desktop app is **self-contained**: it runs its own `hermes serve` backend and never opens or requires the [web dashboard](./features/web-dashboard.md). (Runtimes older than the `serve` command fall back to a headless `dashboard --no-open` automatically, so an app update never outruns its backend.) Install, backend-resolution, and self-update logic live in the Electron main process.
+The packaged app ships the Electron shell and a native React chat surface. On first launch it can install the J.A.G.O.D.A runtime into `HERMES_HOME` (`~/.hermes`, or `%LOCALAPPDATA%\hermes` on Windows) — **the same layout a CLI install uses**, which is why the two are interchangeable. Backend resolution first honours `HERMES_DESKTOP_HERMES_ROOT`, then a completed managed install, then a probed `hermes` on `PATH` (unless `--ignore-existing` / `HERMES_DESKTOP_IGNORE_EXISTING=1` is set), and finally an explicit `HERMES_DESKTOP_HERMES` command override for packagers such as Nix. The React renderer talks to a headless backend the app launches for you — a `hermes serve` process that serves the `tui_gateway` JSON-RPC/WebSocket API — and reuses the agent runtime rather than embedding `hermes --tui`. The desktop app is **self-contained**: it runs its own `hermes serve` backend and never opens or requires the [web dashboard](./features/web-dashboard.md). (Runtimes older than the `serve` command fall back to a headless `dashboard --no-open` automatically, so an app update never outruns its backend.) Install, backend-resolution, and self-update logic live in the Electron main process.
 
 ## Connecting to a remote backend
 
-By default the app starts and manages its own **local** backend. You can instead point it at a Hermes backend running on another machine — a VPS, a home server, or a Mini behind Tailscale.
+By default the app starts and manages its own **local** backend. You can instead point it at a J.A.G.O.D.A backend running on another machine — a VPS, a home server, or a Mini behind Tailscale.
 
 Everything connection-related lives on one settings page: **Settings → Gateways**. (Older builds split this across separate **Gateway** and **Connections** pages — those are now unified, and old `?tab=connections` deep links redirect to the unified page.)
 
@@ -319,7 +319,7 @@ Gateway connections are **machine-level**: the Gateways page manages which gatew
 
 ### The multi-connection registry
 
-Further down the same **Settings → Gateways** page, **Registered gateways** manages a named list of every Hermes gateway the app knows about — the local runtime, any number of remote gateways (LAN, Tailscale, internet), Hermes Cloud instances, and SSH hosts — all persisted together in one place. You can jump there from the plug button at the right end of the sidebar profile rail (**Connect another Hermes gateway…**) or via **⌘K → Gateways**. The full guide, including the union agent roster, `@name-device` handles, fleet-wide updates, and the plugin SDK surface, is at [Connecting Desktop to Many Hermes Instances](./multi-connection-desktop.md).
+Further down the same **Settings → Gateways** page, **Registered gateways** manages a named list of every J.A.G.O.D.A gateway the app knows about — the local runtime, any number of remote gateways (LAN, Tailscale, internet), Hermes Cloud instances, and SSH hosts — all persisted together in one place. You can jump there from the plug button at the right end of the sidebar profile rail (**Connect another J.A.G.O.D.A gateway…**) or via **⌘K → Gateways**. The full guide, including the union agent roster, `@name-device` handles, fleet-wide updates, and the plugin SDK surface, is at [Connecting Desktop to Many J.A.G.O.D.A Instances](./multi-connection-desktop.md).
 
 - **Every connection needs a unique name** (a device name such as "Homelab" or "Work laptop"). When the same profile name exists on several registered gateways, surfaces disambiguate it as `@profile-device` (e.g. `@research-homelab`).
 - **Switch gateways from the Sessions sidebar.** A named gateway selector appears when more than one gateway is registered and handles any registry size without making gateways look like profiles. The adjacent profile rail then shows only that gateway's agents and remembers the last profile used there; large profile sets condense independently.
@@ -541,13 +541,13 @@ macOS/Windows signing and notarization run automatically when the relevant crede
 ### macOS permissions and local rebuilds (TCC)
 
 **Silence every folder prompt with one switch.** macOS prompts per-category
-(Desktop, then Downloads, then Documents, ...) as Hermes touches each folder.
+(Desktop, then Downloads, then Documents, ...) as J.A.G.O.D.A touches each folder.
 A single **Full Disk Access** grant covers all of them, permanently — and
-with Hermes' stable signing identities it survives every update:
+with J.A.G.O.D.A's stable signing identities it survives every update:
 
 1. System Settings → **Privacy & Security → Full Disk Access** (or run
    `open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"`)
-2. Enable your terminal app — and **Hermes.app** if you use Desktop.
+2. Enable your terminal app — and **J.A.G.O.D.A.app** if you use Desktop.
 3. Fully quit and relaunch them once.
 
 `hermes doctor` reports whether the current terminal context already has the
@@ -570,11 +570,11 @@ tccutil reset ScreenCapture com.nousresearch.hermes   # repeat per service
 ```
 
 then toggle the fresh entry ON in System Settings and fully quit & relaunch
-Hermes. Grants are stable from then on.
+J.A.G.O.D.A. Grants are stable from then on.
 
 For the strongest guarantee — a certificate-anchored identity, the same
 mechanism yabai/skhd users rely on — create a self-signed code-signing
-certificate once and tell Hermes to use it. The one-shot command does
+certificate once and tell J.A.G.O.D.A to use it. The one-shot command does
 everything (creates the certificate in your login keychain, grants `codesign`
 access, writes the config, and re-signs the packaged app):
 
@@ -585,16 +585,16 @@ hermes desktop --setup-tcc-identity
 Or do it manually:
 
 1. Keychain Access → Certificate Assistant → **Create a Certificate…**
-2. Name: `Hermes Local Signing`, Identity Type: *Self-Signed Root*,
+2. Name: `J.A.G.O.D.A Local Signing`, Identity Type: *Self-Signed Root*,
    Certificate Type: **Code Signing**.
 3. In Keychain Access, double-click the new certificate → **Trust** → set
    **Code Signing** to *Always Trust* (an imported self-signed certificate is
    not a valid signing identity until it is trusted for code signing —
    `security find-identity -v -p codesigning` should list it afterwards).
-4. `hermes config set desktop.macos_signing_identity "Hermes Local Signing"`
+4. `hermes config set desktop.macos_signing_identity "J.A.G.O.D.A Local Signing"`
 
 Use `--identity <name>` with the command to create/use a differently named
-certificate (default: `Hermes Local Signing`). The command is idempotent —
+certificate (default: `J.A.G.O.D.A Local Signing`). The command is idempotent —
 re-run it after updates to re-point the config and re-sign the rebuilt app.
 
 The next update re-signs the rebuilt app with that certificate; every TCC grant

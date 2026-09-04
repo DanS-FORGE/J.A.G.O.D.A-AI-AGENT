@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Connecting Desktop to Many Hermes Instances
+# Connecting Desktop to Many J.A.G.O.D.A Instances
 
-Register every Hermes backend you own — the local runtime, remote gateways on
+Register every J.A.G.O.D.A backend you own — the local runtime, remote gateways on
 your LAN or VPS, SSH hosts, and Hermes Cloud instances — in one desktop app,
 and use the agents on all of them side by side. Connections are persistent:
 each registered gateway dials its own backends and WebSockets on demand, and
@@ -25,7 +25,7 @@ redirect there). Three doors lead to it:
   **Gateways** in the settings nav). The connections registry is a section
   of that page, below the machine-level connection-mode controls.
 - **The sidebar profile rail** — the plug button at the right end of the rail
-  (tooltip: **"Connect another Hermes gateway…"**) deep-links straight to
+  (tooltip: **"Connect another J.A.G.O.D.A gateway…"**) deep-links straight to
   the Gateways page. It is always visible, even before you have created
   a second profile or a second connection.
 - **The command palette** — **Cmd/Ctrl+K**, then type *Gateways* (also
@@ -34,15 +34,15 @@ redirect there). Three doors lead to it:
 ## The gateway registry
 
 The **Registered gateways** section of **Settings → Gateways** manages a named
-list of Hermes gateways. Its intro says it plainly: *"Manage this device and
-every Hermes gateway it can reach through remote, SSH, or Cloud connections."*
+list of J.A.G.O.D.A gateways. Its intro says it plainly: *"Manage this device and
+every J.A.G.O.D.A gateway it can reach through remote, SSH, or Cloud connections."*
 Each entry is a *connection*:
 
 | Kind | What it is | Auth |
 |---|---|---|
-| **Local** | "The Hermes runtime managed by this app." | automatic |
-| **Remote gateway** | "A Hermes gateway reachable over HTTP(S) — LAN, Tailscale, or the internet." | session token or OAuth |
-| **SSH** | "A Hermes install reached over SSH." The app opens the tunnel and starts the dashboard for you | SSH key + adopted token |
+| **Local** | "The J.A.G.O.D.A runtime managed by this app." | automatic |
+| **Remote gateway** | "A J.A.G.O.D.A gateway reachable over HTTP(S) — LAN, Tailscale, or the internet." | session token or OAuth |
+| **SSH** | "A J.A.G.O.D.A install reached over SSH." The app opens the tunnel and starts the dashboard for you | SSH key + adopted token |
 | **Hermes Cloud** | "A hosted instance discovered through your Hermes Cloud account." | portal sign-in |
 
 Rules worth knowing:
@@ -160,7 +160,7 @@ keep streaming while you look at another gateway.
 ### Switching and scoping
 
 The sidebar foot follows one hierarchy: **gateway → profile → sessions**.
-Gateways are machines or hosted backends; profiles are isolated Hermes agents
+Gateways are machines or hosted backends; profiles are isolated J.A.G.O.D.A agents
 that live on one gateway.
 
 - With one registered gateway, no gateway control is added. Local-only Desktop
@@ -262,7 +262,7 @@ with their own message, per row.
 
 You rarely need the Settings button, though: once more than one update target
 exists, the app's regular update affordances (**Update now** on the About
-panel, ⌘K **Update Hermes**, the update-ready toast) run the same fan-out
+panel, ⌘K **Update J.A.G.O.D.A**, the update-ready toast) run the same fan-out
 automatically — active backend first, then every other eligible gateway, then
 the desktop app itself last. See
 [Updating](./desktop.md#updating) in the desktop guide.
@@ -317,7 +317,7 @@ multi-gateway roster is the reference consumer.
 - **A remote gateway is missing from the roster** — its backend is down or
   unreachable; the roster lists it under gateways with the error. SSH connections
   show *connect-on-demand* until first use — that's by design, not a failure.
-- **"Update Hermes Desktop to chat with agents on other connections"** — the
+- **"Update J.A.G.O.D.A Desktop to chat with agents on other connections"** — the
   app predates the multi-connection stack; update the desktop app itself.
 - **Duplicate device names** — not possible; names are enforced unique at
   save time. If a migrated name collided, it was suffixed (`Homelab 2`).

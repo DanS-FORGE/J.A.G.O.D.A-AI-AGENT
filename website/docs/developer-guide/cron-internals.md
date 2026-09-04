@@ -1,7 +1,7 @@
 ---
 sidebar_position: 11
 title: "Cron Internals"
-description: "How Hermes stores, schedules, edits, pauses, skill-loads, and delivers cron jobs"
+description: "How J.A.G.O.D.A stores, schedules, edits, pauses, skill-loads, and delivers cron jobs"
 ---
 
 # Cron Internals
