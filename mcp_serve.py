@@ -631,7 +631,7 @@ def create_mcp_server(event_bridge: Optional[EventBridge] = None) -> "MCPServer"
     mcp = MCPServer(
         "hermes",
         instructions=(
-            "Hermes Agent messaging bridge. Use these tools to interact with "
+            "J.A.G.O.D.A messaging bridge. Use these tools to interact with "
             "conversations across Telegram, Discord, Slack, WhatsApp, Signal, "
             "Matrix, and other connected platforms."
         ),

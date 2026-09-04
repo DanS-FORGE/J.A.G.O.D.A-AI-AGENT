@@ -462,7 +462,7 @@ function Write-Banner {
     Write-Host "+---------------------------------------------------------+" -ForegroundColor Magenta
     Write-Host "|             * J.A.G.O.D.A Installer                    |" -ForegroundColor Magenta
     Write-Host "+---------------------------------------------------------+" -ForegroundColor Magenta
-    Write-Host "|  An open source AI agent by Nous Research.              |" -ForegroundColor Magenta
+    Write-Host "|  J.A.G.O.D.A - Intelligent AI Agent                     |" -ForegroundColor Magenta
     Write-Host "+---------------------------------------------------------+" -ForegroundColor Magenta
     Write-Host ""
 }

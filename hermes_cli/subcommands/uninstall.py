@@ -16,8 +16,8 @@ def build_uninstall_parser(subparsers, *, cmd_uninstall: Callable) -> None:
     # =========================================================================
     uninstall_parser = subparsers.add_parser(
         "uninstall",
-        help="Uninstall Hermes Agent",
-        description="Remove Hermes Agent from your system. Can keep configs/data for reinstall.",
+        help="Uninstall J.A.G.O.D.A",
+        description="Remove J.A.G.O.D.A from your system. Can keep configs/data for reinstall.",
     )
     uninstall_parser.add_argument(
         "--full",

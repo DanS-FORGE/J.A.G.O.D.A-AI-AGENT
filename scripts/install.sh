@@ -218,9 +218,9 @@ print_banner() {
     echo ""
     echo -e "${MAGENTA}${BOLD}"
     echo "┌─────────────────────────────────────────────────────────┐"
-    echo "│             ⚕ J.A.G.O.D.A Installer                    │"
+    echo "│             ◉ J.A.G.O.D.A Installer                    │"
     echo "├─────────────────────────────────────────────────────────┤"
-    echo "│  An open source AI agent by Nous Research.              │"
+    echo "│  J.A.G.O.D.A · Intelligent AI Agent                     │"
     echo "└─────────────────────────────────────────────────────────┘"
     echo -e "${NC}"
 }
