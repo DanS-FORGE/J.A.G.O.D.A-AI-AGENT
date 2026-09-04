@@ -172,7 +172,7 @@ pub async fn launch_hermes_desktop(
     let install_root = PathBuf::from(install_root);
     let exe_path = resolve_hermes_desktop_exe(&install_root).ok_or_else(|| {
         format!(
-            "Couldn't find a built Hermes desktop at {}. The desktop build step \
+            "Couldn't find a built J.A.G.O.D.A desktop at {}. The desktop build step \
              may have been skipped or failed. Run `hermes desktop` from a \
              terminal to build and launch it.",
             install_root.join("apps").join("desktop").join("release").display()

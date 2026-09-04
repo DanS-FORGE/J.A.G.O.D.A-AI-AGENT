@@ -309,7 +309,7 @@ async fn run_update(app: AppHandle) -> Result<()> {
                 format!("{secs}s")
             };
             let msg = format!(
-                "Another Hermes update is already running (PID {}, started {} ago). \
+                "Another J.A.G.O.D.A update is already running (PID {}, started {} ago). \
                  Wait for it to finish, or close the window or dashboard tab that \
                  started it, then try again.",
                 owner.pid, elapsed
@@ -336,7 +336,7 @@ async fn run_update(app: AppHandle) -> Result<()> {
 
     let hermes = resolve_hermes(&install_root).ok_or_else(|| {
         let msg = format!(
-            "Could not find the hermes CLI under {}. Is Hermes installed? \
+            "Could not find the hermes CLI under {}. Is J.A.G.O.D.A installed? \
              Re-run the installer to repair the install.",
             install_root.display()
         );
@@ -401,7 +401,7 @@ async fn run_update(app: AppHandle) -> Result<()> {
     // already exited and waited for the install locks to clear before launching
     // us, and wait_for_install_locks_free below force-kills any straggler — so by the
     // time `hermes update` runs there is no legitimate hermes.exe to protect,
-    // and the guard would only produce a false "Hermes is still running" stop.
+    // and the guard would only produce a false "J.A.G.O.D.A is still running" stop.
     //
     // NOTE: --force does NOT bypass the venv-python holder guard (that needs
     // an explicit `--force-venv`, which we deliberately do not pass). Our lock
@@ -499,7 +499,7 @@ async fn run_update(app: AppHandle) -> Result<()> {
             emit_stage(&app, "update", StageState::Succeeded, Some(update_ms), None);
         }
         Some(code) if code == UPDATE_EXIT_CONCURRENT => {
-            let msg = "Hermes is still running. Close all Hermes windows and try \
+            let msg = "J.A.G.O.D.A is still running. Close all J.A.G.O.D.A windows and try \
                        the update again."
                 .to_string();
             emit_stage(
@@ -672,7 +672,7 @@ async fn run_update(app: AppHandle) -> Result<()> {
                 &app,
                 None,
                 LogStream::Stderr,
-                &format!("[update] could not auto-launch desktop: {err}. Launch Hermes manually."),
+                &format!("[update] could not auto-launch desktop: {err}. Launch J.A.G.O.D.A manually."),
             );
         }
     } else if let Err(err) =
@@ -685,7 +685,7 @@ async fn run_update(app: AppHandle) -> Result<()> {
             &app,
             None,
             LogStream::Stdout,
-            &format!("[update] could not auto-launch desktop: {err}. Launch Hermes manually."),
+            &format!("[update] could not auto-launch desktop: {err}. Launch J.A.G.O.D.A manually."),
         );
     }
 
@@ -716,7 +716,7 @@ pub(crate) async fn wait_for_install_locks_free(install_root: &Path, app: &AppHa
     let lock_targets = install_lock_probe_paths(install_root);
     let deadline = Instant::now() + DESKTOP_EXIT_WAIT;
 
-    emit_log(app, Some(stage), LogStream::Stdout, "[handoff] waiting for Hermes to exit…");
+    emit_log(app, Some(stage), LogStream::Stdout, "[handoff] waiting for J.A.G.O.D.A to exit…");
 
     loop {
         let locked = locked_paths(&lock_targets);
@@ -733,7 +733,7 @@ pub(crate) async fn wait_for_install_locks_free(install_root: &Path, app: &AppHa
                 Some(stage),
                 LogStream::Stdout,
                 &format!(
-                    "[handoff] Hermes still holding install files ({}); locating backend shims…",
+                    "[handoff] J.A.G.O.D.A still holding install files ({}); locating backend shims…",
                     format_locked_paths(&locked)
                 ),
             );
@@ -1045,7 +1045,7 @@ fn update_child_env(install_root: &Path) -> Vec<(String, OsString)> {
     // `hermes update` child claims that SAME lock (hermes_cli/update_lock.py).
     // Name our pid so the child recognizes the live holder as its own
     // orchestrator and runs under our claim — without this every GUI update
-    // refuses its parent's marker with exit 2 ("Hermes is still running")
+    // refuses its parent's marker with exit 2 ("J.A.G.O.D.A is still running")
     // and no number of retries can ever succeed. Keep the variable name in
     // sync with HANDOFF_PID_ENV in hermes_cli/update_lock.py.
     envs.push((
