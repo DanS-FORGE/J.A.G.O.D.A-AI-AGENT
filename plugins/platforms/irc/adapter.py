@@ -585,7 +585,7 @@ def interactive_setup() -> None:
         if not prompt_yes_no("Reconfigure IRC?", False):
             return
 
-    print_info("Connect Hermes to an IRC network. Uses Python stdlib — no extra packages needed.")
+    print_info("Connect J.A.G.O.D.A to an IRC network. Uses Python stdlib — no extra packages needed.")
     print_info("   Works with Libera.Chat, OFTC, your own ZNC/InspIRCd, etc.")
     print()
 

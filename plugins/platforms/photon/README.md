@@ -1,6 +1,6 @@
 # Photon iMessage platform plugin
 
-This plugin connects Hermes Agent to iMessage (and other Spectrum
+This plugin connects J.A.G.O.D.A to iMessage (and other Spectrum
 interfaces) through [Photon][photon] — a managed service that handles
 iMessage line allocation, delivery, and abuse-prevention so users don't
 have to run their own Mac relay.
@@ -13,7 +13,7 @@ recommend for everyone who doesn't already pay for a dedicated number.
 Like Discord and Slack, Photon is a **persistent-connection** channel — no
 public URL, no webhook, no signing secret. The `spectrum-ts` SDK holds a
 long-lived **gRPC stream** to Photon for both directions. Because the SDK is
-TypeScript-only, Hermes runs it inside a small supervised Node sidecar and
+TypeScript-only, J.A.G.O.D.A runs it inside a small supervised Node sidecar and
 talks to it over loopback.
 
 ```
@@ -68,7 +68,7 @@ hermes gateway start
    verbatim, so every setup runs the exact `spectrum-ts` version this plugin
    was written against).
 
-There is no separate `login` command; like every other Hermes channel,
+There is no separate `login` command; like every other J.A.G.O.D.A channel,
 onboarding goes through one setup surface. Re-running `setup` reuses an
 existing token/project, so it's safe to run again to finish a partial setup.
 Run `hermes photon status` to see what's configured.

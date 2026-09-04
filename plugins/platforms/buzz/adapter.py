@@ -3311,7 +3311,7 @@ def interactive_setup() -> None:
         if not prompt_yes_no("Reconfigure Buzz?", False):
             return
 
-    print_info("Connect Hermes to a Buzz community (Block's Nostr-based human+agent platform).")
+    print_info("Connect J.A.G.O.D.A to a Buzz community (Block's Nostr-based human+agent platform).")
     print_info("   Requires the buzz CLI binary and a Nostr key that is a community member.")
     print()
 

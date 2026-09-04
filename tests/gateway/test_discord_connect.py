@@ -358,7 +358,7 @@ async def test_safe_sync_slash_commands_only_mutates_diffs():
 
     desired_same = {
         "name": "status",
-        "description": "Show Hermes session status",
+        "description": "Show J.A.G.O.D.A session status",
         "type": 1,
         "options": [],
         "nsfw": False,

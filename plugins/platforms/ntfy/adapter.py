@@ -588,7 +588,7 @@ def register(ctx) -> None:
         validate_config=validate_config,
         is_connected=is_connected,
         required_env=["NTFY_TOPIC"],
-        install_hint="pip install httpx   # already a Hermes dependency",
+        install_hint="pip install httpx   # already a J.A.G.O.D.A dependency",
         # Env-driven auto-configuration: seeds PlatformConfig.extra so
         # env-only setups show up in `hermes gateway status` without
         # instantiating the HTTP client.
