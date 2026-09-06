@@ -30,7 +30,10 @@ import {
 test('canonicalGitHubRemote normalizes SSH and HTTPS forms to the same value', () => {
   assert.equal(canonicalGitHubRemote('git@github.com:DanS-FORGE/J.A.G.O.D.A-AI-AGENT.git'), OFFICIAL_REPO_CANONICAL)
   assert.equal(canonicalGitHubRemote('git@github.com:DanS-FORGE/J.A.G.O.D.A-AI-AGENT'), OFFICIAL_REPO_CANONICAL)
-  assert.equal(canonicalGitHubRemote('ssh://git@github.com/DanS-FORGE/J.A.G.O.D.A-AI-AGENT.git'), OFFICIAL_REPO_CANONICAL)
+  assert.equal(
+    canonicalGitHubRemote('ssh://git@github.com/DanS-FORGE/J.A.G.O.D.A-AI-AGENT.git'),
+    OFFICIAL_REPO_CANONICAL
+  )
   assert.equal(canonicalGitHubRemote('https://github.com/DanS-FORGE/J.A.G.O.D.A-AI-AGENT.git'), OFFICIAL_REPO_CANONICAL)
   // Case-insensitive: an uppercased owner still canonicalizes to the same repo.
   assert.equal(canonicalGitHubRemote('git@github.com:dans-forge/j.a.g.o.d.a-ai-agent.git'), OFFICIAL_REPO_CANONICAL)
