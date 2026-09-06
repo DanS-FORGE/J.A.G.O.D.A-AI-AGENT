@@ -36,7 +36,7 @@ Usage:
     hermes honcho migrate                  # Step-by-step migration guide: OpenClaw native → Hermes + Honcho
     hermes --version           Show version and update status
     hermes update              Update to latest version
-    hermes uninstall           Uninstall Hermes Agent
+    hermes uninstall           Uninstall J.A.G.O.D.A
     hermes acp                 Run as an ACP server for editor integration
     hermes sessions browse     Interactive session picker with search
 
@@ -10800,7 +10800,7 @@ def cmd_update(args):
     )
 
     if is_managed():
-        managed_error("update Hermes Agent")
+        managed_error("update J.A.G.O.D.A")
         return
 
     # --plan is read-only and deployment-kind aware, so it runs BEFORE the

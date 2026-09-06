@@ -19472,7 +19472,7 @@ class HermesCLI(CLIAgentSetupMixin, CLICommandsMixin, CLIBillingMixin):
             import signal as _sig
             from prompt_toolkit.application import run_in_terminal
             from hermes_cli.skin_engine import get_active_skin
-            agent_name = get_active_skin().get_branding("agent_name", "Hermes Agent")
+            agent_name = get_active_skin().get_branding("agent_name", "J.A.G.O.D.A")
             msg = f"\n{agent_name} has been suspended. Run `fg` to bring {agent_name} back."
             def _suspend():
                 os.write(1, msg.encode())

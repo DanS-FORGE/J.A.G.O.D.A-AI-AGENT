@@ -94,7 +94,7 @@ All fields are optional. Missing values inherit from the ``default`` skin.
 
     # Branding: text strings used throughout the CLI
     branding:
-      agent_name: "Hermes Agent"          # Banner title, status display
+      agent_name: "J.A.G.O.D.A"          # Banner title, status display
       welcome: "Welcome message"          # Shown at CLI startup
       goodbye: "Goodbye! ◉"              # Shown on exit
       response_label: " ◉ Jagoda "       # Response box header label
@@ -119,7 +119,7 @@ USAGE
 
     skin = get_active_skin()
     print(skin.colors["banner_title"])    # "#FFD700"
-    print(skin.get_branding("agent_name"))  # "Hermes Agent"
+    print(skin.get_branding("agent_name"))  # "J.A.G.O.D.A"
 
     set_active_skin("ares")               # Switch to built-in ares skin
     set_active_skin("mytheme")            # Switch to user skin from ~/.hermes/skins/
@@ -274,7 +274,7 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
             # Empty = use hardcoded defaults in display.py
         },
         "branding": {
-            "agent_name": "Hermes Agent",
+            "agent_name": "J.A.G.O.D.A",
             "welcome": "Welcome to J.A.G.O.D.A! Type your message or /help for commands.",
             "goodbye": "Goodbye! ◉",
             "response_label": " ◉ Jagoda ",
@@ -395,7 +395,7 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "Hermes Agent",
+            "agent_name": "J.A.G.O.D.A",
             "welcome": "Welcome to J.A.G.O.D.A! Type your message or /help for commands.",
             "goodbye": "Goodbye! ◉",
             "response_label": " ◉ Jagoda ",
@@ -439,7 +439,7 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "Hermes Agent",
+            "agent_name": "J.A.G.O.D.A",
             "welcome": "Welcome to J.A.G.O.D.A! Type your message or /help for commands.",
             "goodbye": "Goodbye! ◉",
             "response_label": " ◉ Jagoda ",
@@ -485,7 +485,7 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "Hermes Agent",
+            "agent_name": "J.A.G.O.D.A",
             "welcome": "Welcome to J.A.G.O.D.A! Type your message or /help for commands.",
             "goodbye": "Goodbye! ◉",
             "response_label": " ◉ Jagoda ",
@@ -531,7 +531,7 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "Hermes Agent",
+            "agent_name": "J.A.G.O.D.A",
             "welcome": "Welcome to J.A.G.O.D.A! Type your message or /help for commands.",
             "goodbye": "Goodbye! ◉",
             "response_label": " ◉ Jagoda ",

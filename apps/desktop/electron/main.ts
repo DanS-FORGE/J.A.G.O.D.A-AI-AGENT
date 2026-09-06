@@ -4797,7 +4797,7 @@ function resolveHermesBackend(backendArgs) {
   //    is a recoverable state the GUI can drive through.
   return {
     kind: 'bootstrap-needed',
-    label: 'Hermes Agent not installed yet; bootstrap required',
+    label: 'J.A.G.O.D.A not installed yet; bootstrap required',
     command: null,
     args: backendArgs,
     bootstrap: true,
