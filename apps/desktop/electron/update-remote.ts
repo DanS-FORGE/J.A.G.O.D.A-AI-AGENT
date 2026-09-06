@@ -1,7 +1,7 @@
 /**
  * Pure helpers for choosing a remote URL during passive update checks.
  *
- * A public install can end up with `origin=git@github.com:DanS-FORGE/JAGODA-AI-AGENT.git`.
+ * A public install can end up with `origin=git@github.com:DanS-FORGE/J.A.G.O.D.A-AI-AGENT.git`.
  * If the user's GitHub SSH key is FIDO2/passkey-backed, a background `git fetch
  * origin` triggers an unexplained hardware-touch prompt. For passive checks
  * against the official repo we substitute the public HTTPS `ls-remote` path,
@@ -12,8 +12,8 @@
  * testable without booting Electron (main.ts requires('electron') at load).
  */
 
-const OFFICIAL_REPO_HTTPS_URL = 'https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git'
-const OFFICIAL_REPO_CANONICAL = 'github.com/dans-forge/jagoda-ai-agent'
+const OFFICIAL_REPO_HTTPS_URL = 'https://github.com/DanS-FORGE/J.A.G.O.D.A-AI-AGENT.git'
+const OFFICIAL_REPO_CANONICAL = 'github.com/dans-forge/j.a.g.o.d.a-ai-agent'
 
 // Normalize common GitHub remote URL forms to `host/owner/repo` (lowercased,
 // no trailing slash, no .git suffix) so SSH and HTTPS forms of the same repo

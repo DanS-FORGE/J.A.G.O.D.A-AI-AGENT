@@ -139,8 +139,8 @@ _UPDATE_CHECK_CACHE_SECONDS = 6 * 3600
 # (e.g. nix-built hermes — no local git history to count against).
 UPDATE_AVAILABLE_NO_COUNT = -1
 
-_UPSTREAM_REPO_URL = "https://github.com/DanS-FORGE/JAGODA-AI-AGENT.git"
-_OFFICIAL_REPO_CANONICAL = "github.com/dans-forge/jagoda-ai-agent"
+_UPSTREAM_REPO_URL = "https://github.com/DanS-FORGE/J.A.G.O.D.A-AI-AGENT.git"
+_OFFICIAL_REPO_CANONICAL = "github.com/dans-forge/j.a.g.o.d.a-ai-agent"
 
 
 def _canonical_github_remote(url: str | None) -> str:
@@ -208,7 +208,7 @@ def _github_compare_behind(current_rev: str, target_rev: str) -> Optional[int]:
     if not (_is_full_sha(current_rev) and _is_full_sha(target_rev)):
         return None
     url = (
-        "https://api.github.com/repos/dans-forge/jagoda-ai-agent/"
+        "https://api.github.com/repos/dans-forge/j.a.g.o.d.a-ai-agent/"
         f"compare/{current_rev}...{target_rev}"
     )
     try:
@@ -600,7 +600,7 @@ def _compute_git_banner_state(repo_dir: Optional[Path] = None) -> Optional[dict]
     return {"upstream": upstream, "local": local, "ahead": max(ahead, 0)}
 
 
-_RELEASE_URL_BASE = "https://github.com/DanS-FORGE/JAGODA-AI-AGENT/releases/tag"
+_RELEASE_URL_BASE = "https://github.com/DanS-FORGE/J.A.G.O.D.A-AI-AGENT/releases/tag"
 _latest_release_cache: Optional[tuple] = None  # (tag, url) once resolved
 
 
@@ -609,7 +609,7 @@ def get_latest_release_tag(repo_dir: Optional[Path] = None) -> Optional[tuple]:
 
     Local-only — runs ``git describe --tags --abbrev=0`` against the
     J.A.G.O.D.A checkout. Cached per-process. Release URL always points at
-    the canonical DanS-FORGE/JAGODA-AI-AGENT repo (forks don't get a link).
+    the canonical DanS-FORGE/J.A.G.O.D.A-AI-AGENT repo (forks don't get a link).
     """
     global _latest_release_cache
     if _latest_release_cache is not None:
